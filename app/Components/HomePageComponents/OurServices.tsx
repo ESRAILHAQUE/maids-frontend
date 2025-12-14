@@ -12,7 +12,7 @@ export default function OurServices() {
       name: "Deep cleaning",
       description: "Move-in/out, post-renovation, and detail-first resets.",
       image:
-        "https://images.unsplash.com/photo-1581579185169-7a9132d38cf0?w=1200&q=80&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=1200&q=80&auto=format&fit=crop",
     },
     {
       name: "Office & commercial",
@@ -44,7 +44,7 @@ export default function OurServices() {
     <section className="relative isolate overflow-hidden bg-white py-16 md:py-20">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(72,194,203,0.12),transparent_32%),radial-gradient(circle_at_80%_0%,rgba(207,75,0,0.12),transparent_30%)]" />
 
-      <div className="relative w-[95%] max-w-6xl mx-auto px-4 sm:px-6">
+      <div className="relative w-[95%]  mx-auto px-4 sm:px-6">
         <div className="text-center mb-10 sm:mb-12">
           <span className="inline-flex items-center justify-center rounded-full bg-[#48C2CB]/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[#CF4B00] ring-1 ring-[#48C2CB]/20">
             Our services
