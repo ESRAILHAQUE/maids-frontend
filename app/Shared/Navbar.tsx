@@ -36,10 +36,10 @@ export default function Navbar() {
     { label: "Commercial Cleaning", href: "/commercial-cleaning" },
     { label: "Maids Services", href: "/maids-services" },
     { label: "Office Cleaning", href: "/office-cleaning" },
-    { label: "Cloth Ironing", href: "/services#cloth-ironing" },
-    { label: "Window Cleaning", href: "/services#window-cleaning" },
-    { label: "Move In", href: "/services#move-in" },
-    { label: "Carpet Cleaning", href: "/services#carpet-cleaning" },
+    { label: "Cloth Ironing", href: "/cloth-ironing" },
+    { label: "Window Cleaning", href: "/window-cleaning" },
+    { label: "Move In", href: "/move-in" },
+    { label: "Carpet Cleaning", href: "/carpet-cleaning" },
   ];
 
   const socialIcons = [
