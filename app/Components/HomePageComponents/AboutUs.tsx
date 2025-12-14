@@ -38,7 +38,7 @@ const stats = [
 
 export default function AboutUs() {
   return (
-    <section className="relative isolate overflow-hidden bg-slate-950 text-white ">
+    <section className="relative isolate overflow-hidden bg-slate-950 text-white">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(207,75,0,0.18),transparent_30%),radial-gradient(circle_at_80%_0%,rgba(72,194,203,0.16),transparent_28%)]" />
       <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-slate-950 to-transparent pointer-events-none" />
 
@@ -87,31 +87,6 @@ export default function AboutUs() {
               ))}
             </div>
 
-            <div className="flex flex-col sm:flex-row sm:items-center sm:gap-4 gap-3 pt-1">
-              <div className="flex -space-x-2">
-                <div className="h-8 w-8 rounded-full bg-gradient-to-br from-[#CF4B00] to-[#B84200] ring-2 ring-slate-950" />
-                <div className="h-8 w-8 rounded-full bg-white text-slate-900 text-xs font-semibold grid place-items-center ring-2 ring-slate-950">
-                  QA
-                </div>
-                <div className="h-8 w-8 rounded-full bg-[#48C2CB] text-white text-xs font-semibold grid place-items-center ring-2 ring-slate-950">
-                  QC
-                </div>
-              </div>
-              <p className="text-xs md:text-sm text-slate-200 leading-relaxed">
-                Dedicated QA + QC specialists audit every service so you can
-                expect the same elevated finish, every time.
-              </p>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-3 pt-2">
-              <button className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#CF4B00] to-[#B84200] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-[#CF4B00]/25 transition hover:translate-y-[-2px] hover:shadow-xl hover:shadow-[#CF4B00]/30">
-                Book a walkthrough
-                <ArrowUpRight className="h-4 w-4" />
-              </button>
-              <button className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/10">
-                Meet the team
-              </button>
-            </div>
           </div>
 
           {/* Visual */}
