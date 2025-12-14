@@ -43,7 +43,7 @@ export default function Navbar() {
     <header className="w-full">
       {/* Top Utility Bar - Scrolls away */}
       <div className="w-full bg-[#CF4B00] text-white">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 w-[95%]">
           <div className="flex flex-col md:flex-row items-center justify-between py-2 gap-2 md:gap-0">
             {/* Left Side - Contact Info */}
             <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6 text-sm">
@@ -83,7 +83,7 @@ export default function Navbar() {
 
       {/* Main Navigation Bar */}
       <nav className="w-full bg-white">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 w-[95%]">
           <div className="flex items-center justify-between py-4">
             {/* Left Side - Logo */}
             <Link href="/" className="flex items-center gap-3">
