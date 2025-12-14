@@ -33,9 +33,9 @@ export default function Navbar() {
 
   const serviceDropdown = [
     { label: "Home Cleaning", href: "/home-cleaning" },
-    { label: "Commercial Cleaning", href: "/services#commercial-cleaning" },
-    { label: "Maids Services", href: "/services#maids-services" },
-    { label: "Office Cleaning", href: "/services#office-cleaning" },
+    { label: "Commercial Cleaning", href: "/commercial-cleaning" },
+    { label: "Maids Services", href: "/maids-services" },
+    { label: "Office Cleaning", href: "/office-cleaning" },
     { label: "Cloth Ironing", href: "/services#cloth-ironing" },
     { label: "Window Cleaning", href: "/services#window-cleaning" },
     { label: "Move In", href: "/services#move-in" },
