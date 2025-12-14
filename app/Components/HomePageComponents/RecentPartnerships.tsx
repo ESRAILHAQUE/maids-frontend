@@ -1,15 +1,16 @@
 "use client";
 
+import Image from "next/image";
 import Marquee from "react-fast-marquee";
 
 export default function RecentPartnerships() {
   const partners = [
-    "Doha Residences",
-    "Qatar Workspace Collective",
-    "West Bay Clinics",
-    "Pearl Retail Group",
-    "EventSetups",
-    "Harbor Offices",
+    { name: "Doha Residences", logo: "/images/arabic.jpg" },
+    { name: "Qatar Workspace Collective", logo: "/images/nextit.jpg" },
+    { name: "West Bay Clinics", logo: "/images/realstate.jpg" },
+    { name: "Pearl Retail Group", logo: "/images/shopfive.jpg" },
+    { name: "Qatar Workspace Collective", logo: "/images/nextit.jpg" },
+    { name: "West Bay Clinics", logo: "/images/realstate.jpg" },
   ];
 
   return (
@@ -30,19 +31,22 @@ export default function RecentPartnerships() {
           </p>
         </div>
 
-        <Marquee
-          pauseOnHover
-          speed={35}
-          gradient={false}
-          className="py-2"
-        >
+        <Marquee pauseOnHover speed={35} gradient={false} className="py-2">
           <div className="flex gap-4 md:gap-6 px-2">
             {partners.map((partner) => (
               <div
-                key={partner}
-                className="min-w-[180px] rounded-xl border border-slate-200 bg-white px-4 py-4 text-center text-sm font-semibold text-slate-900 shadow-[0_12px_40px_rgba(15,23,42,0.08)] transition-all duration-200 hover:-translate-y-1 hover:border-[#CF4B00]/30 hover:shadow-[0_16px_60px_rgba(15,23,42,0.12)]"
+                key={partner.name}
+                className="min-w-[200px] rounded-2xl border border-slate-200 bg-white px-4 py-4 text-center shadow-[0_12px_40px_rgba(15,23,42,0.08)] transition-all duration-200 hover:-translate-y-1 hover:border-[#CF4B00]/30 hover:shadow-[0_16px_60px_rgba(15,23,42,0.12)]"
               >
-                {partner}
+                <div className="mx-auto mb-3 flex h-16 w-full max-w-[140px] items-center justify-center overflow-hidden">
+                  <Image
+                    src={partner.logo}
+                    alt={partner.name}
+                    width={140}
+                    height={64}
+                    className="h-auto w-full object-contain"
+                  />
+                </div>
               </div>
             ))}
           </div>
