@@ -27,7 +27,7 @@ export default function OurBlog() {
     <section className="relative isolate overflow-hidden bg-white py-16 md:py-20">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(72,194,203,0.12),transparent_32%),radial-gradient(circle_at_80%_10%,rgba(207,75,0,0.12),transparent_30%)]" />
 
-      <div className="relative w-[95%] max-w-6xl mx-auto px-4 sm:px-6">
+      <div className="relative w-[95%]  mx-auto px-4 sm:px-6">
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-10 sm:mb-12">
           <div className="space-y-2">
             <span className="inline-flex items-center justify-center rounded-full bg-[#48C2CB]/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#CF4B00] ring-1 ring-[#48C2CB]/20">

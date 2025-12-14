@@ -3,28 +3,12 @@
 import Image from "next/image";
 
 export default function OurTeam() {
-  const team = [
-    {
-      name: "Aisha Rahman",
-      role: "Head of Maid Operations",
-      bio: "Oversees training and on-site audits to keep every visit consistent.",
-      image:
-        "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&q=80&auto=format&fit=crop",
-    },
-    {
-      name: "Daniel Cruz",
-      role: "Quality & Safety Lead",
-      bio: "Ensures eco-safe products and checklists are followed room by room.",
-      image:
-        "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=800&q=80&auto=format&fit=crop",
-    },
-    {
-      name: "Maryam Al-Thani",
-      role: "Client Success",
-      bio: "Keeps communication clear, schedules tight, and feedback closed-loop.",
-      image:
-        "https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?w=800&q=80&auto=format&fit=crop",
-    },
+  const metrics = [
+    { label: "High value service", value: 99 },
+    { label: "Filipino staff", value: 99 },
+    { label: "Well trained", value: 99 },
+    { label: "On time", value: 99 },
+    { label: "All over Qatar", value: 80 },
   ];
 
   return (
@@ -45,36 +29,43 @@ export default function OurTeam() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7">
-          {team.map((member) => (
-            <article
-              key={member.name}
-              className="group rounded-2xl border border-slate-200 bg-white shadow-[0_18px_60px_rgba(15,23,42,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_22px_80px_rgba(15,23,42,0.14)]"
-            >
-              <div className="relative h-56 overflow-hidden rounded-t-2xl">
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/45 via-transparent to-transparent" />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-start">
+          <div className="space-y-4">
+            <h3 className="text-xl font-semibold text-slate-900">
+              Our team, audited and trained.
+            </h3>
+            <p className="text-sm md:text-base text-slate-600 leading-relaxed">
+              Carefully selected housekeepers, supervisors, and client success
+              leads who keep every visit on-time, on-spec, and consistently
+              spotless across Qatar.
+            </p>
+            <div className="rounded-2xl border border-slate-200 bg-white shadow-[0_18px_60px_rgba(15,23,42,0.08)] p-4 md:p-5 flex items-center gap-3">
+              <div className="h-12 w-12 rounded-full bg-gradient-to-br from-[#CF4B00] to-[#B84200] text-white grid place-items-center font-semibold">
+                QA
               </div>
-              <div className="p-5 md:p-6 space-y-2">
-                <h3 className="text-lg font-semibold text-slate-900">
-                  {member.name}
-                </h3>
-                <p className="text-sm font-medium text-[#CF4B00]">
-                  {member.role}
-                </p>
-                <p className="text-sm text-slate-600 leading-relaxed">
-                  {member.bio}
-                </p>
+              <div className="text-sm text-slate-700">
+                QA + QC specialists monitor checklists, timing, and supplies so
+                every crew meets the same standard.
               </div>
-            </article>
-          ))}
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            {metrics.map((item) => (
+              <div key={item.label} className="space-y-2">
+                <div className="flex items-center justify-between text-sm font-semibold text-slate-800">
+                  <span>{item.label}</span>
+                  <span className="text-[#CF4B00]">{item.value}%</span>
+                </div>
+                <div className="h-3 rounded-full bg-slate-200 overflow-hidden">
+                  <div
+                    className="h-full rounded-full bg-[#CF4B00]"
+                    style={{ width: `${item.value}%` }}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

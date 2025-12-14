@@ -11,13 +11,15 @@ export default function RecentPartnerships() {
     { name: "Pearl Retail Group", logo: "/images/shopfive.jpg" },
     { name: "Qatar Workspace Collective", logo: "/images/nextit.jpg" },
     { name: "West Bay Clinics", logo: "/images/realstate.jpg" },
+    { name: "West Bay Clinics", logo: "/images/realstate.jpg" },
+    { name: "West Bay Clinics", logo: "/images/realstate.jpg" },
   ];
 
   return (
     <section className="relative isolate overflow-hidden bg-white py-14 md:py-18 text-slate-900">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(72,194,203,0.1),transparent_34%),radial-gradient(circle_at_80%_20%,rgba(207,75,0,0.1),transparent_28%)]" />
 
-      <div className="relative w-[95%] max-w-6xl mx-auto px-4 sm:px-6">
+      <div className="relative w-[95%]  mx-auto px-4 sm:px-6">
         <div className="flex flex-col gap-3 text-center mb-8 sm:mb-10">
           <span className="inline-flex w-fit mx-auto items-center justify-center rounded-full bg-[#48C2CB]/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#CF4B00] ring-1 ring-[#48C2CB]/20">
             Recent partnerships

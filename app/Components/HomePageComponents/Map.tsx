@@ -3,7 +3,7 @@ export default function Map() {
     <section className="relative isolate overflow-hidden bg-white py-14 md:py-18">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(72,194,203,0.12),transparent_32%),radial-gradient(circle_at_80%_0%,rgba(207,75,0,0.12),transparent_30%)]" />
 
-      <div className="relative w-[95%] max-w-6xl mx-auto px-4 sm:px-6">
+      <div className="relative w-[95%]  mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-6 md:gap-8 items-stretch">
           <div className="relative overflow-hidden rounded-2xl border border-slate-200 shadow-[0_18px_60px_rgba(15,23,42,0.08)]">
             <iframe
