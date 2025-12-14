@@ -40,9 +40,9 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="w-full sticky top-0 z-50 shadow-sm">
-      {/* Top Utility Bar */}
-      <div className="w-full bg-[#48C2CB] text-white">
+    <header className="w-full">
+      {/* Top Utility Bar - Scrolls away */}
+      <div className="w-full bg-[#CF4B00] text-white">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center justify-between py-2 gap-2 md:gap-0">
             {/* Left Side - Contact Info */}
@@ -96,8 +96,8 @@ export default function Navbar() {
                 >
                   <defs>
                     <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#48C2CB" />
-                      <stop offset="100%" stopColor="#3aa8b0" />
+                      <stop offset="0%" stopColor="#CF4B00" />
+                      <stop offset="100%" stopColor="#B84200" />
                     </linearGradient>
                   </defs>
                   <polygon
@@ -132,8 +132,8 @@ export default function Navbar() {
                   key={link.name}
                   href={link.href}
                   onClick={() => setActiveLink(link.name)}
-                  className={`relative font-semibold text-gray-800 hover:text-[#48C2CB] transition-colors ${
-                    activeLink === link.name ? "text-[#48C2CB]" : ""
+                  className={`relative font-semibold text-gray-800 hover:text-[#CF4B00] transition-colors ${
+                    activeLink === link.name ? "text-[#CF4B00]" : ""
                   }`}
                 >
                   <span className="flex items-center gap-1">
@@ -143,7 +143,7 @@ export default function Navbar() {
                     )}
                   </span>
                   {activeLink === link.name && (
-                    <span className="absolute -bottom-2 left-0 right-0 h-1 bg-[#48C2CB] rounded-full"></span>
+                    <span className="absolute -bottom-2 left-0 right-0 h-1 bg-[#CF4B00] rounded-full"></span>
                   )}
                 </Link>
               ))}
@@ -160,7 +160,7 @@ export default function Navbar() {
 
               {/* Phone Number */}
               <div className="flex items-center gap-2 font-bold text-gray-800">
-                <Phone className="w-4 h-4 text-[#48C2CB]" />
+                <Phone className="w-4 h-4 text-[#CF4B00]" />
                 <span>+974 33337410</span>
               </div>
 
@@ -170,7 +170,7 @@ export default function Navbar() {
               </button>
 
               {/* Let's Talk Button */}
-              <button className="flex items-center gap-2 bg-[#48C2CB] text-white px-5 py-2 rounded-md hover:bg-[#3aa8b0] transition-colors font-semibold">
+              <button className="flex items-center gap-2 bg-[#C54700] text-white px-5 py-2 rounded-md hover:bg-[#C54700] transition-colors font-semibold cursor-pointer">
                 <MessageCircle className="w-4 h-4" />
                 <span>Let&apos;s Talk</span>
               </button>
@@ -202,8 +202,8 @@ export default function Navbar() {
                       setActiveLink(link.name);
                       setIsMenuOpen(false);
                     }}
-                    className={`font-semibold text-gray-800 hover:text-[#48C2CB] transition-colors ${
-                      activeLink === link.name ? "text-[#48C2CB]" : ""
+                    className={`font-semibold text-gray-800 hover:text-[#CF4B00] transition-colors ${
+                      activeLink === link.name ? "text-[#CF4B00]" : ""
                     }`}
                   >
                     <span className="flex items-center gap-1">
@@ -221,21 +221,21 @@ export default function Navbar() {
                     </div>
                   </button>
                   <div className="flex items-center gap-2 font-bold text-gray-800">
-                    <Phone className="w-4 h-4 text-[#48C2CB]" />
+                    <Phone className="w-4 h-4 text-[#CF4B00]" />
                     <span>+974 33337410</span>
                   </div>
                   <button className="p-2 hover:bg-gray-100 rounded-full transition-colors">
                     <Search className="w-5 h-5 text-gray-700" />
                   </button>
                 </div>
-                <button className="flex items-center justify-center gap-2 bg-[#48C2CB] text-white px-5 py-3 rounded-md hover:bg-[#3aa8b0] transition-colors font-semibold mt-2">
+                <button className="flex items-center justify-center gap-2 bg-[#CF4B00] text-white px-5 py-3 rounded-md hover:bg-[#B84200] transition-colors font-semibold mt-2">
                   <MessageCircle className="w-4 h-4" />
                   <span>Let&apos;s Talk</span>
                 </button>
               </div>
             </div>
           )}
-    </div>
+        </div>
       </nav>
     </header>
   );

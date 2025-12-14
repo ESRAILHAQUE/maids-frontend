@@ -1,6 +1,6 @@
 "use client";
 
-import { Calendar, ChevronLeft, ChevronRight } from "lucide-react";
+import { Calendar, ChevronLeft, ChevronRight, Sparkles, Shield, Users, Star } from "lucide-react";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
@@ -9,18 +9,21 @@ export default function Banner() {
 
   const slides = [
     {
-      title: "Cleaning Company we\nclean to the highest\nstandards",
-      description: "Experience the difference with our professional cleaning services in Qatar, designed to give you a spotless, organized, and healthy living or working environment.",
+      badge: "Premium Cleaning Services",
+      title: "Professional Maids & Cleaning Services in Qatar",
+      description: "Experience the difference with our trusted cleaning professionals. We deliver spotless, organized, and healthy living spaces with eco-friendly products and attention to detail.",
       image: "https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?w=1920&q=80",
     },
     {
-      title: "Professional Cleaning\nServices Excellence\nin Qatar",
-      description: "Experience the difference with our professional cleaning services in Qatar, designed to give you a spotless, organized, and healthy living or working environment.",
+      badge: "Expert Housekeeping",
+      title: "Your Home Deserves the Best Care",
+      description: "From deep cleaning to daily maintenance, our skilled maids ensure your home stays pristine. Trusted by thousands of families across Qatar.",
       image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1920&q=80",
     },
     {
-      title: "Trusted Cleaning\nSolutions for Your\nPerfect Space",
-      description: "Experience the difference with our professional cleaning services in Qatar, designed to give you a spotless, organized, and healthy living or working environment.",
+      badge: "Commercial & Residential",
+      title: "Comprehensive Cleaning Solutions",
+      description: "Whether it's your home or office, we provide tailored cleaning services that exceed expectations. Professional, reliable, and affordable.",
       image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80",
     },
   ];
@@ -46,25 +49,51 @@ export default function Banner() {
     <section className="relative w-full h-[400px] sm:h-[450px] md:h-[550px] lg:h-[650px] xl:h-[700px] overflow-hidden">
       {/* Background Image with Blur Effect */}
       <div className="absolute inset-0">
-        <Image
-          src={slides[currentSlide].image}
-          alt="Cleaning supplies background"
-          fill
-          className="object-cover"
-          priority
-          quality={90}
-          sizes="100vw"
-        />
-        {/* Blue-Green Overlay */}
-        <div className="absolute inset-0 bg-[#48C2CB]/70"></div>
+        {slides.map((slide, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ${
+              index === currentSlide ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <Image
+              src={slide.image}
+              alt="Cleaning supplies background"
+              fill
+              className="object-cover"
+              priority={index === 0}
+              quality={90}
+              sizes="100vw"
+            />
+          </div>
+        ))}
+        {/* Gradient Overlay - Professional Dark Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 via-gray-800/75 to-gray-900/70"></div>
+        {/* Accent Color Overlay - Subtle Orange Tint */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#CF4B00]/20 via-transparent to-transparent"></div>
+        {/* Subtle Pattern Overlay */}
+        <div 
+          className="absolute inset-0 opacity-5" 
+          style={{
+            backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
+          }}
+        ></div>
       </div>
 
       {/* Content Container - Left Aligned */}
       <div className="relative z-10 h-full flex items-center py-6 sm:py-8 md:py-10 lg:py-12 xl:py-16">
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-5 md:px-6 lg:px-8">
-          <div className="w-full max-w-2xl text-white space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-5 xl:space-y-6">
+          <div className="w-full max-w-2xl text-white space-y-3 sm:space-y-4 md:space-y-5 lg:space-y-6">
+            {/* Badge/Tag */}
+            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-3 sm:px-4 py-1.5 sm:py-2 w-fit">
+              <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+              <span className="text-[10px] sm:text-xs md:text-sm font-semibold uppercase tracking-wider">
+                {slides[currentSlide].badge}
+              </span>
+            </div>
+
             {/* Main Headline */}
-            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold leading-[1.2] sm:leading-tight whitespace-pre-line">
+            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold leading-[1.2] sm:leading-tight">
               {slides[currentSlide].title}
             </h1>
 
@@ -73,20 +102,40 @@ export default function Banner() {
               {slides[currentSlide].description}
             </p>
 
+            {/* Trust Indicators */}
+            <div className="flex flex-wrap items-center gap-4 sm:gap-6 pt-2">
+              <div className="flex items-center gap-2">
+                <div className="flex items-center gap-0.5">
+                  {Array.from({ length: 5 }, (_, i) => (
+                    <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <span className="text-[10px] sm:text-xs font-semibold">4.9/5 Rating</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                <span className="text-[10px] sm:text-xs">5000+ Happy Clients</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Shield className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                <span className="text-[10px] sm:text-xs">Insured & Bonded</span>
+              </div>
+            </div>
+
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2.5 sm:gap-3 md:gap-4 lg:gap-5 pt-1">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 md:gap-5 pt-2">
               {/* Book A Schedule Button */}
-              <button className="flex items-center justify-center gap-1.5 sm:gap-2 bg-[#FF574D] hover:bg-[#FF4539] text-white px-3.5 sm:px-4 md:px-5 lg:px-6 xl:px-7 py-1.5 sm:py-2 md:py-2.5 lg:py-3 rounded-lg font-semibold text-[11px] sm:text-xs md:text-sm lg:text-base transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95">
-                <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-4 md:h-4 lg:w-5 lg:h-5" />
-                Book A Schedule
+              <button className="group flex items-center justify-center gap-2 bg-[#C54700] hover:bg-[#C54700] text-white px-5 sm:px-6 md:px-7 lg:px-8 xl:px-10 py-2.5 sm:py-3 md:py-3.5 lg:py-4 rounded-lg md:rounded-xl font-semibold text-xs sm:text-sm md:text-base shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95">
+                <Calendar className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:scale-110" />
+                <span>Book A Schedule</span>
               </button>
 
               {/* Contact Us Link */}
-              <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-white">
-                <span className="text-[11px] sm:text-xs md:text-sm lg:text-base">Need Any Help?</span>
+              <div className="flex flex-wrap items-center gap-2 text-white">
+                <span className="text-[11px] sm:text-xs md:text-sm">Need Any Help?</span>
                 <a
                   href="#contact"
-                  className="text-[11px] sm:text-xs md:text-sm lg:text-base font-semibold underline underline-offset-2 sm:underline-offset-4 hover:text-[#FFE5E3] transition-colors duration-300"
+                  className="text-[11px] sm:text-xs md:text-sm font-semibold underline underline-offset-2 sm:underline-offset-4 hover:text-[#FFE5E3] transition-colors duration-300"
                 >
                   Contact Us
                 </a>
@@ -112,19 +161,23 @@ export default function Banner() {
         <ChevronRight className="w-5 h-5 xl:w-6 xl:h-6 text-gray-800" />
       </button>
 
-      {/* Slide Indicators */}
-      <div className="absolute bottom-3 sm:bottom-4 md:bottom-5 lg:bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-1.5 sm:gap-2">
+      {/* Slide Indicators - Enhanced */}
+      <div className="absolute bottom-3 sm:bottom-4 md:bottom-5 lg:bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2 sm:gap-2.5 items-center">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`h-1.5 w-1.5 sm:h-2 sm:w-2 md:h-2.5 md:w-2.5 lg:h-3 lg:w-3 rounded-full transition-all duration-300 ${
+            className={`relative rounded-full transition-all duration-500 ${
               index === currentSlide
-                ? "bg-white w-5 sm:w-6 md:w-7 lg:w-8 xl:w-10"
-                : "bg-white/50 hover:bg-white/75"
+                ? "bg-white h-2 w-8 sm:w-10 md:w-12 lg:w-14 shadow-lg"
+                : "bg-white/40 hover:bg-white/60 h-2 w-2"
             }`}
             aria-label={`Go to slide ${index + 1}`}
-          />
+          >
+            {index === currentSlide && (
+              <span className="absolute inset-0 bg-white/30 rounded-full animate-pulse"></span>
+            )}
+          </button>
         ))}
       </div>
     </section>
