@@ -1,7 +1,7 @@
 "use client";
 
-import { Calendar, MessageCircle, ChevronLeft, ChevronRight } from "lucide-react";
-import { useState } from "react";
+import { Calendar, ChevronLeft, ChevronRight } from "lucide-react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
 export default function Banner() {
@@ -9,11 +9,30 @@ export default function Banner() {
 
   const slides = [
     {
-      title: "Cleaning Company we clean to the highest standards",
-      description: "We provide professional cleaning services with a commitment to excellence. Our trained staff uses eco-friendly products to ensure your space is not only clean but also safe for your family and environment.",
-      image: "https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?w=800&q=80",
+      title: "Cleaning Company we\nclean to the highest\nstandards",
+      description: "Experience the difference with our professional cleaning services in Qatar, designed to give you a spotless, organized, and healthy living or working environment.",
+      image: "https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?w=1920&q=80",
+    },
+    {
+      title: "Professional Cleaning\nServices Excellence\nin Qatar",
+      description: "Experience the difference with our professional cleaning services in Qatar, designed to give you a spotless, organized, and healthy living or working environment.",
+      image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1920&q=80",
+    },
+    {
+      title: "Trusted Cleaning\nSolutions for Your\nPerfect Space",
+      description: "Experience the difference with our professional cleaning services in Qatar, designed to give you a spotless, organized, and healthy living or working environment.",
+      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80",
     },
   ];
+
+  // Auto-slide functionality
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000); // Change slide every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [slides.length]);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -24,88 +43,90 @@ export default function Banner() {
   };
 
   return (
-    <section className="relative w-full min-h-[600px] md:min-h-[700px] overflow-hidden">
-      {/* Gradient Background with Wave Pattern */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#48C2CB] via-[#5BC8D0] to-[#6DD4D5]">
-        {/* Wave Pattern at Bottom Right */}
-        <div className="absolute bottom-0 right-0 w-full md:w-2/3 h-2/3 opacity-30">
-          <svg
-            viewBox="0 0 1200 800"
-            className="w-full h-full"
-            preserveAspectRatio="none"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M0,400 Q300,300 600,400 T1200,400 L1200,800 L0,800 Z"
-              fill="#7FE0E2"
-              opacity="0.5"
-            />
-            <path
-              d="M0,500 Q400,400 800,500 T1200,500 L1200,800 L0,800 Z"
-              fill="#8FE8EA"
-              opacity="0.3"
-            />
-          </svg>
-        </div>
+    <section className="relative w-full h-[400px] sm:h-[450px] md:h-[550px] lg:h-[650px] xl:h-[700px] overflow-hidden">
+      {/* Background Image with Blur Effect */}
+      <div className="absolute inset-0">
+        <Image
+          src={slides[currentSlide].image}
+          alt="Cleaning supplies background"
+          fill
+          className="object-cover"
+          priority
+          quality={90}
+          sizes="100vw"
+        />
+        {/* Blue-Green Overlay */}
+        <div className="absolute inset-0 bg-[#48C2CB]/70"></div>
       </div>
 
-      {/* Content Container */}
-      <div className="relative z-10 container mx-auto px-4 py-12 md:py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center min-h-[500px] md:min-h-[600px]">
-          {/* Left Side - Text Content */}
-          <div className="text-white space-y-6 md:space-y-8">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+      {/* Content Container - Left Aligned */}
+      <div className="relative z-10 h-full flex items-center py-6 sm:py-8 md:py-10 lg:py-12 xl:py-16">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-5 md:px-6 lg:px-8">
+          <div className="w-full max-w-2xl text-white space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-5 xl:space-y-6">
+            {/* Main Headline */}
+            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold leading-[1.2] sm:leading-tight whitespace-pre-line">
               {slides[currentSlide].title}
             </h1>
-            <p className="text-lg md:text-xl text-white/90 leading-relaxed max-w-xl">
+
+            {/* Description */}
+            <p className="text-[11px] sm:text-xs md:text-sm lg:text-base xl:text-lg text-white/95 leading-relaxed max-w-xl">
               {slides[currentSlide].description}
             </p>
-            
-            {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <button className="flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors shadow-lg">
-                <Calendar className="w-5 h-5" />
-                Book a service
-              </button>
-              <button className="flex items-center justify-center gap-2 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white px-6 py-3 rounded-lg font-semibold transition-colors border border-white/30">
-                <MessageCircle className="w-5 h-5" />
-                Need help? Ask us here
-              </button>
-            </div>
-          </div>
 
-          {/* Right Side - Image */}
-          <div className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center">
-            <div className="relative w-full h-full max-w-lg">
-              <Image
-                src="https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?w=800&q=80"
-                alt="Cleaning supplies"
-                fill
-                className="object-contain"
-                priority
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
-              />
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2.5 sm:gap-3 md:gap-4 lg:gap-5 pt-1">
+              {/* Book A Schedule Button */}
+              <button className="flex items-center justify-center gap-1.5 sm:gap-2 bg-[#FF574D] hover:bg-[#FF4539] text-white px-3.5 sm:px-4 md:px-5 lg:px-6 xl:px-7 py-1.5 sm:py-2 md:py-2.5 lg:py-3 rounded-lg font-semibold text-[11px] sm:text-xs md:text-sm lg:text-base transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95">
+                <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-4 md:h-4 lg:w-5 lg:h-5" />
+                Book A Schedule
+              </button>
+
+              {/* Contact Us Link */}
+              <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-white">
+                <span className="text-[11px] sm:text-xs md:text-sm lg:text-base">Need Any Help?</span>
+                <a
+                  href="#contact"
+                  className="text-[11px] sm:text-xs md:text-sm lg:text-base font-semibold underline underline-offset-2 sm:underline-offset-4 hover:text-[#FFE5E3] transition-colors duration-300"
+                >
+                  Contact Us
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Carousel Navigation Arrows */}
+      {/* Slider Navigation Arrows - Hidden on mobile and tablet, visible on desktop */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/90 hover:bg-white flex items-center justify-center transition-all shadow-lg hover:scale-110"
+        className="hidden lg:flex absolute left-4 xl:left-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 xl:w-12 xl:h-12 rounded-full bg-white/80 hover:bg-white/95 backdrop-blur-sm items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110 active:scale-95"
         aria-label="Previous slide"
       >
-        <ChevronLeft className="w-6 h-6 text-gray-800" />
+        <ChevronLeft className="w-5 h-5 xl:w-6 xl:h-6 text-gray-800" />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/90 hover:bg-white flex items-center justify-center transition-all shadow-lg hover:scale-110"
+        className="hidden lg:flex absolute right-4 xl:right-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 xl:w-12 xl:h-12 rounded-full bg-white/80 hover:bg-white/95 backdrop-blur-sm items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110 active:scale-95"
         aria-label="Next slide"
       >
-        <ChevronRight className="w-6 h-6 text-gray-800" />
+        <ChevronRight className="w-5 h-5 xl:w-6 xl:h-6 text-gray-800" />
       </button>
+
+      {/* Slide Indicators */}
+      <div className="absolute bottom-3 sm:bottom-4 md:bottom-5 lg:bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-1.5 sm:gap-2">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentSlide(index)}
+            className={`h-1.5 w-1.5 sm:h-2 sm:w-2 md:h-2.5 md:w-2.5 lg:h-3 lg:w-3 rounded-full transition-all duration-300 ${
+              index === currentSlide
+                ? "bg-white w-5 sm:w-6 md:w-7 lg:w-8 xl:w-10"
+                : "bg-white/50 hover:bg-white/75"
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
     </section>
   );
 }
