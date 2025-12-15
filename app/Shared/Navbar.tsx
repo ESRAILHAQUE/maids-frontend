@@ -300,6 +300,15 @@ export default function Navbar() {
                 <MessageCircle className="w-4 h-4" />
                 <span>Let&apos;s Talk</span>
               </Link>
+
+              {/* Login Button */}
+              <Link
+                href="/login"
+                onClick={() => setActiveLink("Login")}
+                className="flex items-center justify-center border border-[#B84200]/30 text-[#B84200] px-5 py-2 rounded-md hover:bg-[#FFF3EB] transition-colors font-semibold"
+              >
+                Login
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -391,6 +400,17 @@ export default function Navbar() {
                 >
                   <MessageCircle className="w-4 h-4" />
                   <span>Let&apos;s Talk</span>
+                </Link>
+
+                <Link
+                  href="/login"
+                  className="flex items-center justify-center gap-2 border border-[#B84200]/30 text-[#B84200] px-5 py-3 rounded-md hover:bg-[#FFF3EB] transition-colors font-semibold"
+                  onClick={() => {
+                    setActiveLink("Login");
+                    setIsMenuOpen(false);
+                  }}
+                >
+                  Login
                 </Link>
               </div>
             </div>
