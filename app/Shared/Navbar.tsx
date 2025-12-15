@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Mail,
   Clock,
@@ -20,7 +20,30 @@ import Link from "next/link";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
   const [activeLink, setActiveLink] = useState("Home");
+  const searchInputRef = useRef<HTMLInputElement | null>(null);
+
+  useEffect(() => {
+    if (!isSearchOpen) return;
+
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsSearchOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+
+    // Focus input after render
+    setTimeout(() => searchInputRef.current?.focus(), 0);
+
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [isSearchOpen]);
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -52,6 +75,56 @@ export default function Navbar() {
 
   return (
     <header className="w-full relative z-40">
+      {/* Search overlay */}
+      {isSearchOpen && (
+        <div
+          className="fixed inset-0 z-[60] bg-black/70 backdrop-blur-sm"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Search"
+          onMouseDown={(e) => {
+            if (e.target === e.currentTarget) setIsSearchOpen(false);
+          }}
+        >
+          <button
+            type="button"
+            aria-label="Close search"
+            onClick={() => setIsSearchOpen(false)}
+            className="absolute top-6 right-6 inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white transition hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black/70"
+          >
+            <X className="h-6 w-6" />
+          </button>
+
+          <form
+            className="h-full w-full flex items-center justify-center px-4"
+            onSubmit={(e) => {
+              e.preventDefault();
+              // UI-first: keep overlay behavior; wire up real search route later if needed.
+              setIsSearchOpen(false);
+            }}
+          >
+            <div className="w-full max-w-xl">
+              <div className="flex items-center rounded-full bg-white shadow-[0_30px_80px_rgba(0,0,0,0.35)] ring-1 ring-white/10 overflow-hidden">
+                <input
+                  ref={searchInputRef}
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Search…"
+                  className="w-full px-5 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none"
+                />
+                <button
+                  type="submit"
+                  aria-label="Search"
+                  className="m-1.5 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#B84200] text-white shadow-md transition hover:bg-[#9A2F00] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B84200] focus-visible:ring-offset-2"
+                >
+                  <Search className="h-4.5 w-4.5" />
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      )}
+
       {/* Top Utility Bar - Scrolls away */}
       <div className="w-full bg-[#CF4B00] text-white">
         <div className="container mx-auto px-4 w-[95%]">
@@ -206,15 +279,27 @@ export default function Navbar() {
               </div>
 
               {/* Search Icon */}
-              <button className="p-2 hover:bg-gray-100 rounded-full transition-colors">
+              <button
+                type="button"
+                className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  setIsSearchOpen(true);
+                }}
+                aria-label="Open search"
+              >
                 <Search className="w-5 h-5 text-gray-700" />
               </button>
 
               {/* Let's Talk Button */}
-              <button className="flex items-center gap-2 bg-[#C54700] text-white px-5 py-2 rounded-md hover:bg-[#C54700] transition-colors font-semibold cursor-pointer">
+              <Link
+                href="/contact"
+                onClick={() => setActiveLink("Contact")}
+                className="flex items-center gap-2 bg-[#C54700] text-white px-5 py-2 rounded-md hover:bg-[#C54700] transition-colors font-semibold cursor-pointer"
+              >
                 <MessageCircle className="w-4 h-4" />
                 <span>Let&apos;s Talk</span>
-              </button>
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -284,14 +369,29 @@ export default function Navbar() {
                     <Phone className="w-4 h-4 text-[#CF4B00]" />
                     <span>+974 33337410</span>
                   </div>
-                  <button className="p-2 hover:bg-gray-100 rounded-full transition-colors">
+                  <button
+                    type="button"
+                    className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                    onClick={() => {
+                      setIsMenuOpen(false);
+                      setIsSearchOpen(true);
+                    }}
+                    aria-label="Open search"
+                  >
                     <Search className="w-5 h-5 text-gray-700" />
                   </button>
                 </div>
-                <button className="flex items-center justify-center gap-2 bg-[#CF4B00] text-white px-5 py-3 rounded-md hover:bg-[#B84200] transition-colors font-semibold mt-2">
+                <Link
+                  href="/contact"
+                  className="flex items-center justify-center gap-2 bg-[#CF4B00] text-white px-5 py-3 rounded-md hover:bg-[#B84200] transition-colors font-semibold mt-2"
+                  onClick={() => {
+                    setActiveLink("Contact");
+                    setIsMenuOpen(false);
+                  }}
+                >
                   <MessageCircle className="w-4 h-4" />
                   <span>Let&apos;s Talk</span>
-                </button>
+                </Link>
               </div>
             </div>
           )}
