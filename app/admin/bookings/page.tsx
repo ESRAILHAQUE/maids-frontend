@@ -91,7 +91,7 @@ export default function AdminBookingsPage() {
         </div>
       </div>
 
-      <div className="rounded-3xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5">
+      <div className="rounded-sm border border-slate-200 bg-white shadow-sm p-4 sm:p-5">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_220px_220px] gap-3">
           <div className="relative">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
@@ -99,7 +99,7 @@ export default function AdminBookingsPage() {
               value={q}
               onChange={(e) => setQ(e.target.value)}
               placeholder="Search client, phone, invoice, service, area..."
-              className="w-full rounded-2xl border border-slate-200 bg-white pl-11 pr-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#B84200] focus:ring-offset-2"
+              className="w-full rounded-sm border border-slate-200 bg-white pl-11 pr-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#B84200] focus:ring-offset-2"
             />
           </div>
           <Select
@@ -117,7 +117,7 @@ export default function AdminBookingsPage() {
         </div>
       </div>
 
-      <div className="rounded-3xl border border-slate-200 bg-white shadow-sm overflow-hidden">
+      <div className="rounded-sm border border-slate-200 bg-white shadow-sm overflow-hidden">
         <div className="hidden lg:grid grid-cols-[1.2fr_0.7fr_0.8fr_0.7fr_0.9fr_0.7fr] gap-0 border-b border-slate-200 bg-slate-50 px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-slate-600">
           <div>Client</div>
           <div>Service</div>
@@ -201,7 +201,7 @@ export default function AdminBookingsPage() {
               <button
                 type="button"
                 onClick={() => setSelected(null)}
-                className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white hover:bg-slate-50 transition"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-sm border border-slate-200 bg-white hover:bg-slate-50 transition"
                 aria-label="Close"
               >
                 ✕
@@ -216,13 +216,13 @@ export default function AdminBookingsPage() {
                 <Info label="Total" value={`${selected.totalQAR} QAR`} />
               </div>
 
-              <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4">
+              <div className="rounded-sm border border-slate-200 bg-slate-50 px-4 py-4">
                 <p className="text-sm font-semibold text-slate-900">Client</p>
                 <p className="mt-2 text-sm text-slate-700">{selected.client.name}</p>
                 <div className="mt-1 flex flex-wrap items-center gap-2 text-sm">
                   <a
                     href={`tel:${selected.client.phone}`}
-                    className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm font-semibold text-slate-800 hover:bg-slate-50 transition"
+                    className="inline-flex items-center gap-2 rounded-sm border border-slate-200 bg-white px-3 py-1.5 text-sm font-semibold text-slate-800 hover:bg-slate-50 transition"
                   >
                     <Phone className="h-4 w-4 text-slate-500" />
                     {selected.client.phone}
@@ -252,7 +252,7 @@ export default function AdminBookingsPage() {
               ) : null}
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div className="rounded-2xl border border-slate-200 p-4">
+                <div className="rounded-sm border border-slate-200 p-4">
                   <p className="text-sm font-semibold text-slate-900">Booking status</p>
                   <p className="mt-1 text-xs text-slate-600">Update the booking workflow.</p>
                   <div className="mt-3 space-y-2">
@@ -263,7 +263,7 @@ export default function AdminBookingsPage() {
                           key={s.value}
                           type="button"
                           onClick={() => setBookingStatus(selected.id, s.value as BookingStatus)}
-                          className={`w-full rounded-xl border px-3 py-2 text-sm font-semibold transition ${
+                          className={`w-full rounded-sm border px-3 py-2 text-sm font-semibold transition ${
                             selected.status === s.value
                               ? "border-[#B84200]/30 bg-[#FFF3EB] text-slate-900"
                               : "border-slate-200 bg-white hover:bg-slate-50 text-slate-800"
@@ -282,7 +282,7 @@ export default function AdminBookingsPage() {
                   </div>
                 </div>
 
-                <div className="rounded-2xl border border-slate-200 p-4">
+                <div className="rounded-sm border border-slate-200 p-4">
                   <p className="text-sm font-semibold text-slate-900">Payment</p>
                   <p className="mt-1 text-xs text-slate-600">Track invoice and payment state.</p>
                   <div className="mt-3 space-y-2">
@@ -293,7 +293,7 @@ export default function AdminBookingsPage() {
                           key={p.value}
                           type="button"
                           onClick={() => setPaymentStatus(selected.id, p.value as PaymentStatus)}
-                          className={`w-full rounded-xl border px-3 py-2 text-sm font-semibold transition ${
+                          className={`w-full rounded-sm border px-3 py-2 text-sm font-semibold transition ${
                             selected.payment.status === p.value
                               ? "border-[#B84200]/30 bg-[#FFF3EB] text-slate-900"
                               : "border-slate-200 bg-white hover:bg-slate-50 text-slate-800"
@@ -311,7 +311,7 @@ export default function AdminBookingsPage() {
                 </div>
               </div>
 
-              <div className="rounded-2xl border border-slate-200 p-4">
+              <div className="rounded-sm border border-slate-200 p-4">
                 <div className="flex items-start justify-between gap-3">
                   <div>
                     <p className="text-sm font-semibold text-slate-900">Assigned staff</p>
@@ -320,7 +320,7 @@ export default function AdminBookingsPage() {
                     </p>
                   </div>
                   <span
-                    className="text-[11px] font-bold rounded-full px-2 py-0.5 border"
+                    className="text-[11px] font-bold rounded-sm px-2 py-0.5 border"
                     style={{
                       color: BRAND,
                       borderColor: "rgba(184,66,0,0.25)",
@@ -337,7 +337,7 @@ export default function AdminBookingsPage() {
                       return (
                         <span
                           key={id}
-                          className="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-semibold text-slate-800"
+                          className="inline-flex items-center rounded-sm border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-semibold text-slate-800"
                         >
                           {s ? `${s.name} (${s.role})` : id}
                         </span>
@@ -367,7 +367,7 @@ function StatChip({
 }) {
   return (
     <div
-      className="rounded-2xl border px-4 py-2 bg-white"
+      className="rounded-sm border px-4 py-2 bg-white"
       style={{
         borderColor: accent ? "rgba(184,66,0,0.25)" : "rgba(15,23,42,0.10)",
       }}
@@ -401,7 +401,7 @@ function Select({
         <select
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          className="w-full appearance-none rounded-2xl border border-slate-200 bg-white px-4 py-3 pr-10 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#B84200] focus:ring-offset-2"
+          className="w-full appearance-none rounded-sm border border-slate-200 bg-white px-4 py-3 pr-10 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#B84200] focus:ring-offset-2"
         >
           {options.map((o) => (
             <option key={o.value} value={o.value}>
@@ -429,7 +429,7 @@ function StatusPill({ value }: { value: BookingStatus }) {
 
   return (
     <span
-      className="inline-flex items-center justify-center rounded-full border px-2.5 py-0.5 text-[11px] font-bold"
+      className="inline-flex items-center justify-center rounded-sm border px-2.5 py-0.5 text-[11px] font-bold"
       style={{ color: styles.color, borderColor: styles.border, background: styles.bg }}
     >
       {value.replaceAll("_", " ")}
@@ -439,7 +439,7 @@ function StatusPill({ value }: { value: BookingStatus }) {
 
 function Info({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white px-4 py-3">
+    <div className="rounded-sm border border-slate-200 bg-white px-4 py-3">
       <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">{label}</p>
       <p className="mt-1 text-sm font-bold text-slate-900">{value}</p>
     </div>

@@ -57,7 +57,7 @@ export default function AdminShell({
           <button
             type="button"
             onClick={() => setOpen(true)}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white hover:bg-slate-50 transition"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-sm border border-slate-200 bg-white hover:bg-slate-50 transition"
             aria-label="Open admin menu"
           >
             <Menu className="h-5 w-5" />
@@ -88,7 +88,7 @@ export default function AdminShell({
               <button
                 type="button"
                 onClick={() => setOpen(false)}
-                className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white hover:bg-slate-50 transition"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-sm border border-slate-200 bg-white hover:bg-slate-50 transition"
                 aria-label="Close admin menu"
               >
                 <X className="h-5 w-5" />
@@ -112,7 +112,7 @@ export default function AdminShell({
             <div className="mt-5">
               <Nav pathname={pathname} />
             </div>
-            <div className="mt-6 rounded-2xl border border-dashed border-slate-200 bg-slate-50 px-4 py-4">
+            <div className="mt-6 rounded-sm border border-dashed border-slate-200 bg-slate-50 px-4 py-4">
               <p className="text-sm font-semibold text-slate-900">Booking data storage</p>
               <p className="mt-1 text-xs text-slate-600 leading-relaxed">
                 Demo data is stored locally in your browser (localStorage) for now.
@@ -161,7 +161,7 @@ function Nav({ pathname }: { pathname: string }) {
           <Link
             key={item.href}
             href={item.href}
-            className={`group flex items-center justify-between gap-3 rounded-2xl px-3 py-2.5 border transition ${
+            className={`group flex items-center justify-between gap-3 rounded-sm px-3 py-2.5 border transition ${
               active
                 ? "border-[#B84200]/30 bg-[#FFF3EB] text-slate-900"
                 : "border-transparent hover:border-slate-200 hover:bg-slate-50 text-slate-700"
@@ -169,7 +169,7 @@ function Nav({ pathname }: { pathname: string }) {
           >
             <span className="flex items-center gap-3 min-w-0">
               <span
-                className={`flex h-9 w-9 items-center justify-center rounded-xl border ${
+                className={`flex h-9 w-9 items-center justify-center rounded-sm border ${
                   active ? "border-[#B84200]/25 bg-white" : "border-slate-200 bg-white"
                 }`}
               >
@@ -179,7 +179,7 @@ function Nav({ pathname }: { pathname: string }) {
             </span>
             {item.badge ? (
               <span
-                className="text-[11px] font-bold rounded-full px-2 py-0.5 border"
+                className="text-[11px] font-bold rounded-sm px-2 py-0.5 border"
                 style={{
                   color: BRAND,
                   borderColor: "rgba(184,66,0,0.25)",

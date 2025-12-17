@@ -40,7 +40,7 @@ export default function OurBlog() {
               Quick guides to keep homes and offices spotless between visits.
             </p>
           </div>
-          <button className="inline-flex items-center gap-2 rounded-lg bg-slate-900 text-white px-4 py-2.5 text-sm font-semibold shadow-sm ring-1 ring-slate-200/60 transition-colors duration-200 hover:bg-slate-800">
+          <button className="inline-flex items-center gap-2 rounded-sm bg-slate-900 text-white px-4 py-2.5 text-sm font-semibold shadow-sm ring-1 ring-slate-200/60 transition-colors duration-200 hover:bg-slate-800">
             View all articles
             <ArrowUpRight className="h-4 w-4" />
           </button>
