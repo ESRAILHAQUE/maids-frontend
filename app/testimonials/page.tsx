@@ -71,7 +71,7 @@ export default function TestimonialsPage() {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/45 to-white/10" />
+          <div className="absolute inset-0 bg-linear-to-b from-black/65 via-black/45 to-white/10" />
         </div>
         <div className="relative max-w-6xl w-[95%] mx-auto px-4 py-20 sm:py-24">
           <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-white ring-1 ring-white/30 backdrop-blur">
@@ -100,7 +100,7 @@ export default function TestimonialsPage() {
           {stats.map((s) => (
             <div
               key={s.label}
-              className="rounded-2xl border border-slate-200 bg-white shadow-sm px-4 py-4 text-center"
+              className="rounded-sm border border-slate-200 bg-white shadow-sm px-4 py-4 text-center"
             >
               <p className="text-xl sm:text-2xl font-bold text-slate-900">{s.value}</p>
               <p className="text-xs uppercase tracking-[0.14em] text-slate-500 mt-1">
@@ -120,7 +120,7 @@ export default function TestimonialsPage() {
               className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-lg"
             >
               <div
-                className={`absolute inset-0 opacity-10 bg-gradient-to-br ${t.accent}`}
+                className={`absolute inset-0 opacity-10 bg-linear-to-br ${t.accent}`}
               />
               <div className="relative flex flex-col gap-4 p-6">
                 <div className="flex items-center gap-3">
@@ -188,13 +188,13 @@ export default function TestimonialsPage() {
           <div className="flex flex-wrap gap-3">
             <Link
               href="/booking"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#CF4B00] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-[#CF4B00]/30 transition hover:bg-[#b84300]"
+              className="inline-flex items-center justify-center gap-2 rounded-sm bg-[#CF4B00] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-[#CF4B00]/30 transition hover:bg-[#b84300]"
             >
               Book now
             </Link>
             <Link
               href="https://wa.me/97433337410"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-800 transition hover:border-[#CF4B00] hover:text-[#CF4B00]"
+              className="inline-flex items-center justify-center gap-2 rounded-sm border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-800 transition hover:border-[#CF4B00] hover:text-[#CF4B00]"
             >
               Chat on WhatsApp
             </Link>

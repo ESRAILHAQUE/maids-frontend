@@ -161,7 +161,7 @@ export default function BookingPage() {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/45 to-white/10" />
+          <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/45 to-white/10" />
         </div>
 
         <div className="relative max-w-6xl w-[95%] mx-auto px-4 py-16 sm:py-20">
@@ -188,7 +188,7 @@ export default function BookingPage() {
       <section className="bg-[radial-gradient(circle_at_10%_0%,rgba(72,194,203,0.14),transparent_35%),radial-gradient(circle_at_90%_10%,rgba(207,75,0,0.12),transparent_34%),linear-gradient(to_bottom,#ffffff,#f8fafc,#ffffff)]">
         <div className="max-w-6xl w-[95%] mx-auto px-4 py-10 sm:py-12 space-y-5">
           {/* Mobile step header */}
-          <div className="sm:hidden rounded-2xl border border-slate-200 bg-white/90 backdrop-blur shadow-sm px-4 py-4">
+          <div className="sm:hidden rounded-sm border border-slate-200 bg-white/90 backdrop-blur shadow-sm px-4 py-4">
             <div className="flex items-center justify-between">
               <p className="text-sm font-semibold text-slate-900">
                 Step {stepIndex + 1} of {steps.length}
@@ -207,7 +207,7 @@ export default function BookingPage() {
           </div>
 
           {/* Desktop stepper */}
-          <div className="hidden sm:block rounded-2xl bg-white/90 backdrop-blur shadow-sm border border-slate-200 px-5 py-5">
+          <div className="hidden sm:block rounded-sm bg-white/90 backdrop-blur shadow-sm border border-slate-200 px-5 py-5">
             <div className="relative pt-2">
               <div className="absolute left-[6%] right-[6%] top-5 h-px bg-slate-200" />
               <div
@@ -258,7 +258,7 @@ export default function BookingPage() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-[1.55fr_1fr] gap-5 lg:gap-6 items-start">
-            <div className="rounded-3xl bg-white shadow-[0_18px_60px_rgba(15,23,42,0.10)] border border-slate-200 p-5 sm:p-6 space-y-5">
+            <div className="rounded-sm bg-white shadow-[0_18px_60px_rgba(15,23,42,0.10)] border border-slate-200 p-5 sm:p-6 space-y-5">
               <div className="flex items-start justify-between gap-3">
                 <div>
                   <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
@@ -298,7 +298,7 @@ export default function BookingPage() {
                             key={s.label}
                             type="button"
                             onClick={() => setService(s.label)}
-                            className={`group rounded-2xl border px-4 py-5 text-left transition-all duration-200 ${
+                            className={`group rounded-sm border px-4 py-5 text-left transition-all duration-200 ${
                               active
                                 ? "border-[#CF4B00] bg-white shadow-md"
                                 : "border-slate-200 bg-slate-50 hover:border-[#CF4B00] hover:bg-white"
@@ -307,7 +307,7 @@ export default function BookingPage() {
                           >
                             <div className="flex items-start gap-3">
                               <div
-                                className={`flex h-12 w-12 items-center justify-center rounded-xl border transition-colors ${
+                                className={`flex h-12 w-12 items-center justify-center rounded-sm border transition-colors ${
                                   active
                                     ? "bg-[#CF4B00]/10 border-[#F7D7C3] text-[#CF4B00]"
                                     : "bg-white border-slate-200 text-[#0b9fb6]"
@@ -327,7 +327,7 @@ export default function BookingPage() {
                         );
                       })}
                     </div>
-                    <div className="rounded-2xl bg-slate-50 border border-dashed border-slate-200 px-4 py-3 text-xs text-slate-600">
+                    <div className="rounded-sm bg-slate-50 border border-dashed border-slate-200 px-4 py-3 text-xs text-slate-600">
                       Need something else? We also do move-in/out, carpets, windows, and ironing — add it in “Special requests”.
                     </div>
                     <ActionRow canContinue={canContinue()} onBack={goBack} onNext={goNext} backDisabled />
@@ -336,7 +336,7 @@ export default function BookingPage() {
 
                 {stepIndex === 1 && (
                   <>
-                    <div className="flex items-start gap-2 text-xs text-slate-600 bg-slate-50 border border-slate-200 rounded-2xl px-3 py-3">
+                    <div className="flex items-start gap-2 text-xs text-slate-600 bg-slate-50 border border-slate-200 rounded-sm px-3 py-3">
                       <CheckCircle2 className="h-4 w-4 text-[#CF4B00] mt-0.5 shrink-0" />
                       <span>
                         Note: 2–3 hour bookings in The Pearl area are available only by calling{" "}
@@ -397,7 +397,7 @@ export default function BookingPage() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <p className="text-sm font-semibold text-slate-800">Select date</p>
-                        <div className="flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-3 py-3 shadow-sm">
+                        <div className="flex items-center gap-2 rounded-sm border border-slate-200 bg-white px-3 py-3 shadow-sm">
                           <Calendar className="h-5 w-5 text-[#CF4B00]" />
                           <input
                             type="date"
@@ -417,7 +417,7 @@ export default function BookingPage() {
                               key={slot.label}
                               type="button"
                               onClick={() => setTime(slot.label)}
-                              className={`rounded-2xl border px-3 py-3 text-left transition-all duration-200 ${
+                              className={`rounded-sm border px-3 py-3 text-left transition-all duration-200 ${
                                 time === slot.label
                                   ? "border-[#CF4B00] bg-white shadow-sm"
                                   : "border-slate-200 bg-slate-50 hover:border-[#CF4B00] hover:bg-white"
@@ -445,7 +445,7 @@ export default function BookingPage() {
                             type="text"
                             value="QA +974"
                             disabled
-                            className="rounded-2xl border border-slate-200 px-3 py-3 text-sm bg-slate-50 text-slate-500"
+                            className="rounded-sm border border-slate-200 px-3 py-3 text-sm bg-slate-50 text-slate-500"
                           />
                           <div className="space-y-1">
                             <input
@@ -453,7 +453,7 @@ export default function BookingPage() {
                               value={phoneNumber}
                               onChange={(e) => setPhoneNumber(e.target.value)}
                               onBlur={() => setPhoneTouched(true)}
-                              className={`w-full rounded-2xl border px-3 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#CF4B00] ${
+                              className={`w-full rounded-sm border px-3 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#CF4B00] ${
                                 phoneTouched && !phoneNumber ? "border-red-300 bg-red-50/40" : "border-slate-200 bg-white"
                               }`}
                               placeholder="5xxxx xxxx"
@@ -473,7 +473,7 @@ export default function BookingPage() {
                             type="text"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
-                            className="w-full rounded-2xl border border-slate-200 px-3 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#CF4B00]"
+                            className="w-full rounded-sm border border-slate-200 px-3 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#CF4B00]"
                             placeholder="Your name (optional)"
                             autoComplete="name"
                           />
@@ -483,7 +483,7 @@ export default function BookingPage() {
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            className="w-full rounded-2xl border border-slate-200 px-3 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#CF4B00]"
+                            className="w-full rounded-sm border border-slate-200 px-3 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#CF4B00]"
                             placeholder="you@example.com (optional)"
                             autoComplete="email"
                           />
@@ -494,7 +494,7 @@ export default function BookingPage() {
                         <select
                           value={area}
                           onChange={(e) => setArea(e.target.value)}
-                          className="w-full rounded-2xl border border-slate-200 px-3 py-3 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#CF4B00]"
+                          className="w-full rounded-sm border border-slate-200 px-3 py-3 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#CF4B00]"
                         >
                           <option value="">Select your area</option>
                           <option>Doha</option>
@@ -509,21 +509,21 @@ export default function BookingPage() {
                             type="text"
                             value={address.zone}
                             onChange={(e) => setAddress({ ...address, zone: e.target.value })}
-                            className="rounded-2xl border border-slate-200 px-3 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#CF4B00]"
+                            className="rounded-sm border border-slate-200 px-3 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#CF4B00]"
                             placeholder="Zone"
                           />
                           <input
                             type="text"
                             value={address.building}
                             onChange={(e) => setAddress({ ...address, building: e.target.value })}
-                            className="rounded-2xl border border-slate-200 px-3 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#CF4B00]"
+                            className="rounded-sm border border-slate-200 px-3 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#CF4B00]"
                             placeholder="Building"
                           />
                           <input
                             type="text"
                             value={address.street}
                             onChange={(e) => setAddress({ ...address, street: e.target.value })}
-                            className="rounded-2xl border border-slate-200 px-3 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#CF4B00]"
+                            className="rounded-sm border border-slate-200 px-3 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#CF4B00]"
                             placeholder="Street"
                           />
                         </div>
@@ -534,7 +534,7 @@ export default function BookingPage() {
                           rows={4}
                           value={notes}
                           onChange={(e) => setNotes(e.target.value)}
-                          className="w-full rounded-2xl border border-slate-200 px-3 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#CF4B00]"
+                          className="w-full rounded-sm border border-slate-200 px-3 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#CF4B00]"
                           placeholder="Any special instructions (optional)"
                         />
                       </Field>
@@ -587,7 +587,7 @@ function ActionRow({
     <div className="flex flex-col sm:flex-row gap-3">
       <button
         type="button"
-        className={`flex-1 rounded-2xl font-semibold py-3 transition-all duration-200 ${
+        className={`flex-1 rounded-sm font-semibold py-3 transition-all duration-200 ${
           backDisabled
             ? "bg-slate-100 text-slate-400 cursor-not-allowed"
             : "bg-white text-slate-700 border border-slate-200 hover:bg-slate-50"
@@ -599,7 +599,7 @@ function ActionRow({
       </button>
       <button
         type="button"
-        className={`flex-1 rounded-2xl font-semibold py-3 transition-all duration-200 ${
+        className={`flex-1 rounded-sm font-semibold py-3 transition-all duration-200 ${
           canContinue
             ? "bg-[#B84200] text-white shadow-[0_14px_30px_rgba(184,66,0,0.28)] hover:bg-[#9A2F00]"
             : "bg-slate-100 text-slate-400 cursor-not-allowed"
@@ -656,7 +656,7 @@ function DetailChooser<T extends number>({
               key={opt}
               type="button"
               onClick={() => onSelect(opt)}
-              className={`rounded-2xl border px-3 py-3 text-center text-sm font-semibold transition-all duration-200 ${
+              className={`rounded-sm border px-3 py-3 text-center text-sm font-semibold transition-all duration-200 ${
                 active
                   ? "bg-white shadow-sm"
                   : "border-slate-200 bg-slate-50 hover:border-[#CF4B00] hover:bg-white"
@@ -688,7 +688,7 @@ function MaterialCard({
     <button
       type="button"
       onClick={onClick}
-      className={`w-full rounded-2xl border px-4 py-4 text-left text-sm font-semibold transition-all duration-200 ${
+      className={`w-full rounded-sm border px-4 py-4 text-left text-sm font-semibold transition-all duration-200 ${
         active
           ? "bg-white shadow-sm"
           : "border-slate-200 bg-slate-50 hover:border-[#CF4B00] hover:bg-white"
@@ -722,7 +722,7 @@ function SummaryCard({
   whatsappUrl: string;
 }) {
   return (
-    <div className="rounded-3xl bg-white shadow-[0_18px_60px_rgba(15,23,42,0.10)] border border-slate-200 p-5 sm:p-6 flex flex-col gap-4">
+    <div className="rounded-sm bg-white shadow-[0_18px_60px_rgba(15,23,42,0.10)] border border-slate-200 p-5 sm:p-6 flex flex-col gap-4">
       <div className="flex items-start justify-between gap-3">
         <div>
           <h3 className="text-lg font-bold text-slate-900">Booking summary</h3>
@@ -751,11 +751,11 @@ function SummaryCard({
         href={whatsappUrl}
         target="_blank"
         rel="noreferrer"
-        className="inline-flex items-center justify-center gap-2 rounded-full bg-[#B84200] px-5 py-3 text-sm font-semibold text-white shadow-[0_14px_30px_rgba(184,66,0,0.28)] transition hover:bg-[#9A2F00] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#CF4B00] focus-visible:ring-offset-2"
+        className="inline-flex items-center justify-center gap-2 rounded-sm bg-[#B84200] px-5 py-3 text-sm font-semibold text-white shadow-[0_14px_30px_rgba(184,66,0,0.28)] transition hover:bg-[#9A2F00] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#CF4B00] focus-visible:ring-offset-2"
       >
         Book via WhatsApp
       </a>
-      <div className="rounded-2xl bg-slate-50 border border-dashed border-slate-200 px-4 py-3 text-xs text-slate-600">
+      <div className="rounded-sm bg-slate-50 border border-dashed border-slate-200 px-4 py-3 text-xs text-slate-600">
         We’ll confirm the exact timing and any add-ons right after you send the booking message.
       </div>
       <div className="flex items-center gap-2 text-xs text-slate-500">

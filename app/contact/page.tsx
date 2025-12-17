@@ -55,7 +55,7 @@ export default function ContactPage() {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/40 to-white/10" />
+          <div className="absolute inset-0 bg-linear-to-b from-black/65 via-black/40 to-white/10" />
         </div>
         <div className="relative max-w-6xl w-[95%] mx-auto px-4 py-20 sm:py-24">
           <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#CF4B00] ring-1 ring-white/30 backdrop-blur">
@@ -94,7 +94,7 @@ export default function ContactPage() {
             return (
               <div
                 key={card.title}
-                className="rounded-2xl border border-slate-200 bg-white px-4 py-5 shadow-sm"
+                className="rounded-sm border border-slate-200 bg-white px-4 py-5 shadow-sm"
               >
                 <div className="flex items-center gap-3">
                   <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#FFF3EB] border border-[#F7D7C3] text-[#CF4B00]">
@@ -130,7 +130,7 @@ export default function ContactPage() {
                   <a
                     key={s.href}
                     href={s.href}
-                    className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition hover:border-[#CF4B00] hover:text-[#CF4B00]"
+                    className="flex h-10 w-10 items-center justify-center rounded-sm border border-slate-200 bg-white text-slate-700 transition hover:border-[#CF4B00] hover:text-[#CF4B00]"
                     aria-label={s.href}
                   >
                     <Icon className="h-5 w-5" />
@@ -140,13 +140,13 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <form className="rounded-2xl bg-white shadow-md border border-slate-200 p-6 space-y-4">
+          <form className="rounded-sm bg-white shadow-md border border-slate-200 p-6 space-y-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-1">
                 <label className="text-sm font-semibold text-slate-700">First Name</label>
                 <input
                   type="text"
-                  className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#CF4B00]"
+                  className="w-full rounded-sm border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#CF4B00]"
                   placeholder="First Name"
                 />
               </div>
@@ -154,7 +154,7 @@ export default function ContactPage() {
                 <label className="text-sm font-semibold text-slate-700">Last Name</label>
                 <input
                   type="text"
-                  className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#CF4B00]"
+                  className="w-full rounded-sm border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#CF4B00]"
                   placeholder="Last Name"
                 />
               </div>
@@ -163,7 +163,7 @@ export default function ContactPage() {
               <label className="text-sm font-semibold text-slate-700">Contact Number</label>
               <input
                 type="tel"
-                className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#CF4B00]"
+                className="w-full rounded-sm border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#CF4B00]"
                 placeholder="+974 ..."
               />
             </div>
@@ -171,7 +171,7 @@ export default function ContactPage() {
               <label className="text-sm font-semibold text-slate-700">Email</label>
               <input
                 type="email"
-                className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#CF4B00]"
+                className="w-full rounded-sm border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#CF4B00]"
                 placeholder="you@example.com"
               />
             </div>
@@ -179,13 +179,13 @@ export default function ContactPage() {
               <label className="text-sm font-semibold text-slate-700">Message</label>
               <textarea
                 rows={4}
-                className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#CF4B00]"
+                className="w-full rounded-sm border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#CF4B00]"
                 placeholder="Tell us about your space, timing, and preferences."
               />
             </div>
             <button
               type="button"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#CF4B00] px-4 py-2.5 text-sm font-semibold text-white shadow-md transition hover:bg-[#b84300]"
+              className="inline-flex items-center justify-center gap-2 rounded-sm bg-[#CF4B00] px-4 py-2.5 text-sm font-semibold text-white shadow-md transition hover:bg-[#b84300]"
             >
               <Send className="h-4 w-4" />
               Send Message
@@ -197,7 +197,7 @@ export default function ContactPage() {
       {/* Map embed */}
       <section className="bg-white">
         <div className="max-w-6xl w-[95%] mx-auto px-4 pb-12">
-          <div className="relative overflow-hidden rounded-2xl border border-slate-200 shadow-lg">
+          <div className="relative overflow-hidden rounded-sm border border-slate-200 shadow-lg">
             <iframe
               title="Aethla location"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3628.627225606525!2d51.527!3d25.285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e45dfece0!2sDoha!5e0!3m2!1sen!2sqa!4v1700000000000"
