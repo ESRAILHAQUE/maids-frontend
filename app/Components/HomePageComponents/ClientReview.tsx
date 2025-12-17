@@ -55,7 +55,7 @@ export default function ClientReview() {
           {reviews.map((review) => (
             <article
               key={review.name}
-              className="group relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/8 via-white/4 to-white/10 p-6 md:p-7 shadow-[0_18px_60px_rgba(0,0,0,0.45)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-white/25 hover:shadow-[0_24px_90px_rgba(0,0,0,0.55)]"
+              className="group relative overflow-hidden rounded-sm border border-white/10 bg-gradient-to-br from-white/8 via-white/4 to-white/10 p-6 md:p-7 shadow-[0_18px_60px_rgba(0,0,0,0.45)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-white/25 hover:shadow-[0_24px_90px_rgba(0,0,0,0.55)]"
             >
               <div className="absolute inset-0 opacity-70 blur-2xl transition duration-300 group-hover:opacity-90 group-hover:blur-[18px] bg-[radial-gradient(circle_at_20%_20%,rgba(72,194,203,0.25),transparent_40%),radial-gradient(circle_at_80%_0%,rgba(207,75,0,0.23),transparent_36%)]" />
               <div className="relative flex items-start gap-4">

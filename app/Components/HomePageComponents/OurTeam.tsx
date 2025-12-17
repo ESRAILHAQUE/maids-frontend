@@ -39,7 +39,7 @@ export default function OurTeam() {
               leads who keep every visit on-time, on-spec, and consistently
               spotless across Qatar.
             </p>
-            <div className="rounded-2xl border border-slate-200 bg-white shadow-[0_18px_60px_rgba(15,23,42,0.08)] p-4 md:p-5 flex items-center gap-3">
+            <div className="rounded-sm border border-slate-200 bg-white shadow-[0_18px_60px_rgba(15,23,42,0.08)] p-4 md:p-5 flex items-center gap-3">
               <div className="h-12 w-12 rounded-full bg-gradient-to-br from-[#CF4B00] to-[#B84200] text-white grid place-items-center font-semibold">
                 QA
               </div>

@@ -58,7 +58,7 @@ export default function WhyChooseUs() {
               {reasons.map(({ title, description, icon: Icon }) => (
                 <div
                   key={title}
-                  className="group rounded-xl border border-white/10 bg-white/5 px-4 py-5 shadow-[0_14px_40px_rgba(0,0,0,0.35)] backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-[#CF4B00]/30 hover:bg-white/10"
+                  className="group rounded-sm border border-white/10 bg-white/5 px-4 py-5 shadow-[0_14px_40px_rgba(0,0,0,0.35)] backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-[#CF4B00]/30 hover:bg-white/10"
                 >
                   <div className="flex items-start gap-3">
                     <div className="mt-0.5 rounded-lg bg-[#CF4B00]/15 text-[#CF4B00] p-2 ring-1 ring-white/10">
@@ -79,10 +79,10 @@ export default function WhyChooseUs() {
 
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 pt-2">
-              <button className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#CF4B00] px-5 py-3 text-sm font-semibold text-white shadow-[0_12px_40px_rgba(207,75,0,0.45)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#b84200]">
+              <button className="inline-flex items-center justify-center gap-2 rounded-sm cursor-pointer bg-[#CF4B00] px-5 py-3 text-sm font-semibold text-white shadow-[0_12px_40px_rgba(207,75,0,0.45)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#b84200]">
                 Book a maid visit
               </button>
-              <button className="inline-flex items-center justify-center gap-2 rounded-lg bg-white/10 px-5 py-3 text-sm font-semibold text-white ring-1 ring-white/15 transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/15">
+              <button className="inline-flex items-center justify-center gap-2 rounded-sm cursor-pointer bg-white/10 px-5 py-3 text-sm font-semibold text-white ring-1 ring-white/15 transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/15">
                 Talk to our team
               </button>
             </div>
@@ -90,7 +90,7 @@ export default function WhyChooseUs() {
 
           {/* Right Column - Image */}
           <div className="relative">
-            <div className="relative w-full h-[420px] sm:h-[470px] md:h-[520px] rounded-3xl overflow-hidden border border-white/10 bg-white/5 shadow-[0_20px_90px_rgba(0,0,0,0.55)]">
+            <div className="relative w-full h-[420px] sm:h-[470px] md:h-[520px] rounded-sm  overflow-hidden border border-white/10 bg-white/5 shadow-[0_20px_90px_rgba(0,0,0,0.55)]">
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/45 via-transparent to-transparent" />
               <Image
                 src="https://plus.unsplash.com/premium_photo-1682097409792-354d4d544753?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aG90ZWwlMjBtYWlkfGVufDB8fDB8fHww"

@@ -67,7 +67,7 @@ export default function AboutUs() {
               {highlights.map(({ title, description, icon: Icon }) => (
                 <div
                   key={title}
-                  className="group relative overflow-hidden rounded-2xl border border-white/5 bg-white/5 px-4 py-5 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-[#CF4B00]/40 hover:bg-white/10"
+                  className="group relative overflow-hidden rounded-sm border border-white/5 bg-white/5 px-4 py-5 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-[#CF4B00]/40 hover:bg-white/10"
                 >
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-br from-[#CF4B00]/10 via-transparent to-[#48C2CB]/10" />
                   <div className="relative flex items-start gap-3">
@@ -94,7 +94,7 @@ export default function AboutUs() {
             <div className="absolute -left-6 -top-6 h-28 w-28 rounded-full bg-[#48C2CB]/15 blur-3xl" />
             <div className="absolute -right-4 bottom-6 h-32 w-32 rounded-full bg-[#CF4B00]/20 blur-3xl" />
 
-            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-[0_20px_80px_rgba(0,0,0,0.45)]">
+            <div className="relative overflow-hidden rounded-sm border border-white/10 bg-white/5 shadow-[0_20px_80px_rgba(0,0,0,0.45)]">
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-transparent" />
               <Image
                 src="https://plus.unsplash.com/premium_photo-1682097409792-354d4d544753?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aG90ZWwlMjBtYWlkfGVufDB8fDB8fHww"
@@ -109,7 +109,7 @@ export default function AboutUs() {
                 {stats.map((stat) => (
                   <div
                     key={stat.label}
-                    className="rounded-2xl bg-slate-950/70 px-3 py-3 text-center shadow-lg ring-1 ring-white/5 backdrop-blur"
+                    className="rounded-sm bg-slate-950/70 px-3 py-3 text-center shadow-lg ring-1 ring-white/5 backdrop-blur"
                   >
                     <div className="text-lg font-semibold text-white">
                       {stat.value}

@@ -50,7 +50,7 @@ export default function WorkingProcess() {
           {steps.map(({ icon: Icon, title, description }, index) => (
             <div
               key={title}
-              className="group relative rounded-2xl border border-slate-200 bg-white shadow-[0_18px_60px_rgba(15,23,42,0.08)] px-5 py-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_22px_80px_rgba(15,23,42,0.14)]"
+              className="group relative rounded-sm border border-slate-200 bg-white shadow-[0_18px_60px_rgba(15,23,42,0.08)] px-5 py-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_22px_80px_rgba(15,23,42,0.14)]"
             >
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-br from-[#CF4B00]/8 via-transparent to-[#48C2CB]/10 rounded-2xl" />
               <div className="relative space-y-3">

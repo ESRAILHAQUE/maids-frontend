@@ -125,7 +125,7 @@ export default function Banner() {
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 md:gap-5 pt-2">
               {/* Book A Schedule Button */}
-              <button className="group flex items-center justify-center gap-2 bg-[#C54700] hover:bg-[#C54700] text-white px-5 sm:px-6 md:px-7 lg:px-8 xl:px-10 py-2.5 sm:py-3 md:py-3.5 lg:py-4 rounded-lg md:rounded-xl font-semibold text-xs sm:text-sm md:text-base shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95">
+              <button className="group flex items-center justify-center gap-2 bg-[#C54700] hover:bg-[#C54700] text-white px-5 sm:px-6 md:px-7 lg:px-8 xl:px-10 py-2.5 sm:py-3 md:py-3.5 lg:py-4 rounded-sm cursor-pointer font-semibold text-xs sm:text-sm md:text-base shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95">
                 <Calendar className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:scale-110" />
                 <span>Book A Schedule</span>
               </button>

@@ -295,7 +295,7 @@ export default function Navbar() {
               <Link
                 href="/contact"
                 onClick={() => setActiveLink("Contact")}
-                className="flex items-center gap-2 bg-[#C54700] text-white px-5 py-2 rounded-md hover:bg-[#C54700] transition-colors font-semibold cursor-pointer"
+                className="flex items-center gap-2 bg-[#C54700] text-white px-5 py-2 rounded-sm hover:bg-[#C54700] transition-colors font-semibold cursor-pointer"
               >
                 <MessageCircle className="w-4 h-4" />
                 <span>Let&apos;s Talk</span>
@@ -305,7 +305,7 @@ export default function Navbar() {
               <Link
                 href="/login"
                 onClick={() => setActiveLink("Login")}
-                className="flex items-center justify-center border border-[#B84200]/30 text-[#B84200] px-5 py-2 rounded-md hover:bg-[#FFF3EB] transition-colors font-semibold"
+                className="flex items-center justify-center border border-[#B84200]/30 text-[#B84200] px-5 py-2 rounded-sm hover:bg-[#FFF3EB] transition-colors font-semibold"
               >
                 Login
               </Link>

@@ -34,7 +34,7 @@ export default function Statistics() {
           </p>
         </div>
 
-        <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-r from-[#CF4B00] via-[#CF4B00] to-[#CF4B00] px-5 py-6 sm:px-8 sm:py-8 shadow-[0_24px_90px_rgba(15,23,42,0.16)]">
+        <div className="relative overflow-hidden rounded-sm border border-slate-200 bg-gradient-to-r from-[#CF4B00] via-[#CF4B00] to-[#CF4B00] px-5 py-6 sm:px-8 sm:py-8 shadow-[0_24px_90px_rgba(15,23,42,0.16)]">
           <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-white/30">
             {stats.map(({ number, label, note }, idx) => (
               <div

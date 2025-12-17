@@ -38,7 +38,7 @@ export default function RecentPartnerships() {
             {partners.map((partner) => (
               <div
                 key={partner.name}
-                className="min-w-[200px] rounded-2xl border border-slate-200 bg-white px-4 py-4 text-center shadow-[0_12px_40px_rgba(15,23,42,0.08)] transition-all duration-200 hover:-translate-y-1 hover:border-[#CF4B00]/30 hover:shadow-[0_16px_60px_rgba(15,23,42,0.12)]"
+                className="min-w-[200px] rounded-sm border border-slate-200 bg-white px-4 py-4 text-center shadow-[0_12px_40px_rgba(15,23,42,0.08)] transition-all duration-200 hover:-translate-y-1 hover:border-[#CF4B00]/30 hover:shadow-[0_16px_60px_rgba(15,23,42,0.12)]"
               >
                 <div className="mx-auto mb-3 flex h-16 w-full max-w-[140px] items-center justify-center overflow-hidden">
                   <Image
