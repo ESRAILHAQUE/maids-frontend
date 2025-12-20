@@ -30,7 +30,7 @@ export default function CarpetCleaningPage() {
         </div>
         <div className="relative max-w-6xl w-[95%] mx-auto px-4 py-20 sm:py-24 text-white">
           <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em]">
-            <span className="text-[#CF4B00]">Aethla</span>
+            <span className="text-(--brand-primary) text-white">Aethla</span>
             <span className="text-white/80">Carpet Cleaning</span>
           </div>
           <h1 className="mt-4 text-3xl sm:text-4xl font-bold">Carpet Cleaning</h1>
@@ -87,7 +87,7 @@ export default function CarpetCleaningPage() {
                   "Transparent pricing with no hidden fees",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2">
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 text-[#CF4B00]" />
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 text-(--brand-primary)" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -108,7 +108,7 @@ export default function CarpetCleaningPage() {
                   "High-traffic lane revitalization",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2 text-sm text-slate-700">
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 text-[#0b9fb6]" />
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 text-(--brand-primary)" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -126,13 +126,13 @@ export default function CarpetCleaningPage() {
               <div className="flex flex-wrap items-center gap-3">
                 <Link
                   href="/booking"
-                  className="inline-flex items-center justify-center gap-2 rounded-sm bg-[#CF4B00] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-[#CF4B00]/30 transition hover:bg-[#b84300]"
+                  className="inline-flex items-center justify-center gap-2 rounded-sm bg-(--brand-primary) px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-[rgb(var(--brand-dark-rgb)/0.25)] transition hover:bg-(--brand-dark)"
                 >
                   Book Online
                 </Link>
                 <Link
                   href="https://wa.me/97433337410"
-                  className="inline-flex items-center justify-center gap-2 rounded-sm border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-800 transition hover:border-[#CF4B00] hover:text-[#CF4B00]"
+                  className="inline-flex items-center justify-center gap-2 rounded-sm border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-800 transition hover:border-[rgb(var(--brand-primary-rgb)/0.45)] hover:text-(--brand-primary)"
                 >
                   Chat on WhatsApp
                 </Link>
@@ -153,8 +153,8 @@ export default function CarpetCleaningPage() {
                     href={svc.href}
                     className={`block rounded-sm border px-3 py-2.5 text-sm font-semibold transition ${
                       svc.href === "/carpet-cleaning"
-                        ? "border-[#CF4B00] text-[#CF4B00] bg-[#e7f6f9]"
-                        : "border-slate-200 text-slate-800 hover:border-[#CF4B00] hover:text-[#CF4B00]"
+                        ? "border-[rgb(var(--brand-primary-rgb)/0.45)] text-(--brand-primary) bg-[rgb(var(--brand-primary-rgb)/0.06)]"
+                        : "border-slate-200 text-slate-800 hover:border-[rgb(var(--brand-primary-rgb)/0.45)] hover:text-(--brand-primary)"
                     }`}
                   >
                     {svc.label}
@@ -168,7 +168,7 @@ export default function CarpetCleaningPage() {
               <p className="text-sm text-slate-600">
                 Get a detailed overview of our carpet cleaning methods and options.
               </p>
-              <button className="inline-flex items-center gap-2 rounded-sm bg-[#CF4B00] px-4 py-2.5 text-sm font-semibold text-white shadow-md transition hover:bg-[#CF4B00] cursor-pointer">
+              <button className="inline-flex items-center gap-2 rounded-sm bg-(--brand-primary) px-4 py-2.5 text-sm font-semibold text-white shadow-md transition hover:bg-(--brand-dark) cursor-pointer">
                 Download PDF
               </button>
             </div>
@@ -180,7 +180,7 @@ export default function CarpetCleaningPage() {
               </p>
               <Link
                 href="tel:+97433337410"
-                className="inline-flex items-center gap-2 rounded-sm bg-[#CF4B00] px-4 py-2 text-sm font-semibold text-white shadow-md transition hover:bg-[#CF4B00]"
+                className="inline-flex items-center gap-2 rounded-sm bg-(--brand-primary) px-4 py-2 text-sm font-semibold text-white shadow-md transition hover:bg-(--brand-dark)"
               >
                 <Phone className="h-4 w-4" />
                 +974 3333 7410
