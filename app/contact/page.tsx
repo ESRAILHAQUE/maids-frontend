@@ -58,7 +58,7 @@ export default function ContactPage() {
           <div className="absolute inset-0 bg-linear-to-b from-black/65 via-black/40 to-white/10" />
         </div>
         <div className="relative max-w-6xl w-[95%] mx-auto px-4 py-20 sm:py-24">
-          <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#CF4B00] ring-1 ring-white/30 backdrop-blur">
+          <div className="inline-flex items-center gap-2 text-white rounded-full bg-white/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--brand-primary)] ring-1 ring-white/30 backdrop-blur">
             Contact Aethla
           </div>
           <h1 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
@@ -81,7 +81,7 @@ export default function ContactPage() {
       {/* Contact cards */}
       <section className="max-w-6xl w-[95%] mx-auto px-4 py-10 sm:py-12">
         <div className="text-center space-y-2 mb-8">
-          <p className="text-sm font-semibold text-[#CF4B00] uppercase tracking-[0.18em]">
+          <p className="text-sm font-semibold text-[var(--brand-primary)] uppercase tracking-[0.18em]">
             Contact Information
           </p>
           <h2 className="text-2xl sm:text-3xl font-bold">
@@ -97,7 +97,7 @@ export default function ContactPage() {
                 className="rounded-sm border border-slate-200 bg-white px-4 py-5 shadow-sm"
               >
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#FFF3EB] border border-[#F7D7C3] text-[#CF4B00]">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[rgb(var(--brand-primary-rgb)/0.08)] border border-[rgb(var(--brand-primary-rgb)/0.18)] text-[var(--brand-primary)]">
                     <Icon className="h-5 w-5" />
                   </div>
                   <p className="text-sm font-semibold text-slate-900">{card.title}</p>
@@ -115,7 +115,7 @@ export default function ContactPage() {
       <section className="bg-slate-50">
         <div className="max-w-6xl w-[95%] mx-auto px-4 py-12 sm:py-14 grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-8 lg:gap-12 items-start">
           <div className="space-y-4">
-            <p className="text-sm font-semibold text-[#CF4B00] uppercase tracking-[0.18em]">
+            <p className="text-sm font-semibold text-[var(--brand-primary)] uppercase tracking-[0.18em]">
               Contact us
             </p>
             <h3 className="text-2xl sm:text-3xl font-bold">Aethla Cleaning Company in Doha</h3>
@@ -130,7 +130,7 @@ export default function ContactPage() {
                   <a
                     key={s.href}
                     href={s.href}
-                    className="flex h-10 w-10 items-center justify-center rounded-sm border border-slate-200 bg-white text-slate-700 transition hover:border-[#CF4B00] hover:text-[#CF4B00]"
+                    className="flex h-10 w-10 items-center justify-center rounded-sm border border-slate-200 bg-white text-slate-700 transition hover:border-[rgb(var(--brand-primary-rgb)/0.45)] hover:text-[var(--brand-primary)]"
                     aria-label={s.href}
                   >
                     <Icon className="h-5 w-5" />
@@ -146,7 +146,7 @@ export default function ContactPage() {
                 <label className="text-sm font-semibold text-slate-700">First Name</label>
                 <input
                   type="text"
-                  className="w-full rounded-sm border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#CF4B00]"
+                  className="w-full rounded-sm border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[rgb(var(--brand-primary-rgb)/0.45)]"
                   placeholder="First Name"
                 />
               </div>
@@ -154,7 +154,7 @@ export default function ContactPage() {
                 <label className="text-sm font-semibold text-slate-700">Last Name</label>
                 <input
                   type="text"
-                  className="w-full rounded-sm border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#CF4B00]"
+                  className="w-full rounded-sm border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[rgb(var(--brand-primary-rgb)/0.45)]"
                   placeholder="Last Name"
                 />
               </div>
@@ -163,7 +163,7 @@ export default function ContactPage() {
               <label className="text-sm font-semibold text-slate-700">Contact Number</label>
               <input
                 type="tel"
-                className="w-full rounded-sm border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#CF4B00]"
+                className="w-full rounded-sm border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[rgb(var(--brand-primary-rgb)/0.45)]"
                 placeholder="+974 ..."
               />
             </div>
@@ -171,7 +171,7 @@ export default function ContactPage() {
               <label className="text-sm font-semibold text-slate-700">Email</label>
               <input
                 type="email"
-                className="w-full rounded-sm border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#CF4B00]"
+                className="w-full rounded-sm border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[rgb(var(--brand-primary-rgb)/0.45)]"
                 placeholder="you@example.com"
               />
             </div>
@@ -179,13 +179,13 @@ export default function ContactPage() {
               <label className="text-sm font-semibold text-slate-700">Message</label>
               <textarea
                 rows={4}
-                className="w-full rounded-sm border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#CF4B00]"
+                className="w-full rounded-sm border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[rgb(var(--brand-primary-rgb)/0.45)]"
                 placeholder="Tell us about your space, timing, and preferences."
               />
             </div>
             <button
               type="button"
-              className="inline-flex items-center justify-center gap-2 rounded-sm bg-[#CF4B00] px-4 py-2.5 text-sm font-semibold text-white shadow-md transition hover:bg-[#b84300]"
+              className="inline-flex items-center justify-center gap-2 rounded-sm bg-[var(--brand-primary)] px-4 py-2.5 text-sm font-semibold text-white shadow-md transition hover:bg-[var(--brand-dark)]"
             >
               <Send className="h-4 w-4" />
               Send Message

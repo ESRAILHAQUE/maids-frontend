@@ -53,8 +53,8 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/55 to-white/5" />
         </div>
         <div className="relative max-w-6xl w-[95%] mx-auto px-4 py-24 sm:py-28">
-          <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#CF4B00] ring-1 ring-white/30 backdrop-blur">
-            <Sparkles className="h-4 w-4" />
+          <div className="inline-flex items-center gap-2 rounded-full text-white bg-white/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--brand-primary)] ring-1 ring-white/30 backdrop-blur">
+            <Sparkles className="h-4 w-4 text-white" />
             About Aethla
           </div>
           <h1 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
@@ -124,7 +124,7 @@ export default function AboutPage() {
                     key={item}
                     className="flex items-start gap-2 rounded-sm border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-800 shadow-sm"
                   >
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 text-[#CF4B00]" />
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 text-[var(--brand-primary)]" />
                     <span>{item}</span>
                   </div>
                 ))}
@@ -144,13 +144,13 @@ export default function AboutPage() {
               <div className="flex flex-wrap items-center gap-3">
                 <Link
                   href="/booking"
-                  className="inline-flex items-center justify-center gap-2 rounded-sm bg-[#CF4B00] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-[#CF4B00]/30 transition hover:bg-[#b84300]"
+                  className="inline-flex items-center justify-center gap-2 rounded-sm bg-[var(--brand-primary)] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-[rgb(var(--brand-dark-rgb)/0.25)] transition hover:bg-[var(--brand-dark)]"
                 >
                   Book a clean
                 </Link>
                 <Link
                   href="https://wa.me/97433337410"
-                  className="inline-flex items-center justify-center gap-2 rounded-sm border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-800 transition hover:border-[#CF4B00] hover:text-[#CF4B00]"
+                  className="inline-flex items-center justify-center gap-2 rounded-sm border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-800 transition hover:border-[rgb(var(--brand-primary-rgb)/0.45)] hover:text-[var(--brand-primary)]"
                 >
                   Chat on WhatsApp
                 </Link>
@@ -164,21 +164,21 @@ export default function AboutPage() {
       <section className="bg-slate-50">
         <div className="max-w-6xl w-[95%] mx-auto px-4 py-10 grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="rounded-sm bg-white border border-slate-200 shadow-sm p-5 flex items-start gap-3">
-            <ShieldCheck className="h-6 w-6 text-[#CF4B00]" />
+            <ShieldCheck className="h-6 w-6 text-[var(--brand-primary)]" />
             <div>
               <p className="font-semibold text-slate-900">Vetted & insured</p>
               <p className="text-sm text-slate-700">Background checks, training, and coverage for peace of mind.</p>
             </div>
           </div>
           <div className="rounded-sm bg-white border border-slate-200 shadow-sm p-5 flex items-start gap-3">
-            <Sparkles className="h-6 w-6 text-[#CF4B00]" />
+            <Sparkles className="h-6 w-6 text-[var(--brand-primary)]" />
             <div>
               <p className="font-semibold text-slate-900">QA checklists</p>
               <p className="text-sm text-slate-700">Structured tasks with photo confirmations after every visit.</p>
             </div>
           </div>
           <div className="rounded-sm bg-white border border-slate-200 shadow-sm p-5 flex items-start gap-3">
-            <Phone className="h-6 w-6 text-[#CF4B00]" />
+            <Phone className="h-6 w-6 text-[var(--brand-primary)]" />
             <div>
               <p className="font-semibold text-slate-900">Fast support</p>
               <p className="text-sm text-slate-700">Reschedule or adjust requests quickly—responses under an hour.</p>
@@ -200,7 +200,7 @@ export default function AboutPage() {
                 >
                   <summary className="flex items-center justify-between cursor-pointer text-sm sm:text-base font-semibold">
                     <span className="flex items-center gap-3">
-                      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#FFF3EB] border border-[#F7D7C3] text-[#CF4B00]">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[rgb(var(--brand-primary-rgb)/0.08)] border border-[rgb(var(--brand-primary-rgb)/0.18)] text-[var(--brand-primary)]">
                         <HelpCircle className="h-4 w-4" />
                       </div>
                       {item.q}
@@ -232,7 +232,7 @@ export default function AboutPage() {
       <section className="bg-white border-t border-slate-200">
         <div className="max-w-6xl w-[95%] mx-auto px-4 py-12 sm:py-14 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="space-y-2">
-            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#CF4B00]">
+            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--brand-primary)]">
               Ready for spotless spaces?
             </p>
             <h4 className="text-2xl font-bold text-slate-900">
@@ -245,13 +245,13 @@ export default function AboutPage() {
           <div className="flex flex-wrap gap-3">
             <Link
               href="/booking"
-              className="inline-flex items-center justify-center gap-2 rounded-sm bg-[#CF4B00] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-[#CF4B00]/30 transition hover:bg-[#b84300]"
+              className="inline-flex items-center justify-center gap-2 rounded-sm bg-[var(--brand-primary)] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-[rgb(var(--brand-dark-rgb)/0.25)] transition hover:bg-[var(--brand-dark)]"
             >
               Book a clean
             </Link>
             <Link
               href="tel:+97433337410"
-              className="inline-flex items-center justify-center gap-2 rounded-sm border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-800 transition hover:border-[#CF4B00] hover:text-[#CF4B00]"
+              className="inline-flex items-center justify-center gap-2 rounded-sm border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-800 transition hover:border-[rgb(var(--brand-primary-rgb)/0.45)] hover:text-[var(--brand-primary)]"
             >
               <Phone className="h-4 w-4" />
               +974 3333 7410

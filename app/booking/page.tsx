@@ -12,9 +12,6 @@ import { useMemo, useState, type ReactNode } from "react";
 
 type MaterialChoice = "with" | "without" | null;
 
-const BRAND_ORANGE = "#CF4B00";
-const BRAND_ORANGE_DARK = "#B84200";
-const BRAND_TEAL = "#48C2CB";
 const WHATSAPP_NUMBER = "97433337410";
 
 const steps = ["Service", "Details", "Schedule", "Contact"];
@@ -165,7 +162,7 @@ export default function BookingPage() {
         </div>
 
         <div className="relative max-w-6xl w-[95%] mx-auto px-4 py-16 sm:py-20">
-          <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#CF4B00] ring-1 ring-white/30 backdrop-blur">
+          <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--brand-primary)] ring-1 ring-white/30 backdrop-blur text-white">
             Booking
           </div>
           <h1 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
@@ -175,7 +172,7 @@ export default function BookingPage() {
             Choose your service, details, and schedule. We’ll confirm quickly and handle your priorities with a checklist-led team.
           </p>
           <div className="mt-6 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs font-semibold text-white ring-1 ring-white/20 backdrop-blur">
-            <Phone className="h-4 w-4 text-[#CF4B00]" />
+            <Phone className="h-4 w-4 text-white text-[var(--brand-primary)]" />
             Need help? Call{" "}
             <a href="tel:+97433337410" className="text-white hover:text-white/90 underline underline-offset-4">
               +974 3333 7410
@@ -185,7 +182,7 @@ export default function BookingPage() {
       </section>
 
       {/* Wizard */}
-      <section className="bg-[radial-gradient(circle_at_10%_0%,rgba(72,194,203,0.14),transparent_35%),radial-gradient(circle_at_90%_10%,rgba(207,75,0,0.12),transparent_34%),linear-gradient(to_bottom,#ffffff,#f8fafc,#ffffff)]">
+      <section className="bg-[radial-gradient(circle_at_10%_0%,rgb(var(--brand-primary-rgb)/0.12),transparent_35%),radial-gradient(circle_at_90%_10%,rgb(var(--brand-dark-rgb)/0.12),transparent_34%),linear-gradient(to_bottom,#ffffff,#f8fafc,#ffffff)]">
         <div className="max-w-6xl w-[95%] mx-auto px-4 py-10 sm:py-12 space-y-5">
           {/* Mobile step header */}
           <div className="sm:hidden rounded-sm border border-slate-200 bg-white/90 backdrop-blur shadow-sm px-4 py-4">
@@ -197,10 +194,9 @@ export default function BookingPage() {
             </div>
             <div className="mt-3 h-2 rounded-full bg-slate-100 overflow-hidden">
               <div
-                className="h-full rounded-full"
+                className="h-full rounded-full bg-linear-to-r from-[var(--brand-dark)] to-[var(--brand-primary)]"
                 style={{
                   width: `${progressPercent}%`,
-                  background: `linear-gradient(90deg, ${BRAND_ORANGE}, ${BRAND_TEAL})`,
                 }}
               />
             </div>
@@ -211,10 +207,9 @@ export default function BookingPage() {
             <div className="relative pt-2">
               <div className="absolute left-[6%] right-[6%] top-5 h-px bg-slate-200" />
               <div
-                className="absolute left-[6%] top-5 h-px rounded-full"
+                className="absolute left-[6%] top-5 h-px rounded-full bg-linear-to-r from-[var(--brand-dark)] to-[var(--brand-primary)]"
                 style={{
                   width: `${(progressPercent * 0.88).toFixed(4)}%`,
-                  background: `linear-gradient(90deg, ${BRAND_ORANGE}, ${BRAND_TEAL})`,
                 }}
               />
               <div className="relative grid grid-cols-4 gap-3">
@@ -235,9 +230,9 @@ export default function BookingPage() {
                       <div
                         className={`flex h-9 w-9 items-center justify-center rounded-full border text-xs font-semibold transition-all duration-200 ${
                           active
-                            ? "bg-white border-[#CF4B00] text-[#CF4B00] shadow-sm"
+                            ? "bg-white border-[var(--brand-primary)] text-[var(--brand-primary)] shadow-sm"
                             : done
-                            ? "bg-white border-[#48C2CB] text-[#0b9fb6]"
+                            ? "bg-white border-[rgb(var(--brand-primary-rgb)/0.40)] text-[var(--brand-primary)]"
                             : "bg-white border-slate-200 text-slate-400"
                         }`}
                       >
@@ -281,7 +276,7 @@ export default function BookingPage() {
                   </p>
                 </div>
                 <div className="hidden sm:flex items-center gap-2 text-xs font-semibold text-slate-600 rounded-full bg-slate-50 border border-slate-200 px-3 py-1">
-                  <CheckCircle2 className="h-4 w-4 text-[#CF4B00]" />
+                  <CheckCircle2 className="h-4 w-4 text-[var(--brand-primary)]" />
                   Fast confirmation
                 </div>
               </div>
@@ -300,17 +295,17 @@ export default function BookingPage() {
                             onClick={() => setService(s.label)}
                             className={`group rounded-sm border px-4 py-5 text-left transition-all duration-200 ${
                               active
-                                ? "border-[#CF4B00] bg-white shadow-md"
-                                : "border-slate-200 bg-slate-50 hover:border-[#CF4B00] hover:bg-white"
-                            } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#CF4B00] focus-visible:ring-offset-2`}
+                                ? "border-[var(--brand-primary)] bg-white shadow-md"
+                                : "border-slate-200 bg-slate-50 hover:border-[rgb(var(--brand-primary-rgb)/0.60)] hover:bg-white"
+                            } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--brand-primary-rgb)/0.45)] focus-visible:ring-offset-2`}
                             aria-pressed={active}
                           >
                             <div className="flex items-start gap-3">
                               <div
                                 className={`flex h-12 w-12 items-center justify-center rounded-sm border transition-colors ${
                                   active
-                                    ? "bg-[#CF4B00]/10 border-[#F7D7C3] text-[#CF4B00]"
-                                    : "bg-white border-slate-200 text-[#0b9fb6]"
+                                    ? "bg-[rgb(var(--brand-primary-rgb)/0.10)] border-[rgb(var(--brand-primary-rgb)/0.22)] text-[var(--brand-primary)]"
+                                    : "bg-white border-slate-200 text-[var(--brand-primary)]"
                                 }`}
                               >
                                 <Icon className="h-7 w-7" />
@@ -319,7 +314,7 @@ export default function BookingPage() {
                                 <p className="font-semibold text-slate-900">{s.label}</p>
                                 <p className="text-xs text-slate-600 mt-0.5">{s.description}</p>
                                 <p className="mt-2 text-xs font-semibold text-slate-700">
-                                  From <span className="text-[#CF4B00]">{s.price} QAR</span>
+                                  From <span className="text-[var(--brand-primary)]">{s.price} QAR</span>
                                 </p>
                               </div>
                             </div>
@@ -337,14 +332,14 @@ export default function BookingPage() {
                 {stepIndex === 1 && (
                   <>
                     <div className="flex items-start gap-2 text-xs text-slate-600 bg-slate-50 border border-slate-200 rounded-sm px-3 py-3">
-                      <CheckCircle2 className="h-4 w-4 text-[#CF4B00] mt-0.5 shrink-0" />
+                      <CheckCircle2 className="h-4 w-4 text-[var(--brand-primary)] mt-0.5 shrink-0" />
                       <span>
                         Note: 2–3 hour bookings in The Pearl area are available only by calling{" "}
-                        <a className="font-semibold text-[#CF4B00]" href="tel:+97433337410">
+                        <a className="font-semibold text-[var(--brand-primary)]" href="tel:+97433337410">
                           +974 3333 7410
                         </a>{" "}
                         or{" "}
-                        <a className="font-semibold text-[#CF4B00]" href="tel:+97444440006">
+                        <a className="font-semibold text-[var(--brand-primary)]" href="tel:+97444440006">
                           +974 4444 0006
                         </a>
                         .
@@ -398,7 +393,7 @@ export default function BookingPage() {
                       <div className="space-y-2">
                         <p className="text-sm font-semibold text-slate-800">Select date</p>
                         <div className="flex items-center gap-2 rounded-sm border border-slate-200 bg-white px-3 py-3 shadow-sm">
-                          <Calendar className="h-5 w-5 text-[#CF4B00]" />
+                          <Calendar className="h-5 w-5 text-[var(--brand-primary)]" />
                           <input
                             type="date"
                             value={date}
@@ -419,9 +414,9 @@ export default function BookingPage() {
                               onClick={() => setTime(slot.label)}
                               className={`rounded-sm border px-3 py-3 text-left transition-all duration-200 ${
                                 time === slot.label
-                                  ? "border-[#CF4B00] bg-white shadow-sm"
-                                  : "border-slate-200 bg-slate-50 hover:border-[#CF4B00] hover:bg-white"
-                              } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#CF4B00] focus-visible:ring-offset-2`}
+                                  ? "border-[var(--brand-primary)] bg-white shadow-sm"
+                                  : "border-slate-200 bg-slate-50 hover:border-[rgb(var(--brand-primary-rgb)/0.60)] hover:bg-white"
+                              } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--brand-primary-rgb)/0.45)] focus-visible:ring-offset-2`}
                               aria-pressed={time === slot.label}
                             >
                               <p className="text-sm font-semibold text-slate-900">{slot.label}</p>
@@ -453,7 +448,7 @@ export default function BookingPage() {
                               value={phoneNumber}
                               onChange={(e) => setPhoneNumber(e.target.value)}
                               onBlur={() => setPhoneTouched(true)}
-                              className={`w-full rounded-sm border px-3 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#CF4B00] ${
+                              className={`w-full rounded-sm border px-3 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[rgb(var(--brand-primary-rgb)/0.45)] ${
                                 phoneTouched && !phoneNumber ? "border-red-300 bg-red-50/40" : "border-slate-200 bg-white"
                               }`}
                               placeholder="5xxxx xxxx"
@@ -473,7 +468,7 @@ export default function BookingPage() {
                             type="text"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
-                            className="w-full rounded-sm border border-slate-200 px-3 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#CF4B00]"
+                            className="w-full rounded-sm border border-slate-200 px-3 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[rgb(var(--brand-primary-rgb)/0.45)]"
                             placeholder="Your name (optional)"
                             autoComplete="name"
                           />
@@ -483,7 +478,7 @@ export default function BookingPage() {
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            className="w-full rounded-sm border border-slate-200 px-3 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#CF4B00]"
+                            className="w-full rounded-sm border border-slate-200 px-3 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[rgb(var(--brand-primary-rgb)/0.45)]"
                             placeholder="you@example.com (optional)"
                             autoComplete="email"
                           />
@@ -494,7 +489,7 @@ export default function BookingPage() {
                         <select
                           value={area}
                           onChange={(e) => setArea(e.target.value)}
-                          className="w-full rounded-sm border border-slate-200 px-3 py-3 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#CF4B00]"
+                          className="w-full rounded-sm border border-slate-200 px-3 py-3 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[rgb(var(--brand-primary-rgb)/0.45)]"
                         >
                           <option value="">Select your area</option>
                           <option>Doha</option>
@@ -509,21 +504,21 @@ export default function BookingPage() {
                             type="text"
                             value={address.zone}
                             onChange={(e) => setAddress({ ...address, zone: e.target.value })}
-                            className="rounded-sm border border-slate-200 px-3 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#CF4B00]"
+                            className="rounded-sm border border-slate-200 px-3 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[rgb(var(--brand-primary-rgb)/0.45)]"
                             placeholder="Zone"
                           />
                           <input
                             type="text"
                             value={address.building}
                             onChange={(e) => setAddress({ ...address, building: e.target.value })}
-                            className="rounded-sm border border-slate-200 px-3 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#CF4B00]"
+                            className="rounded-sm border border-slate-200 px-3 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[rgb(var(--brand-primary-rgb)/0.45)]"
                             placeholder="Building"
                           />
                           <input
                             type="text"
                             value={address.street}
                             onChange={(e) => setAddress({ ...address, street: e.target.value })}
-                            className="rounded-sm border border-slate-200 px-3 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#CF4B00]"
+                            className="rounded-sm border border-slate-200 px-3 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[rgb(var(--brand-primary-rgb)/0.45)]"
                             placeholder="Street"
                           />
                         </div>
@@ -534,7 +529,7 @@ export default function BookingPage() {
                           rows={4}
                           value={notes}
                           onChange={(e) => setNotes(e.target.value)}
-                          className="w-full rounded-sm border border-slate-200 px-3 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#CF4B00]"
+                          className="w-full rounded-sm border border-slate-200 px-3 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[rgb(var(--brand-primary-rgb)/0.45)]"
                           placeholder="Any special instructions (optional)"
                         />
                       </Field>
@@ -591,7 +586,7 @@ function ActionRow({
           backDisabled
             ? "bg-slate-100 text-slate-400 cursor-not-allowed"
             : "bg-white text-slate-700 border border-slate-200 hover:bg-slate-50"
-        } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#CF4B00] focus-visible:ring-offset-2`}
+        } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--brand-primary-rgb)/0.45)] focus-visible:ring-offset-2`}
         onClick={backDisabled ? undefined : onBack}
         disabled={backDisabled}
       >
@@ -601,9 +596,9 @@ function ActionRow({
         type="button"
         className={`flex-1 rounded-sm font-semibold py-3 transition-all duration-200 ${
           canContinue
-            ? "bg-[#B84200] text-white shadow-[0_14px_30px_rgba(184,66,0,0.28)] hover:bg-[#9A2F00]"
+            ? "bg-[var(--brand-primary)] text-white shadow-[0_14px_30px_rgb(var(--brand-dark-rgb)/0.28)] hover:bg-[var(--brand-dark)]"
             : "bg-slate-100 text-slate-400 cursor-not-allowed"
-        } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#CF4B00] focus-visible:ring-offset-2`}
+        } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--brand-primary-rgb)/0.45)] focus-visible:ring-offset-2`}
         onClick={onNext}
         disabled={!canContinue}
       >
@@ -658,10 +653,9 @@ function DetailChooser<T extends number>({
               onClick={() => onSelect(opt)}
               className={`rounded-sm border px-3 py-3 text-center text-sm font-semibold transition-all duration-200 ${
                 active
-                  ? "bg-white shadow-sm"
-                  : "border-slate-200 bg-slate-50 hover:border-[#CF4B00] hover:bg-white"
-              } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#CF4B00] focus-visible:ring-offset-2`}
-              style={active ? { borderColor: BRAND_ORANGE } : undefined}
+                  ? "bg-white shadow-sm border-[var(--brand-primary)]"
+                  : "border-slate-200 bg-slate-50 hover:border-[rgb(var(--brand-primary-rgb)/0.60)] hover:bg-white"
+              } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--brand-primary-rgb)/0.45)] focus-visible:ring-offset-2`}
               aria-pressed={active}
             >
               {label}
@@ -690,10 +684,9 @@ function MaterialCard({
       onClick={onClick}
       className={`w-full rounded-sm border px-4 py-4 text-left text-sm font-semibold transition-all duration-200 ${
         active
-          ? "bg-white shadow-sm"
-          : "border-slate-200 bg-slate-50 hover:border-[#CF4B00] hover:bg-white"
-      } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#CF4B00] focus-visible:ring-offset-2`}
-      style={active ? { borderColor: BRAND_ORANGE } : undefined}
+          ? "bg-white shadow-sm border-[var(--brand-primary)]"
+          : "border-slate-200 bg-slate-50 hover:border-[rgb(var(--brand-primary-rgb)/0.60)] hover:bg-white"
+      } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--brand-primary-rgb)/0.45)] focus-visible:ring-offset-2`}
       aria-pressed={active}
     >
       <p className="text-sm font-semibold text-slate-900">{title}</p>
@@ -729,7 +722,7 @@ function SummaryCard({
           <p className="text-xs text-slate-600 mt-1">Review your selections — you can edit any step.</p>
         </div>
         <div
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-[#F7D7C3] bg-[#FFF3EB] text-[#CF4B00]"
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-[rgb(var(--brand-primary-rgb)/0.18)] bg-[rgb(var(--brand-primary-rgb)/0.08)] text-[var(--brand-primary)]"
           aria-hidden="true"
         >
           <Clock className="h-5 w-5" />
@@ -745,13 +738,13 @@ function SummaryCard({
       <div className="h-px bg-slate-200" />
       <div className="flex items-center justify-between text-sm font-semibold text-slate-700">
         <span>Total</span>
-        <span className="text-[#CF4B00]">{total ? `${total} QAR` : "0 QAR"}</span>
+        <span className="text-[var(--brand-primary)]">{total ? `${total} QAR` : "0 QAR"}</span>
       </div>
       <a
         href={whatsappUrl}
         target="_blank"
         rel="noreferrer"
-        className="inline-flex items-center justify-center gap-2 rounded-sm bg-[#B84200] px-5 py-3 text-sm font-semibold text-white shadow-[0_14px_30px_rgba(184,66,0,0.28)] transition hover:bg-[#9A2F00] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#CF4B00] focus-visible:ring-offset-2"
+        className="inline-flex items-center justify-center gap-2 rounded-sm bg-[var(--brand-primary)] px-5 py-3 text-sm font-semibold text-white shadow-[0_14px_30px_rgb(var(--brand-dark-rgb)/0.28)] transition hover:bg-[var(--brand-dark)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--brand-primary-rgb)/0.45)] focus-visible:ring-offset-2"
       >
         Book via WhatsApp
       </a>
@@ -761,7 +754,7 @@ function SummaryCard({
       <div className="flex items-center gap-2 text-xs text-slate-500">
         <Phone className="h-4 w-4" />
         Prefer a call?{" "}
-        <a href="tel:+97433337410" className="font-semibold text-[#CF4B00]">
+        <a href="tel:+97433337410" className="font-semibold text-[var(--brand-primary)]">
           +974 3333 7410
         </a>
       </div>
