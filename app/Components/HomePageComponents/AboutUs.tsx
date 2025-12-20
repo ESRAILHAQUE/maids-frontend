@@ -1,124 +1,108 @@
 import {
-  ArrowUpRight,
   Check,
-  Leaf,
-  ShieldCheck,
   Sparkles,
 } from "lucide-react";
 import Image from "next/image";
 
-const highlights = [
-  {
-    title: "Vetted & insured crews",
-    description: "Background-checked professionals trained for premium spaces.",
-    icon: ShieldCheck,
-  },
-  {
-    title: "Eco-forward standards",
-    description: "Hypoallergenic products that keep people and places safer.",
-    icon: Leaf,
-  },
-  {
-    title: "Detail-first execution",
-    description: "40-point checklist so nothing is missed on site.",
-    icon: Check,
-  },
-  {
-    title: "Responsive support",
-    description: "Same-day responses with clear updates you can trust.",
-    icon: Sparkles,
-  },
-];
-
-const stats = [
-  { value: "4.9/5", label: "Google rating" },
-  { value: "1,000+", label: "5-star reviews" },
-  { value: "10 yrs", label: "Premium care in Qatar" },
-];
-
 export default function AboutUs() {
-  return (
-    <section className="relative isolate overflow-hidden bg-slate-950 text-white">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(207,75,0,0.18),transparent_30%),radial-gradient(circle_at_80%_0%,rgba(72,194,203,0.16),transparent_28%)]" />
-      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-slate-950 to-transparent pointer-events-none" />
+  const promisePoints = [
+    "Premium, personalised service designed around your lifestyle",
+    "Flexible scheduling and transparent communication",
+    "Free quotes and scopes tailored to your needs",
+    "Care, precision, and pride in every environment we clean",
+  ];
 
-      <div className="relative w-[95%] mx-auto px-4 sm:px-6  py-14 sm:py-16 lg:py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-12 items-center">
+  return (
+    <section className="relative isolate overflow-hidden bg-white text-slate-900">
+      {/* Light theme gradient background (distinct from WhyChooseUs) */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgb(var(--brand-primary-rgb)/0.18),transparent_40%),radial-gradient(circle_at_92%_35%,rgb(var(--brand-primary-rgb)/0.08),transparent_44%),linear-gradient(160deg,rgb(var(--brand-primary-rgb)/0.10),transparent_60%)]" />
+      <div className="absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-white to-transparent pointer-events-none" />
+
+      <div className="relative w-[95%] mx-auto px-4 sm:px-6 py-14 sm:py-16 lg:py-20">
+        <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-12 items-start">
           {/* Content */}
           <div className="space-y-6">
-            <div className="inline-flex items-center gap-2 rounded-full bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[#CF4B00] ring-1 ring-white/10">
+            <div className="inline-flex items-center gap-2 rounded-full bg-[rgb(var(--brand-soft-rgb)/1)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-primary)] ring-1 ring-[rgb(var(--brand-primary-rgb)/0.18)]">
               <Sparkles className="h-3.5 w-3.5" />
-              About Aethla
+              Aethla Cleaning and Hospitality
             </div>
 
             <div className="space-y-3">
-              <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-semibold leading-tight text-white">
-                Professional home and commercial cleaning trusted across Qatar.
+              <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-semibold leading-tight text-slate-900">
+                Life, made possible.
               </h2>
-              <p className="text-sm md:text-base text-slate-200 leading-relaxed max-w-2xl">
-                Aethla combines meticulous maid service with clear communication.
-                From routine upkeep to deep moves and office refreshes, every crew
-                follows a documented standard so each visit feels consistent,
-                thorough, and spotless.
+              <p className="text-sm md:text-base text-slate-600 leading-relaxed max-w-2xl">
+                Life is too valuable to spend it scrubbing, mopping, and stressing over mess. We give
+                you back what matters most—your time, your peace, and your space.
+              </p>
+              <p className="text-sm md:text-base text-slate-600 leading-relaxed max-w-2xl">
+                More than just a clean, Aethla delivers a premium, personalised cleaning and hospitality
+                experience designed around your lifestyle—so every day feels effortless and elevated.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
-              {highlights.map(({ title, description, icon: Icon }) => (
-                <div
-                  key={title}
-                  className="group relative overflow-hidden rounded-sm border border-white/5 bg-white/5 px-4 py-5 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-[#CF4B00]/40 hover:bg-white/10"
-                >
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-br from-[#CF4B00]/10 via-transparent to-[#48C2CB]/10" />
-                  <div className="relative flex items-start gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-[#CF4B00] to-[#B84200] text-white shadow-lg">
-                      <Icon className="h-5 w-5" />
-                    </div>
-                    <div className="space-y-1">
-                      <h3 className="text-sm md:text-base font-semibold text-white">
-                        {title}
-                      </h3>
-                      <p className="text-xs md:text-sm text-slate-200 leading-relaxed">
-                        {description}
-                      </p>
-                    </div>
+            <div className="relative overflow-hidden rounded-sm border border-slate-200 bg-white shadow-sm">
+              <div className="p-5 md:p-6">
+                <div className="flex items-start gap-3">
+                  <div className="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[rgb(var(--brand-soft-rgb)/1)] text-[var(--brand-primary)] ring-1 ring-[rgb(var(--brand-primary-rgb)/0.18)]">
+                    <Sparkles className="h-5 w-5" />
+                  </div>
+                  <div className="min-w-0">
+                    <h3 className="text-lg font-semibold text-slate-900">
+                      Our 5-Star Promise
+                    </h3>
+                    <p className="mt-1 text-sm text-slate-600 leading-relaxed">
+                      Exceptional results and outstanding service at every touchpoint.
+                    </p>
                   </div>
                 </div>
-              ))}
+
+                <div className="mt-4 h-px bg-slate-200/70" />
+
+                <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 text-sm text-slate-700 leading-relaxed">
+                  {promisePoints.map((item) => (
+                    <li key={item} className="flex gap-2">
+                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--brand-primary)]" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
           </div>
 
           {/* Visual */}
           <div className="relative">
-            <div className="absolute -left-6 -top-6 h-28 w-28 rounded-full bg-[#48C2CB]/15 blur-3xl" />
-            <div className="absolute -right-4 bottom-6 h-32 w-32 rounded-full bg-[#CF4B00]/20 blur-3xl" />
+            <div className="absolute -left-6 -top-6 h-28 w-28 rounded-full bg-[rgb(var(--brand-primary-rgb)/0.10)] blur-3xl" />
+            <div className="absolute -right-4 bottom-6 h-32 w-32 rounded-full bg-[rgb(var(--brand-primary-rgb)/0.12)] blur-3xl" />
 
-            <div className="relative overflow-hidden rounded-sm border border-white/10 bg-white/5 shadow-[0_20px_80px_rgba(0,0,0,0.45)]">
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-transparent" />
+            <div className="relative h-[420px] sm:h-[470px] lg:h-[520px] overflow-hidden rounded-sm border border-slate-200 bg-white shadow-[0_20px_80px_rgba(15,23,42,0.12)]">
+              <div className="absolute inset-0 bg-linear-to-t from-slate-900/35 via-transparent to-transparent" />
               <Image
                 src="https://plus.unsplash.com/premium_photo-1682097409792-354d4d544753?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aG90ZWwlMjBtYWlkfGVufDB8fDB8fHww"
                 alt="Aethla maid team preparing together"
-                width={800}
-                height={960}
-                className="h-full w-full object-cover"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 95vw, 50vw"
                 priority
               />
 
-              <div className="absolute bottom-4 left-4 right-4 grid grid-cols-3 gap-2">
-                {stats.map((stat) => (
-                  <div
-                    key={stat.label}
-                    className="rounded-sm bg-slate-950/70 px-3 py-3 text-center shadow-lg ring-1 ring-white/5 backdrop-blur"
-                  >
-                    <div className="text-lg font-semibold text-white">
-                      {stat.value}
-                    </div>
-                    <div className="text-[11px] uppercase tracking-wide text-slate-300">
-                      {stat.label}
-                    </div>
+              <div className="absolute bottom-4 left-4 right-4 rounded-sm bg-white/90 px-4 py-4 shadow-lg ring-1 ring-slate-200 backdrop-blur">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm">
+                  <div>
+                    <div className="font-semibold text-slate-900">Flexible scheduling</div>
+                    <div className="mt-0.5 text-xs text-slate-600">Built around your routine.</div>
                   </div>
-                ))}
+                  <div>
+                    <div className="font-semibold text-slate-900">Free quotes</div>
+                    <div className="mt-0.5 text-xs text-slate-600">Transparent and simple.</div>
+                  </div>
+                  <div>
+                    <div className="font-semibold text-slate-900">Tailored service</div>
+                    <div className="mt-0.5 text-xs text-slate-600">Designed for your needs.</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

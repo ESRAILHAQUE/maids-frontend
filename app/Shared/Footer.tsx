@@ -40,7 +40,7 @@ const socials = [
 export default function Footer() {
   return (
     <footer className="relative w-full bg-slate-950 text-slate-100 border-t border-slate-900 overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_10%_20%,rgba(207,75,0,0.14),transparent_32%),radial-gradient(circle_at_80%_10%,rgba(255,255,255,0.08),transparent_34%),linear-gradient(135deg,rgba(255,255,255,0.04),rgba(0,0,0,0.12))]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_10%_20%,rgb(var(--brand-primary-rgb)/0.18),transparent_32%),radial-gradient(circle_at_80%_10%,rgba(255,255,255,0.08),transparent_34%),linear-gradient(135deg,rgba(255,255,255,0.04),rgba(0,0,0,0.12))]" />
       <div className="relative w-[95%] max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-14">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
 
@@ -52,8 +52,9 @@ export default function Footer() {
                 style={{
                   clipPath:
                     "polygon(25% 6%, 75% 6%, 94% 50%, 75% 94%, 25% 94%, 6% 50%)",
-                  background: "linear-gradient(135deg, #cf4b00, #9a2f00)",
-                  boxShadow: "0 12px 25px rgba(207, 75, 0, 0.3)",
+                  background:
+                    "linear-gradient(135deg, var(--brand-primary), var(--brand-dark))",
+                  boxShadow: "0 12px 25px rgb(var(--brand-primary-rgb) / 0.22)",
                 }}
               >
                 A
@@ -68,7 +69,7 @@ export default function Footer() {
               services in Qatar, crafted to create a spotless, organized, and
               healthy environment for your home or workplace.
             </p>
-            <div className="inline-flex items-center gap-3 rounded-sm bg-[#CF4B00] px-4 py-2 text-white font-semibold shadow-[0_12px_28px_rgba(207,75,0,0.35)]">
+            <div className="inline-flex items-center gap-3 rounded-sm bg-[var(--brand-primary)] px-4 py-2 text-white font-semibold shadow-[0_12px_28px_rgb(var(--brand-primary-rgb)/0.22)]">
               <Phone className="h-4 w-4 text-white" />
               <span>+974 3333 7410</span>
             </div>
@@ -83,7 +84,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="hover:text-[#CF4B00] transition-colors"
+                    className="hover:text-[var(--brand-primary)] transition-colors"
                   >
                     {link.label}
                   </a>
@@ -101,7 +102,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="hover:text-[#CF4B00] transition-colors"
+                    className="hover:text-[var(--brand-primary)] transition-colors"
                   >
                     {link.label}
                   </a>
@@ -119,14 +120,14 @@ export default function Footer() {
               <p>Email: info@aethla.com</p>
             </div>
             <div className="flex items-center gap-4">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#CF4B00] text-white shadow-[0_10px_25px_rgba(207,75,0,0.4)]">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--brand-primary)] text-white shadow-[0_10px_25px_rgb(var(--brand-primary-rgb)/0.28)]">
                 <Phone className="h-5 w-5" />
               </div>
               <div className="space-y-1 text-sm">
                 <p className="text-slate-400">Call Us Now</p>
                 <a
                   href="tel:+97433337410"
-                  className="text-base font-semibold text-white hover:text-[#CF4B00] transition-colors"
+                  className="text-base font-semibold text-white hover:text-[var(--brand-primary)] transition-colors"
                 >
                   +974 3333 7410
                 </a>
@@ -138,7 +139,7 @@ export default function Footer() {
                   key={item.label}
                   href={item.href}
                   aria-label={item.label}
-                  className="flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-white/5 transition hover:border-[#CF4B00] hover:text-[#CF4B00] shadow-[0_10px_25px_rgba(0,0,0,0.35)]"
+                  className="flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-white/5 transition hover:border-[rgb(var(--brand-primary-rgb)/0.65)] hover:text-[var(--brand-primary)] shadow-[0_10px_25px_rgba(0,0,0,0.35)]"
                 >
                   <item.icon className="h-4 w-4" />
                 </a>
@@ -150,11 +151,11 @@ export default function Footer() {
         <div className="mt-10 border-t border-white/10 pt-6 text-xs text-slate-400 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} Aethla. All rights reserved.</p>
           <div className="flex items-center gap-3">
-            <a href="#privacy" className="hover:text-[#CF4B00] transition">
+            <a href="#privacy" className="hover:text-[var(--brand-primary)] transition">
               Privacy
             </a>
             <span className="text-slate-400">•</span>
-            <a href="#terms" className="hover:text-[#CF4B00] transition">
+            <a href="#terms" className="hover:text-[var(--brand-primary)] transition">
               Terms
             </a>
           </div>

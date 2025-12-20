@@ -1,9 +1,9 @@
 import Banner from "./Components/HomePageComponents/Banner";
-import Statistics from "./Components/HomePageComponents/Statistics";
+
 import AboutUs from "./Components/HomePageComponents/AboutUs";
 import WhyChooseUs from "./Components/HomePageComponents/WhyChooseUs";
 import OurServices from "./Components/HomePageComponents/OurServices";
-import RecentPartnerships from "./Components/HomePageComponents/RecentPartnerships";
+
 import OurTeam from "./Components/HomePageComponents/OurTeam";
 import CommercialCleaningCTA from "./Components/HomePageComponents/CommercialCleaningCTA";
 import WorkingProcess from "./Components/HomePageComponents/WorkingProcess";
@@ -16,10 +16,8 @@ export default function Home() {
     <main className="min-h-screen">
       <Banner />
       <AboutUs />
-      <Statistics />
       <WhyChooseUs />
       <OurServices />
-      <RecentPartnerships />
       <OurTeam />
       <CommercialCleaningCTA />
       <WorkingProcess />

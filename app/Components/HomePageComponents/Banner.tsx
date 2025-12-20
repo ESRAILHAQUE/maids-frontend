@@ -68,9 +68,9 @@ export default function Banner() {
           </div>
         ))}
         {/* Gradient Overlay - Professional Dark Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 via-gray-800/75 to-gray-900/70"></div>
+        <div className="absolute inset-0 bg-linear-to-r from-gray-900/80 via-gray-800/75 to-gray-900/70"></div>
         {/* Accent Color Overlay - Subtle Orange Tint */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#CF4B00]/20 via-transparent to-transparent"></div>
+        <div className="absolute inset-0 bg-linear-to-br from-[rgb(var(--brand-primary-rgb)/0.18)] via-transparent to-transparent"></div>
         {/* Subtle Pattern Overlay */}
         <div 
           className="absolute inset-0 opacity-5" 
@@ -105,14 +105,6 @@ export default function Banner() {
             {/* Trust Indicators */}
             <div className="flex flex-wrap items-center gap-4 sm:gap-6 pt-2">
               <div className="flex items-center gap-2">
-                <div className="flex items-center gap-0.5">
-                  {Array.from({ length: 5 }, (_, i) => (
-                    <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 fill-yellow-400 text-yellow-400" />
-                  ))}
-                </div>
-                <span className="text-[10px] sm:text-xs font-semibold">4.9/5 Rating</span>
-              </div>
-              <div className="flex items-center gap-2">
                 <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 <span className="text-[10px] sm:text-xs">5000+ Happy Clients</span>
               </div>
@@ -125,7 +117,7 @@ export default function Banner() {
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 md:gap-5 pt-2">
               {/* Book A Schedule Button */}
-              <button className="group flex items-center justify-center gap-2 bg-[#C54700] hover:bg-[#C54700] text-white px-5 sm:px-6 md:px-7 lg:px-8 xl:px-10 py-2.5 sm:py-3 md:py-3.5 lg:py-4 rounded-sm cursor-pointer font-semibold text-xs sm:text-sm md:text-base shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95">
+              <button className="group flex items-center justify-center gap-2 bg-[var(--brand-primary)] hover:bg-[var(--brand-dark)] text-white px-5 sm:px-6 md:px-7 lg:px-8 xl:px-10 py-2.5 sm:py-3 md:py-3.5 lg:py-4 rounded-sm cursor-pointer font-semibold text-xs sm:text-sm md:text-base shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95">
                 <Calendar className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:scale-110" />
                 <span>Book A Schedule</span>
               </button>
@@ -135,7 +127,7 @@ export default function Banner() {
                 <span className="text-[11px] sm:text-xs md:text-sm">Need Any Help?</span>
                 <a
                   href="#contact"
-                  className="text-[11px] sm:text-xs md:text-sm font-semibold underline underline-offset-2 sm:underline-offset-4 hover:text-[#FFE5E3] transition-colors duration-300"
+                  className="text-[11px] sm:text-xs md:text-sm font-semibold underline underline-offset-2 sm:underline-offset-4 hover:text-[rgb(var(--brand-soft-rgb)/1)] transition-colors duration-300"
                 >
                   Contact Us
                 </a>

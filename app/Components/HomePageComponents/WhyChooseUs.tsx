@@ -1,97 +1,69 @@
 "use client";
 
-import { CheckCircle2, Clock3, ShieldCheck, Sparkles } from "lucide-react";
+import { Check, Sparkles } from "lucide-react";
 import Image from "next/image";
 
 export default function WhyChooseUs() {
-  const reasons = [
-    {
-      title: "Maid-first expertise",
-      description:
-        "Trained housekeepers who follow a documented checklist for every visit.",
-      icon: Sparkles,
-    },
-    {
-      title: "Trusted and vetted",
-      description:
-        "Background checks, ID verification, and on-site quality audits each month.",
-      icon: ShieldCheck,
-    },
-    {
-      title: "On-time, every time",
-      description:
-        "Tight scheduling windows with proactive updates so you are never guessing.",
-      icon: Clock3,
-    },
-    {
-      title: "Eco-safe supplies",
-      description:
-        "Skin-safe, low-scent products chosen for homes with kids and pets.",
-      icon: CheckCircle2,
-    },
+  const promises = [
+    "Personalised cleaning solutions tailored to your needs",
+    "Professional, reliable, and detail-oriented team",
+    "Flexible scheduling to suit your routine and lifestyle",
+    "Free, transparent quotes with no surprises",
+    "Consistent, high-quality results you can rely on",
+    "Friendly communication and dependable service",
   ];
 
   return (
-    <section className="relative isolate overflow-hidden bg-slate-950 py-16 md:py-20 text-white">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(72,194,203,0.14),transparent_30%),radial-gradient(circle_at_85%_10%,rgba(207,75,0,0.14),transparent_26%)]" />
-      <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-slate-950 to-transparent pointer-events-none" />
+    <section className="relative isolate overflow-hidden bg-white py-16 md:py-20 text-slate-900">
+      {/* Light theme gradient background (distinct from AboutUs) */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_65%_15%,rgb(var(--brand-primary-rgb)/0.14),transparent_40%),radial-gradient(circle_at_12%_80%,rgb(var(--brand-primary-rgb)/0.10),transparent_46%),linear-gradient(25deg,rgb(var(--brand-primary-rgb)/0.08),transparent_65%)]" />
+      <div className="absolute inset-x-0 bottom-0 h-24 bg-linear-to-t from-white to-transparent pointer-events-none" />
 
       <div className="relative w-[95%]  mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-12 items-center">
           {/* Left Column - Content */}
           <div className="space-y-6">
-            <div className="inline-flex items-center gap-2 rounded-full bg-white/5 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#CF4B00] ring-1 ring-white/10">
-              Why choose us
+            <div className="inline-flex items-center gap-2 rounded-full bg-[rgb(var(--brand-soft-rgb)/1)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--brand-primary)] ring-1 ring-[rgb(var(--brand-primary-rgb)/0.18)]">
+              <Sparkles className="h-3.5 w-3.5" />
+              Why Choose Aethla
             </div>
             <div className="space-y-3">
-              <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-semibold leading-tight text-white">
-                Maid-focused cleaning teams that show up prepared and on time.
+              <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-semibold leading-tight text-slate-900">
+                Choosing Aethla Cleaning and Hospitality means choosing quality,
+                reliability, and complete peace of mind.
               </h2>
-              <p className="text-sm md:text-base text-slate-200/90 max-w-2xl">
-                Every visit is checklist-driven, supervisor-audited, and backed
-                by hotel-grade standards adapted for homes and offices across
-                Qatar.
+            </div>
+
+            <div className="rounded-sm border border-slate-200 bg-white shadow-sm p-5 md:p-6">
+              <h3 className="text-base md:text-lg font-semibold text-slate-900">
+                Our 5-Star Promise
+              </h3>
+              <p className="mt-2 text-sm md:text-base text-slate-600 leading-relaxed">
+                We are committed to delivering exceptional service at every visit. We don’t just
+                clean—we care about the experience we create for our clients, from the first contact
+                to the final result.
               </p>
+
+              <ul className="mt-4 space-y-2 text-sm text-slate-700 leading-relaxed">
+                {promises.map((item) => (
+                  <li key={item} className="flex gap-2">
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--brand-primary)]" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {reasons.map(({ title, description, icon: Icon }) => (
-                <div
-                  key={title}
-                  className="group rounded-sm border border-white/10 bg-white/5 px-4 py-5 shadow-[0_14px_40px_rgba(0,0,0,0.35)] backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-[#CF4B00]/30 hover:bg-white/10"
-                >
-                  <div className="flex items-start gap-3">
-                    <div className="mt-0.5 rounded-lg bg-[#CF4B00]/15 text-[#CF4B00] p-2 ring-1 ring-white/10">
-                      <Icon className="h-5 w-5" />
-                    </div>
-                    <div className="space-y-1">
-                      <h3 className="text-base md:text-lg font-semibold text-white">
-                        {title}
-                      </h3>
-                      <p className="text-sm text-slate-200/85 leading-relaxed">
-                        {description}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 pt-2">
-              <button className="inline-flex items-center justify-center gap-2 rounded-sm cursor-pointer bg-[#CF4B00] px-5 py-3 text-sm font-semibold text-white shadow-[0_12px_40px_rgba(207,75,0,0.45)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#b84200]">
-                Book a maid visit
-              </button>
-              <button className="inline-flex items-center justify-center gap-2 rounded-sm cursor-pointer bg-white/10 px-5 py-3 text-sm font-semibold text-white ring-1 ring-white/15 transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/15">
-                Talk to our team
-              </button>
-            </div>
+            <p className="text-sm md:text-base text-slate-600 leading-relaxed">
+              We understand how overwhelming life can get. Our mission is simple: to make your life
+              easier by creating clean, calm, and welcoming spaces you can truly enjoy.
+            </p>
           </div>
 
           {/* Right Column - Image */}
           <div className="relative">
-            <div className="relative w-full h-[420px] sm:h-[470px] md:h-[520px] rounded-sm  overflow-hidden border border-white/10 bg-white/5 shadow-[0_20px_90px_rgba(0,0,0,0.55)]">
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/45 via-transparent to-transparent" />
+            <div className="relative w-full h-[420px] sm:h-[470px] md:h-[520px] rounded-sm  overflow-hidden border border-slate-200 bg-white shadow-[0_20px_90px_rgba(15,23,42,0.12)]">
+              <div className="absolute inset-0 bg-linear-to-t from-slate-900/35 via-transparent to-transparent" />
               <Image
                 src="https://plus.unsplash.com/premium_photo-1682097409792-354d4d544753?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aG90ZWwlMjBtYWlkfGVufDB8fDB8fHww"
                 alt="Maid team preparing cleaning supplies"
