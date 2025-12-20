@@ -30,13 +30,6 @@ const highlights = [
   "24-hour satisfaction follow-up: we’ll make it right",
 ];
 
-const metrics = [
-  { label: "Recurring clients", value: "320+" },
-  { label: "Avg. rating", value: "4.9/5" },
-  { label: "On-time visits", value: "98%" },
-  { label: "Supervised crews", value: "100%" },
-];
-
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-white text-slate-900">
@@ -53,18 +46,17 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/55 to-white/5" />
         </div>
         <div className="relative max-w-6xl w-[95%] mx-auto px-4 py-24 sm:py-28">
-          <div className="inline-flex items-center gap-2 rounded-full text-white bg-white/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--brand-primary)] ring-1 ring-white/30 backdrop-blur">
+          <div className="inline-flex items-center gap-2 rounded-full text-white bg-white/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] ring-1 ring-white/30 backdrop-blur">
             <Sparkles className="h-4 w-4 text-white" />
             About Aethla
           </div>
           <h1 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
-            Your time matters. We give it back.
+            Aethla Cleaning and Hospitality{" "}
+            <span className="block">Life, made possible.</span>
           </h1>
           <p className="mt-4 max-w-2xl text-sm sm:text-base text-white/90 leading-relaxed">
-            Aethla is more than a cleaning service—we restore balance to busy lives by
-            taking care of the spaces you value. With trained, trusted teams and clear
-            communication, we keep homes and workplaces spotless so you can focus on
-            what’s important.
+            Life is too valuable to spend it scrubbing, mopping, and stressing over mess. At Aethla Cleaning
+            and Hospitality, we give you back what matters most—your time, your peace, and your space.
           </p>
           <div className="mt-6 flex flex-wrap items-center gap-3 text-sm text-white/85">
             <Link href="/" className="hover:text-white transition-colors">
@@ -77,54 +69,48 @@ export default function AboutPage() {
       </section>
 
       {/* Story */}
-      <section className="bg-white">
-        <div className="max-w-6xl w-[95%] mx-auto px-4 py-12 sm:py-16 space-y-10">
-          <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-10 items-center">
-            <div className="space-y-4">
-              <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900">
-                Exceptional cleaning, delivered with care
-              </h2>
-              <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
-                We built Aethla to bring reliable, detail-driven cleaning to homes and
-                businesses across Qatar. From spotless bathrooms to polished workstations,
-                our teams follow structured checklists, use vetted supplies, and share
-                photo confirmations so you always know the job is done right.
-              </p>
-              <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
-                Every cleaner is trained, background-checked, and supported by supervisors
-                who audit quality. You’ll get flexible scheduling, rapid responses, and
-                transparent pricing—no surprises, just consistently clean spaces.
-              </p>
-            </div>
-            <div className="relative h-72 sm:h-80 overflow-hidden rounded-sm border border-slate-100 shadow-xl">
-              <Image
-                src="/images/TeamPic.jpg"
-                alt="Aethla team"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                priority
-              />
-            </div>
-          </div>
+      <section className="relative bg-white">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_12%,rgb(var(--brand-primary-rgb)/0.10),transparent_42%),radial-gradient(circle_at_86%_32%,rgb(var(--brand-primary-rgb)/0.06),transparent_48%),linear-gradient(180deg,transparent,rgb(var(--brand-primary-rgb)/0.03),transparent)]" />
+        <div className="relative max-w-6xl w-[95%] mx-auto px-4 py-12 sm:py-16">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-10 items-start">
+            <div className="space-y-5">
+              <div className="space-y-3">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-(--brand-primary)">
+                  About Aethla
+                </p>
+                <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900">
+                  Life, made possible.
+                </h2>
+              </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-10 items-start">
-            <div className="space-y-4">
-              <h3 className="text-xl sm:text-2xl font-semibold text-slate-900">
-                You expect a lot—so we deliver more
-              </h3>
-              <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
-                No two spaces are the same. We listen first, tailor a plan, and adapt as
-                your needs change. Share your preferences, sensitive areas, or eco-friendly
-                requests; we’ll align the crew, supplies, and timing to fit.
-              </p>
+              <div className="space-y-4 text-sm sm:text-base text-slate-700 leading-relaxed">
+                <p>
+                  Life is too valuable to spend it scrubbing, mopping, and stressing over mess. At Aethla Cleaning
+                  and Hospitality, we give you back what matters most—your time, your peace, and your space.
+                </p>
+                <p>
+                  Whether you’re balancing work, family, or simply craving moments to breathe and enjoy life, we’re
+                  here to lighten the load.
+                </p>
+                <p>
+                  More than just a clean, Aethla delivers a premium, personalised cleaning and hospitality
+                  experience designed around your lifestyle. With flexible scheduling, transparent communication,
+                  free quotes, and services tailored to your unique needs, we make everyday life feel effortless and
+                  elevated.
+                </p>
+                <p>
+                  From homes to hospitality spaces, we treat every environment with care, precision, and pride—so
+                  you can walk into a space that feels calm, refreshed, and truly yours.
+                </p>
+              </div>
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {highlights.map((item) => (
                   <div
                     key={item}
                     className="flex items-start gap-2 rounded-sm border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-800 shadow-sm"
                   >
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 text-[var(--brand-primary)]" />
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 text-(--brand-primary)" />
                     <span>{item}</span>
                   </div>
                 ))}
@@ -132,56 +118,76 @@ export default function AboutPage() {
             </div>
 
             <div className="space-y-4">
-              <h3 className="text-xl sm:text-2xl font-semibold text-slate-900">
-                The team you can trust
-              </h3>
-              <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
-                Training is mandatory for every cleaner before entering your home or
-                office. Supervised shifts, periodic audits, and real-time checklists keep
-                standards high. If anything isn’t perfect, our 24-hour satisfaction
-                follow-up means we’ll return and make it right.
-              </p>
+              <div className="rounded-sm border border-slate-200 bg-white shadow-sm p-5 sm:p-6">
+                <div className="flex items-start gap-3">
+                  <div className="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[rgb(var(--brand-primary-rgb)/0.10)] text-(--brand-primary)">
+                    <Sparkles className="h-5 w-5" />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-(--brand-primary)">
+                      Our 5-Star Promise
+                    </p>
+                    <p className="mt-1 text-lg font-semibold text-slate-900">
+                      Exceptional results. Outstanding service.
+                    </p>
+                  </div>
+                </div>
+
+                <p className="mt-4 text-sm sm:text-base text-slate-700 leading-relaxed">
+                  We are committed to exceptional results and outstanding service at every touchpoint. We don’t just
+                  meet expectations—we anticipate them. Our growing community of loyal, satisfied clients reflects
+                  our dedication to consistency, quality, and trust.
+                </p>
+
+                <div className="mt-5 h-px bg-slate-200" />
+
+                <p className="mt-5 text-sm sm:text-base font-semibold text-slate-900">
+                  Stop sacrificing your nights and weekends to cleaning.
+                </p>
+                <p className="mt-2 text-sm sm:text-base text-slate-700 leading-relaxed">
+                  Let Aethla Cleaning and Hospitality take care of the details—so you can enjoy your home, your time,
+                  and your life.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 gap-3">
+                <div className="rounded-sm border border-slate-200 bg-white p-4 shadow-sm flex items-start gap-3">
+                  <ShieldCheck className="h-5 w-5 text-(--brand-primary) mt-0.5" />
+                  <div>
+                    <p className="font-semibold text-slate-900">Trusted teams</p>
+                    <p className="text-sm text-slate-700">Vetted, trained, and supported by supervisors.</p>
+                  </div>
+                </div>
+                <div className="rounded-sm border border-slate-200 bg-white p-4 shadow-sm flex items-start gap-3">
+                  <Sparkles className="h-5 w-5 text-(--brand-primary) mt-0.5" />
+                  <div>
+                    <p className="font-semibold text-slate-900">Premium standards</p>
+                    <p className="text-sm text-slate-700">Checklists-led cleaning with consistent quality.</p>
+                  </div>
+                </div>
+                <div className="rounded-sm border border-slate-200 bg-white p-4 shadow-sm flex items-start gap-3">
+                  <Phone className="h-5 w-5 text-(--brand-primary) mt-0.5" />
+                  <div>
+                    <p className="font-semibold text-slate-900">Clear communication</p>
+                    <p className="text-sm text-slate-700">Fast responses, flexible scheduling, free quotes.</p>
+                  </div>
+                </div>
+              </div>
+
               <div className="flex flex-wrap items-center gap-3">
                 <Link
                   href="/booking"
-                  className="inline-flex items-center justify-center gap-2 rounded-sm bg-[var(--brand-primary)] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-[rgb(var(--brand-dark-rgb)/0.25)] transition hover:bg-[var(--brand-dark)]"
+                  className="inline-flex items-center justify-center gap-2 rounded-sm bg-(--brand-primary) px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-[rgb(var(--brand-dark-rgb)/0.25)] transition hover:bg-(--brand-dark)"
                 >
                   Book a clean
                 </Link>
                 <Link
                   href="https://wa.me/97433337410"
-                  className="inline-flex items-center justify-center gap-2 rounded-sm border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-800 transition hover:border-[rgb(var(--brand-primary-rgb)/0.45)] hover:text-[var(--brand-primary)]"
+                  className="inline-flex items-center justify-center gap-2 rounded-sm border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-800 transition hover:border-[rgb(var(--brand-primary-rgb)/0.45)] hover:text-(--brand-primary)"
                 >
                   Chat on WhatsApp
                 </Link>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Trust badges */}
-      <section className="bg-slate-50">
-        <div className="max-w-6xl w-[95%] mx-auto px-4 py-10 grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="rounded-sm bg-white border border-slate-200 shadow-sm p-5 flex items-start gap-3">
-            <ShieldCheck className="h-6 w-6 text-[var(--brand-primary)]" />
-            <div>
-              <p className="font-semibold text-slate-900">Vetted & insured</p>
-              <p className="text-sm text-slate-700">Background checks, training, and coverage for peace of mind.</p>
-            </div>
-          </div>
-          <div className="rounded-sm bg-white border border-slate-200 shadow-sm p-5 flex items-start gap-3">
-            <Sparkles className="h-6 w-6 text-[var(--brand-primary)]" />
-            <div>
-              <p className="font-semibold text-slate-900">QA checklists</p>
-              <p className="text-sm text-slate-700">Structured tasks with photo confirmations after every visit.</p>
-            </div>
-          </div>
-          <div className="rounded-sm bg-white border border-slate-200 shadow-sm p-5 flex items-start gap-3">
-            <Phone className="h-6 w-6 text-[var(--brand-primary)]" />
-            <div>
-              <p className="font-semibold text-slate-900">Fast support</p>
-              <p className="text-sm text-slate-700">Reschedule or adjust requests quickly—responses under an hour.</p>
             </div>
           </div>
         </div>
@@ -200,7 +206,7 @@ export default function AboutPage() {
                 >
                   <summary className="flex items-center justify-between cursor-pointer text-sm sm:text-base font-semibold">
                     <span className="flex items-center gap-3">
-                      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[rgb(var(--brand-primary-rgb)/0.08)] border border-[rgb(var(--brand-primary-rgb)/0.18)] text-[var(--brand-primary)]">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[rgb(var(--brand-primary-rgb)/0.08)] border border-[rgb(var(--brand-primary-rgb)/0.18)] text-(--brand-primary)">
                         <HelpCircle className="h-4 w-4" />
                       </div>
                       {item.q}
@@ -214,15 +220,45 @@ export default function AboutPage() {
                 </details>
               ))}
             </div>
-            <div className="relative h-64 sm:h-72 rounded-sm overflow-hidden border border-slate-200 shadow-lg">
-              <Image
-                src="/images/Helping.jpg"
-                alt="Cleaning team at work"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 45vw"
-                priority
-              />
+            <div className="rounded-sm border border-slate-200 bg-white shadow-sm p-5 sm:p-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-(--brand-primary)">
+                Support
+              </p>
+              <h4 className="mt-2 text-lg font-semibold text-slate-900">
+                Need help choosing the right service?
+              </h4>
+              <p className="mt-2 text-sm text-slate-700 leading-relaxed">
+                Tell us your space type and timing. We’ll recommend the best plan and confirm quickly.
+              </p>
+              <div className="mt-5 space-y-3">
+                <a
+                  href="tel:+97433337410"
+                  className="flex items-center justify-between gap-3 rounded-sm border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-900 hover:border-[rgb(var(--brand-primary-rgb)/0.45)]"
+                >
+                  <span className="flex items-center gap-2 text-slate-700">
+                    <Phone className="h-4 w-4 text-(--brand-primary)" />
+                    Call
+                  </span>
+                  <span className="text-(--brand-primary)">+974 3333 7410</span>
+                </a>
+                <a
+                  href="https://wa.me/97433337410"
+                  className="flex items-center justify-between gap-3 rounded-sm border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-900 hover:border-[rgb(var(--brand-primary-rgb)/0.45)]"
+                >
+                  <span className="flex items-center gap-2 text-slate-700">
+                    <Sparkles className="h-4 w-4 text-(--brand-primary)" />
+                    WhatsApp
+                  </span>
+                  <span className="text-(--brand-primary)">Message us</span>
+                </a>
+              </div>
+              <div className="mt-5 h-px bg-slate-200" />
+              <Link
+                href="/booking"
+                className="mt-5 inline-flex w-full items-center justify-center rounded-sm bg-(--brand-primary) px-5 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-(--brand-dark)"
+              >
+                Book in minutes
+              </Link>
             </div>
           </div>
         </div>
@@ -232,7 +268,7 @@ export default function AboutPage() {
       <section className="bg-white border-t border-slate-200">
         <div className="max-w-6xl w-[95%] mx-auto px-4 py-12 sm:py-14 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="space-y-2">
-            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--brand-primary)]">
+            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-(--brand-primary)">
               Ready for spotless spaces?
             </p>
             <h4 className="text-2xl font-bold text-slate-900">
@@ -245,13 +281,13 @@ export default function AboutPage() {
           <div className="flex flex-wrap gap-3">
             <Link
               href="/booking"
-              className="inline-flex items-center justify-center gap-2 rounded-sm bg-[var(--brand-primary)] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-[rgb(var(--brand-dark-rgb)/0.25)] transition hover:bg-[var(--brand-dark)]"
+              className="inline-flex items-center justify-center gap-2 rounded-sm bg-(--brand-primary) px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-[rgb(var(--brand-dark-rgb)/0.25)] transition hover:bg-(--brand-dark)"
             >
               Book a clean
             </Link>
             <Link
               href="tel:+97433337410"
-              className="inline-flex items-center justify-center gap-2 rounded-sm border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-800 transition hover:border-[rgb(var(--brand-primary-rgb)/0.45)] hover:text-[var(--brand-primary)]"
+              className="inline-flex items-center justify-center gap-2 rounded-sm border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-800 transition hover:border-[rgb(var(--brand-primary-rgb)/0.45)] hover:text-(--brand-primary)"
             >
               <Phone className="h-4 w-4" />
               +974 3333 7410
