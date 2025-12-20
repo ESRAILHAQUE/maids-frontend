@@ -77,10 +77,10 @@ export default function AboutUs() {
             <div className="absolute -left-6 -top-6 h-28 w-28 rounded-full bg-[rgb(var(--brand-primary-rgb)/0.10)] blur-3xl" />
             <div className="absolute -right-4 bottom-6 h-32 w-32 rounded-full bg-[rgb(var(--brand-primary-rgb)/0.12)] blur-3xl" />
 
-            <div className="relative h-[420px] sm:h-[470px] lg:h-[520px] overflow-hidden rounded-sm border border-slate-200 bg-white shadow-[0_20px_80px_rgba(15,23,42,0.12)]">
-              <div className="absolute inset-0 bg-linear-to-t from-slate-900/35 via-transparent to-transparent" />
+            <div className="relative h-[420px] sm:h-[470px] lg:h-[520px] overflow-hidden rounded-sm ">
+              <div className="absolute inset-0 " />
               <Image
-                src="https://plus.unsplash.com/premium_photo-1682097409792-354d4d544753?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aG90ZWwlMjBtYWlkfGVufDB8fDB8fHww"
+                src="/images/cleaningserviceimage1.png"
                 alt="Aethla maid team preparing together"
                 fill
                 className="object-cover"

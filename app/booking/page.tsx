@@ -152,7 +152,7 @@ export default function BookingPage() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1800&q=80"
+            src="/images/booking.jpg"
             alt="Booking a cleaning service with Aethla"
             fill
             className="object-cover"

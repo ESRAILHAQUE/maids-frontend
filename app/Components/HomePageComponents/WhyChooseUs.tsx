@@ -62,10 +62,10 @@ export default function WhyChooseUs() {
 
           {/* Right Column - Image */}
           <div className="relative">
-            <div className="relative w-full h-[420px] sm:h-[470px] md:h-[520px] rounded-sm  overflow-hidden border border-slate-200 bg-white shadow-[0_20px_90px_rgba(15,23,42,0.12)]">
-              <div className="absolute inset-0 bg-linear-to-t from-slate-900/35 via-transparent to-transparent" />
+            <div className="relative w-full h-[420px] sm:h-[470px] md:h-[460px] rounded-sm  overflow-hidden ">
+              <div className="absolute inset-0 " />
               <Image
-                src="https://plus.unsplash.com/premium_photo-1682097409792-354d4d544753?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aG90ZWwlMjBtYWlkfGVufDB8fDB8fHww"
+                src="/images/whyus.jpg"
                 alt="Maid team preparing cleaning supplies"
                 fill
                 className="object-cover"

@@ -65,7 +65,7 @@ export default function TestimonialsPage() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/Testimonials.png"
+            src="/images/testimonial.jpeg"
             alt="Aethla testimonials hero"
             fill
             className="object-cover"
@@ -94,22 +94,6 @@ export default function TestimonialsPage() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="max-w-6xl w-[95%] mx-auto px-4 pt-10 sm:pt-12">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          {stats.map((s) => (
-            <div
-              key={s.label}
-              className="rounded-sm border border-slate-200 bg-white shadow-sm px-4 py-4 text-center"
-            >
-              <p className="text-xl sm:text-2xl font-bold text-slate-900">{s.value}</p>
-              <p className="text-xs uppercase tracking-[0.14em] text-slate-500 mt-1">
-                {s.label}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
 
       {/* Grid */}
       <section className="max-w-6xl w-[95%] mx-auto px-4 py-12 sm:py-14">
@@ -141,14 +125,6 @@ export default function TestimonialsPage() {
                 <div className="relative rounded-2xl border border-slate-100 bg-slate-50 px-4 py-4 text-slate-800">
                   <Quote className="absolute -left-3 -top-3 h-6 w-6 text-[var(--brand-primary)]" />
                   <p className="text-sm leading-relaxed">{t.quote}</p>
-                </div>
-                <div className="flex items-center gap-1 text-[var(--brand-primary)]">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-current" />
-                  ))}
-                  <span className="ml-2 text-xs font-semibold text-slate-600">
-                    Verified client
-                  </span>
                 </div>
                 <div className="flex items-center gap-2">
                   {socials.map((s) => {

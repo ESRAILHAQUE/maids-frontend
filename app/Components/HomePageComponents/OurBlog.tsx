@@ -7,19 +7,19 @@ export default function OurBlog() {
       title: "Pre-visit checklist: how to prep your space in 10 minutes",
       category: "Home care",
       image:
-        "https://images.unsplash.com/photo-1598928636135-d146006ff4be?w=1600&q=80&auto=format&fit=crop",
+        "/images/blog-1.avif",
     },
     {
       title: "Office cleaning after hours: what great handover looks like",
       category: "Office",
       image:
-        "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=1600&q=80&auto=format&fit=crop",
+        "/images/blog-2.avif",
     },
     {
       title: "Eco-safe products we trust for homes with kids and pets",
       category: "Supplies",
       image:
-        "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1600&q=80&auto=format&fit=crop",
+        "/images/blog-3.avif",
     },
   ];
 
