@@ -213,7 +213,7 @@ export default function SignupPage() {
           className={[
             "w-full rounded-sm px-5 py-3 text-sm font-semibold text-white transition",
             canSubmit
-              ? "bg-(--teal-dark) hover:bg-[#9A2F00] shadow-[0_14px_30px_rgba(184,66,0,0.22)]"
+              ? "bg-(--teal-dark) hover:bg-[#102a43e6] cursor-pointer"
               : "bg-slate-300 cursor-not-allowed",
           ].join(" ")}
         >

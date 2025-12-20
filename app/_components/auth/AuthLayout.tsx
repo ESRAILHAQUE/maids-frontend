@@ -18,7 +18,7 @@ export default function AuthLayout({
   formWidthClassName = "max-w-md",
 }: AuthLayoutProps) {
   return (
-    <main className="min-h-screen bg-[radial-gradient(circle_at_15%_10%,rgba(207,75,0,0.14),transparent_40%),radial-gradient(circle_at_80%_0%,rgba(11,159,182,0.10),transparent_36%),linear-gradient(to_bottom,#ffffff,#f8fafc,#ffffff)] text-slate-900">
+    <main className="min-h-screen bg-[radial-gradient(circle_at_15%_10%,rgb(var(--brand-primary-rgb)/0.10),transparent_40%),radial-gradient(circle_at_80%_0%,rgb(var(--brand-dark-rgb)/0.08),transparent_36%),linear-gradient(to_bottom,#ffffff,#f8fafc,#ffffff)] text-slate-900">
       <div className="mx-auto w-[95%] max-w-6xl px-4 py-10 sm:py-14">
         <div className="grid overflow-hidden rounded-sm border border-slate-200 bg-white shadow-[0_30px_90px_rgba(15,23,42,0.12)] lg:grid-cols-2">
           {/* Brand / marketing panel */}
@@ -38,12 +38,12 @@ export default function AuthLayout({
               <div>
                 <Link href="/" className="inline-flex items-center gap-3">
                   <div
-                    className="flex h-11 w-11 items-center justify-center font-bold"
+                    className="flex h-11 w-11 items-center justify-center font-bold text-white"
                     style={{
                       clipPath:
                         "polygon(25% 6%, 75% 6%, 94% 50%, 75% 94%, 25% 94%, 6% 50%)",
-                      background: "linear-gradient(135deg, #cf4b00, #9a2f00)",
-                      boxShadow: "0 18px 45px rgba(207, 75, 0, 0.30)",
+                      background: "linear-gradient(135deg, var(--brand-primary), var(--brand-dark))",
+                      boxShadow: "0 18px 45px rgb(var(--brand-dark-rgb)/0.28)",
                     }}
                   >
                     A
@@ -66,16 +66,16 @@ export default function AuthLayout({
               <div className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm">
                 <div className="text-sm font-semibold">Why sign in?</div>
                 <ul className="mt-3 space-y-2 text-sm text-white/85">
-                  <li className="flex gap-2">
-                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#CF4B00]" />
+                  <li className="flex gap-2 ">
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-(--brand-primary)" />
                     Fast booking and rescheduling
                   </li>
                   <li className="flex gap-2">
-                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#CF4B00]" />
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-(--brand-primary)" />
                     Secure profile and saved addresses
                   </li>
                   <li className="flex gap-2">
-                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#CF4B00]" />
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-(--brand-primary)" />
                     Service history in one place
                   </li>
                 </ul>

@@ -5,8 +5,6 @@ import { BarChart3, Calendar, CreditCard, TrendingUp, Users } from "lucide-react
 import { useAdminStore } from "../_lib/useAdminStore";
 import type { Booking } from "../_lib/adminStore";
 
-const BRAND = "#B84200";
-
 export default function AdminAnalyticsPage() {
   const { bookings } = useAdminStore();
 
@@ -95,9 +93,9 @@ export default function AdminAnalyticsPage() {
             <div
               className="flex h-11 w-11 items-center justify-center rounded-sm border"
               style={{
-                borderColor: "rgba(184,66,0,0.25)",
-                background: "rgba(184,66,0,0.08)",
-                color: BRAND,
+                borderColor: "rgb(var(--brand-primary-rgb)/0.25)",
+                background: "rgb(var(--brand-primary-rgb)/0.10)",
+                color: "var(--brand-primary)",
               }}
             >
               <BarChart3 className="h-5 w-5" />
@@ -169,9 +167,9 @@ function Kpi({
         <div
           className="flex h-11 w-11 items-center justify-center rounded-sm border"
           style={{
-            borderColor: accent ? "rgba(184,66,0,0.25)" : "rgba(15,23,42,0.10)",
-            background: accent ? "rgba(184,66,0,0.08)" : "rgba(15,23,42,0.03)",
-            color: accent ? BRAND : "rgb(51 65 85)",
+            borderColor: accent ? "rgb(var(--brand-primary-rgb)/0.25)" : "rgba(15,23,42,0.10)",
+            background: accent ? "rgb(var(--brand-primary-rgb)/0.10)" : "rgba(15,23,42,0.03)",
+            color: accent ? "var(--brand-primary)" : "rgb(51 65 85)",
           }}
         >
           <Icon className="h-5 w-5" />
@@ -201,9 +199,9 @@ function ChartCard({
         <div
           className="flex h-11 w-11 items-center justify-center rounded-sm border"
           style={{
-            borderColor: "rgba(184,66,0,0.25)",
-            background: "rgba(184,66,0,0.08)",
-            color: BRAND,
+            borderColor: "rgb(var(--brand-primary-rgb)/0.25)",
+            background: "rgb(var(--brand-primary-rgb)/0.10)",
+            color: "var(--brand-primary)",
           }}
         >
           <BarChart3 className="h-5 w-5" />
@@ -220,10 +218,9 @@ function ChartCard({
               </div>
               <div className="mt-2 h-2 rounded-full bg-slate-100 overflow-hidden">
                 <div
-                  className="h-full rounded-full"
+                  className="h-full rounded-full bg-linear-to-r from-(--brand-dark) to-(--brand-primary)"
                   style={{
                     width: `${Math.round((r.count / max) * 100)}%`,
-                    background: `linear-gradient(90deg, ${BRAND}, #CF4B00)`,
                   }}
                 />
               </div>

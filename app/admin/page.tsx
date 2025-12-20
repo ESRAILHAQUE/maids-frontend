@@ -5,8 +5,6 @@ import { CalendarClock, CreditCard, TrendingUp, Users } from "lucide-react";
 import { useMemo } from "react";
 import { useAdminStore } from "./_lib/useAdminStore";
 
-const BRAND = "#B84200";
-
 export default function AdminHomePage() {
   const { bookings, hardReset } = useAdminStore();
 
@@ -51,8 +49,7 @@ export default function AdminHomePage() {
           </button>
           <Link
             href="/admin/bookings"
-            className="inline-flex items-center justify-center rounded-sm px-4 py-2 text-sm font-semibold text-white shadow-[0_14px_30px_rgba(184,66,0,0.22)] transition hover:bg-[#9A2F00]"
-            style={{ background: BRAND }}
+            className="inline-flex items-center justify-center rounded-sm bg-(--brand-primary) px-4 py-2 text-sm font-semibold text-white shadow-[0_14px_30px_rgb(var(--brand-dark-rgb)/0.22)] transition hover:bg-(--brand-dark)"
           >
             View bookings
           </Link>
@@ -70,7 +67,7 @@ export default function AdminHomePage() {
         <div className="rounded-sm border border-slate-200 bg-white shadow-sm p-5 sm:p-6">
           <div className="flex items-center justify-between gap-3">
             <h2 className="text-lg font-bold text-slate-900">Recent bookings</h2>
-            <Link href="/admin/bookings" className="text-sm font-semibold" style={{ color: BRAND }}>
+            <Link href="/admin/bookings" className="text-sm font-semibold text-(--brand-primary)">
               Open list →
             </Link>
           </div>
@@ -139,9 +136,9 @@ function KpiCard({
         <div
           className="flex h-11 w-11 items-center justify-center rounded-sm border"
           style={{
-            borderColor: accent ? "rgba(184,66,0,0.25)" : "rgba(15,23,42,0.10)",
-            background: accent ? "rgba(184,66,0,0.08)" : "rgba(15,23,42,0.03)",
-            color: accent ? BRAND : "rgb(51 65 85)",
+            borderColor: accent ? "rgb(var(--brand-primary-rgb)/0.25)" : "rgba(15,23,42,0.10)",
+            background: accent ? "rgb(var(--brand-primary-rgb)/0.10)" : "rgba(15,23,42,0.03)",
+            color: accent ? "var(--brand-primary)" : "rgb(51 65 85)",
           }}
         >
           <Icon className="h-5 w-5" />
@@ -154,9 +151,17 @@ function KpiCard({
 function StatusPill({ value }: { value: string }) {
   const styles =
     value === "pending"
-      ? { color: "#B84200", bg: "rgba(184,66,0,0.10)", border: "rgba(184,66,0,0.25)" }
+      ? {
+          color: "var(--brand-dark)",
+          bg: "rgb(var(--brand-primary-rgb)/0.10)",
+          border: "rgb(var(--brand-primary-rgb)/0.25)",
+        }
       : value === "confirmed"
-      ? { color: "#0b9fb6", bg: "rgba(72,194,203,0.16)", border: "rgba(72,194,203,0.30)" }
+      ? {
+          color: "var(--brand-primary)",
+          bg: "rgb(var(--brand-primary-rgb)/0.14)",
+          border: "rgb(var(--brand-primary-rgb)/0.30)",
+        }
       : value === "in_progress"
       ? { color: "#2563EB", bg: "rgba(37,99,235,0.10)", border: "rgba(37,99,235,0.22)" }
       : value === "completed"

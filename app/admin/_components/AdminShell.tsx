@@ -7,13 +7,12 @@ import {
   BarChart3,
   CalendarClock,
   CreditCard,
+  Home,
   LayoutDashboard,
   Menu,
   Users,
   X,
 } from "lucide-react";
-
-const BRAND = "#B84200";
 
 type NavItem = {
   label: string;
@@ -50,7 +49,7 @@ export default function AdminShell({
   }, [pathname]);
 
   return (
-    <div className="min-h-[calc(100vh-0px)] bg-slate-50 text-slate-900">
+    <div className="min-h-[calc(100vh-0px)] bg-[radial-gradient(circle_at_12%_0%,rgb(var(--brand-primary-rgb)/0.07),transparent_38%),radial-gradient(circle_at_92%_10%,rgb(var(--brand-primary-rgb)/0.05),transparent_42%),linear-gradient(to_bottom,#f8fafc,#ffffff)] text-slate-900">
       {/* Mobile top bar */}
       <div className="lg:hidden sticky top-0 z-40 border-b border-slate-200 bg-white/90 backdrop-blur">
         <div className="mx-auto w-[95%] px-4 py-3 flex items-center justify-between gap-3">
@@ -82,7 +81,7 @@ export default function AdminShell({
             if (e.target === e.currentTarget) setOpen(false);
           }}
         >
-          <aside className="h-full w-[86%] max-w-[360px] bg-white shadow-2xl border-r border-slate-200 p-4">
+          <aside className="h-full w-[86%] max-w-[360px] bg-white shadow-2xl border-r border-slate-200 p-4 flex flex-col">
             <div className="flex items-center justify-between">
               <BrandMark />
               <button
@@ -97,6 +96,15 @@ export default function AdminShell({
             <div className="mt-4">
               <Nav pathname={pathname} />
             </div>
+            <div className="mt-auto pt-4">
+              <Link
+                href="/"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-sm border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-800 transition hover:bg-slate-50"
+              >
+                <Home className="h-4 w-4 text-(--brand-primary)" />
+                Back to home
+              </Link>
+            </div>
           </aside>
         </div>
       )}
@@ -104,7 +112,7 @@ export default function AdminShell({
       <div className="w-full grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-0 items-start">
         {/* Desktop sidebar */}
         <aside className="hidden lg:block sticky top-0 h-screen border-r border-slate-200 bg-white">
-          <div className="h-full p-5">
+          <div className="h-full p-5 flex flex-col">
             <BrandMark />
             <p className="mt-3 text-sm text-slate-600 leading-relaxed">
               Admin dashboard for Aethla — bookings, clients, staff, payments & analytics.
@@ -117,6 +125,15 @@ export default function AdminShell({
               <p className="mt-1 text-xs text-slate-600 leading-relaxed">
                 Demo data is stored locally in your browser (localStorage) for now.
               </p>
+            </div>
+            <div className="mt-auto pt-6">
+              <Link
+                href="/"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-sm border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-800 transition hover:bg-slate-50"
+              >
+                <Home className="h-4 w-4 text-(--brand-primary)" />
+                Back to home
+              </Link>
             </div>
           </div>
         </aside>
@@ -137,8 +154,8 @@ function BrandMark() {
         className="relative h-11 w-11 flex items-center justify-center text-white font-semibold"
         style={{
           clipPath: "polygon(25% 6%, 75% 6%, 94% 50%, 75% 94%, 25% 94%, 6% 50%)",
-          background: `linear-gradient(135deg, ${BRAND}, #CF4B00)`,
-          boxShadow: "0 12px 25px rgba(184, 66, 0, 0.25)",
+          background: "linear-gradient(135deg, var(--brand-primary), var(--brand-dark))",
+          boxShadow: "0 12px 25px rgb(var(--brand-dark-rgb)/0.22)",
         }}
       >
         A
@@ -163,17 +180,17 @@ function Nav({ pathname }: { pathname: string }) {
             href={item.href}
             className={`group flex items-center justify-between gap-3 rounded-sm px-3 py-2.5 border transition ${
               active
-                ? "border-[#B84200]/30 bg-[#FFF3EB] text-slate-900"
+                ? "border-[rgb(var(--brand-primary-rgb)/0.30)] bg-[rgb(var(--brand-primary-rgb)/0.08)] text-slate-900"
                 : "border-transparent hover:border-slate-200 hover:bg-slate-50 text-slate-700"
             }`}
           >
             <span className="flex items-center gap-3 min-w-0">
               <span
                 className={`flex h-9 w-9 items-center justify-center rounded-sm border ${
-                  active ? "border-[#B84200]/25 bg-white" : "border-slate-200 bg-white"
+                  active ? "border-[rgb(var(--brand-primary-rgb)/0.25)] bg-white" : "border-slate-200 bg-white"
                 }`}
               >
-                <Icon className={`h-5 w-5 ${active ? "text-[#B84200]" : "text-slate-600"}`} />
+                <Icon className={`h-5 w-5 ${active ? "text-(--brand-primary)" : "text-slate-600"}`} />
               </span>
               <span className="text-sm font-semibold truncate">{item.label}</span>
             </span>
@@ -181,9 +198,9 @@ function Nav({ pathname }: { pathname: string }) {
               <span
                 className="text-[11px] font-bold rounded-sm px-2 py-0.5 border"
                 style={{
-                  color: BRAND,
-                  borderColor: "rgba(184,66,0,0.25)",
-                  background: "rgba(184,66,0,0.08)",
+                  color: "var(--brand-primary)",
+                  borderColor: "rgb(var(--brand-primary-rgb)/0.25)",
+                  background: "rgb(var(--brand-primary-rgb)/0.10)",
                 }}
               >
                 {item.badge}

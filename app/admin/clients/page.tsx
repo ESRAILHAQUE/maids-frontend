@@ -5,8 +5,6 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import { useAdminStore } from "../_lib/useAdminStore";
 
-const BRAND = "#B84200";
-
 type ClientRow = {
   key: string;
   name: string;
@@ -106,7 +104,7 @@ export default function AdminClientsPage() {
             value={q}
             onChange={(e) => setQ(e.target.value)}
             placeholder="Search clients by name, phone, email, area..."
-            className="w-full rounded-sm border border-slate-200 bg-white pl-11 pr-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#B84200] focus:ring-offset-2"
+            className="w-full rounded-sm border border-slate-200 bg-white pl-11 pr-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[rgb(var(--brand-primary-rgb)/0.45)] focus:ring-offset-2"
           />
         </div>
       </div>
@@ -126,7 +124,7 @@ export default function AdminClientsPage() {
                 type="button"
                 onClick={() => setSelectedKey(c.key)}
                 className={`w-full text-left px-5 py-4 hover:bg-slate-50 transition ${
-                  selectedKey === c.key ? "bg-[#FFF3EB]" : ""
+                  selectedKey === c.key ? "bg-[rgb(var(--brand-primary-rgb)/0.08)]" : ""
                 }`}
               >
                 <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.7fr_0.6fr_0.7fr] gap-2 lg:gap-0 items-start lg:items-center">
@@ -167,9 +165,9 @@ export default function AdminClientsPage() {
                 <div
                   className="flex h-11 w-11 items-center justify-center rounded-sm border"
                   style={{
-                    borderColor: "rgba(184,66,0,0.25)",
-                    background: "rgba(184,66,0,0.08)",
-                    color: BRAND,
+                    borderColor: "rgb(var(--brand-primary-rgb)/0.25)",
+                    background: "rgb(var(--brand-primary-rgb)/0.10)",
+                    color: "var(--brand-primary)",
                   }}
                 >
                   <User className="h-5 w-5" />

@@ -12,8 +12,6 @@ import {
 import { useAdminStore } from "../_lib/useAdminStore";
 import type { Booking, BookingStatus, PaymentStatus } from "../_lib/adminStore";
 
-const BRAND = "#B84200";
-
 const statusOptions: { label: string; value: BookingStatus | "all" }[] = [
   { label: "All statuses", value: "all" },
   { label: "Pending", value: "pending" },
@@ -99,7 +97,7 @@ export default function AdminBookingsPage() {
               value={q}
               onChange={(e) => setQ(e.target.value)}
               placeholder="Search client, phone, invoice, service, area..."
-              className="w-full rounded-sm border border-slate-200 bg-white pl-11 pr-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#B84200] focus:ring-offset-2"
+              className="w-full rounded-sm border border-slate-200 bg-white pl-11 pr-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[rgb(var(--brand-primary-rgb)/0.45)] focus:ring-offset-2"
             />
           </div>
           <Select
@@ -265,13 +263,13 @@ export default function AdminBookingsPage() {
                           onClick={() => setBookingStatus(selected.id, s.value as BookingStatus)}
                           className={`w-full rounded-sm border px-3 py-2 text-sm font-semibold transition ${
                             selected.status === s.value
-                              ? "border-[#B84200]/30 bg-[#FFF3EB] text-slate-900"
+                              ? "border-[rgb(var(--brand-primary-rgb)/0.30)] bg-[rgb(var(--brand-primary-rgb)/0.08)] text-slate-900"
                               : "border-slate-200 bg-white hover:bg-slate-50 text-slate-800"
                           }`}
                         >
                           {selected.status === s.value ? (
                             <span className="inline-flex items-center gap-2">
-                              <CheckCircle2 className="h-4 w-4" style={{ color: BRAND }} />
+                              <CheckCircle2 className="h-4 w-4 text-(--brand-primary)" />
                               {s.label}
                             </span>
                           ) : (
@@ -295,7 +293,7 @@ export default function AdminBookingsPage() {
                           onClick={() => setPaymentStatus(selected.id, p.value as PaymentStatus)}
                           className={`w-full rounded-sm border px-3 py-2 text-sm font-semibold transition ${
                             selected.payment.status === p.value
-                              ? "border-[#B84200]/30 bg-[#FFF3EB] text-slate-900"
+                              ? "border-[rgb(var(--brand-primary-rgb)/0.30)] bg-[rgb(var(--brand-primary-rgb)/0.08)] text-slate-900"
                               : "border-slate-200 bg-white hover:bg-slate-50 text-slate-800"
                           }`}
                         >
@@ -322,9 +320,9 @@ export default function AdminBookingsPage() {
                   <span
                     className="text-[11px] font-bold rounded-sm px-2 py-0.5 border"
                     style={{
-                      color: BRAND,
-                      borderColor: "rgba(184,66,0,0.25)",
-                      background: "rgba(184,66,0,0.08)",
+                      color: "var(--brand-primary)",
+                      borderColor: "rgb(var(--brand-primary-rgb)/0.25)",
+                      background: "rgb(var(--brand-primary-rgb)/0.10)",
                     }}
                   >
                     {selected.assignedStaffIds.length} assigned
@@ -369,7 +367,7 @@ function StatChip({
     <div
       className="rounded-sm border px-4 py-2 bg-white"
       style={{
-        borderColor: accent ? "rgba(184,66,0,0.25)" : "rgba(15,23,42,0.10)",
+        borderColor: accent ? "rgb(var(--brand-primary-rgb)/0.25)" : "rgba(15,23,42,0.10)",
       }}
     >
       <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
@@ -401,7 +399,7 @@ function Select({
         <select
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          className="w-full appearance-none rounded-sm border border-slate-200 bg-white px-4 py-3 pr-10 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#B84200] focus:ring-offset-2"
+          className="w-full appearance-none rounded-sm border border-slate-200 bg-white px-4 py-3 pr-10 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-[rgb(var(--brand-primary-rgb)/0.45)] focus:ring-offset-2"
         >
           {options.map((o) => (
             <option key={o.value} value={o.value}>
@@ -418,9 +416,9 @@ function Select({
 function StatusPill({ value }: { value: BookingStatus }) {
   const styles =
     value === "pending"
-      ? { color: "#B84200", bg: "rgba(184,66,0,0.10)", border: "rgba(184,66,0,0.25)" }
+      ? { color: "var(--brand-dark)", bg: "rgb(var(--brand-primary-rgb)/0.10)", border: "rgb(var(--brand-primary-rgb)/0.25)" }
       : value === "confirmed"
-      ? { color: "#0b9fb6", bg: "rgba(72,194,203,0.16)", border: "rgba(72,194,203,0.30)" }
+      ? { color: "var(--brand-primary)", bg: "rgb(var(--brand-primary-rgb)/0.14)", border: "rgb(var(--brand-primary-rgb)/0.30)" }
       : value === "in_progress"
       ? { color: "#2563EB", bg: "rgba(37,99,235,0.10)", border: "rgba(37,99,235,0.22)" }
       : value === "completed"

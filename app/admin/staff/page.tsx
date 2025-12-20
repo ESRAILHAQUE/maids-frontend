@@ -5,8 +5,6 @@ import { CalendarDays, CheckCircle2, Plus, Users } from "lucide-react";
 import { useAdminStore } from "../_lib/useAdminStore";
 import type { Booking } from "../_lib/adminStore";
 
-const BRAND = "#B84200";
-
 function startOfWeek(d: Date) {
   const x = new Date(d);
   const day = (x.getDay() + 6) % 7; // monday=0
@@ -97,9 +95,9 @@ export default function AdminStaffPage() {
               <div
                 className="flex h-11 w-11 items-center justify-center rounded-sm border"
                 style={{
-                  borderColor: "rgba(184,66,0,0.25)",
-                  background: "rgba(184,66,0,0.08)",
-                  color: BRAND,
+                  borderColor: "rgb(var(--brand-primary-rgb)/0.25)",
+                  background: "rgb(var(--brand-primary-rgb)/0.10)",
+                  color: "var(--brand-primary)",
                 }}
               >
                 <CalendarDays className="h-5 w-5" />
@@ -119,7 +117,7 @@ export default function AdminStaffPage() {
                 type="button"
                 onClick={() => setSelectedBookingId(b.id)}
                 className={`w-full text-left px-5 py-4 hover:bg-slate-50 transition ${
-                  selectedBookingId === b.id ? "bg-[#FFF3EB]" : ""
+                  selectedBookingId === b.id ? "bg-[rgb(var(--brand-primary-rgb)/0.08)]" : ""
                 }`}
               >
                 <div className="flex items-start justify-between gap-4">
@@ -180,9 +178,9 @@ export default function AdminStaffPage() {
                 <div
                   className="flex h-11 w-11 items-center justify-center rounded-sm border"
                   style={{
-                    borderColor: "rgba(184,66,0,0.25)",
-                    background: "rgba(184,66,0,0.08)",
-                    color: BRAND,
+                    borderColor: "rgb(var(--brand-primary-rgb)/0.25)",
+                    background: "rgb(var(--brand-primary-rgb)/0.10)",
+                    color: "var(--brand-primary)",
                   }}
                 >
                   <Users className="h-5 w-5" />
@@ -204,13 +202,13 @@ export default function AdminStaffPage() {
                         onClick={() => toggleAssign(selectedBooking, s.id)}
                         className={`rounded-sm border px-3 py-1.5 text-xs font-semibold transition ${
                           active
-                            ? "border-[#B84200]/30 bg-[#FFF3EB] text-slate-900"
+                            ? "border-[rgb(var(--brand-primary-rgb)/0.30)] bg-[rgb(var(--brand-primary-rgb)/0.08)] text-slate-900"
                             : "border-slate-200 bg-white hover:bg-slate-50 text-slate-800"
                         }`}
                       >
                         {active ? (
                           <span className="inline-flex items-center gap-2">
-                            <CheckCircle2 className="h-4 w-4" style={{ color: BRAND }} />
+                            <CheckCircle2 className="h-4 w-4 text-(--brand-primary)" />
                             {s.name} • {s.role}
                           </span>
                         ) : (
