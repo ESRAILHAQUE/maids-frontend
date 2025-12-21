@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import {
   Calendar,
   CheckCircle2,
@@ -8,9 +8,33 @@ import {
   Filter,
   Phone,
   Search,
+  Loader2,
 } from "lucide-react";
-import { useAdminStore } from "../_lib/useAdminStore";
-import type { Booking, BookingStatus, PaymentStatus } from "../_lib/adminStore";
+import { api } from "../../_lib/api";
+import { useToast } from "../../_lib/toast";
+import { useAuth } from "../../_lib/auth";
+
+type BookingStatus = "pending" | "confirmed" | "in_progress" | "completed" | "cancelled";
+type PaymentStatus = "unpaid" | "paid" | "refunded";
+
+interface Booking {
+  _id: string;
+  createdAt: string;
+  service: string;
+  hours: number;
+  cleaners: number;
+  materials: "with" | "without";
+  date: string;
+  time: string;
+  area: string;
+  address: { zone?: string; building?: string; street?: string };
+  client: { name: string; phone: string; email?: string };
+  notes?: string;
+  totalQAR: number;
+  status: BookingStatus;
+  payment: { status: PaymentStatus; method?: string; invoiceId?: string };
+  assignedStaffIds: string[];
+}
 
 const statusOptions: { label: string; value: BookingStatus | "all" }[] = [
   { label: "All statuses", value: "all" },
@@ -29,35 +53,98 @@ const paymentOptions: { label: string; value: PaymentStatus | "all" }[] = [
 ];
 
 export default function AdminBookingsPage() {
-  const { bookings, staff, setBookingStatus, setPaymentStatus } = useAdminStore();
+  const { isAdmin } = useAuth();
+  const { showToast } = useToast();
+  const [bookings, setBookings] = useState<Booking[]>([]);
+  const [loading, setLoading] = useState(true);
   const [q, setQ] = useState("");
   const [status, setStatus] = useState<(typeof statusOptions)[number]["value"]>("all");
   const [payment, setPayment] = useState<(typeof paymentOptions)[number]["value"]>("all");
   const [selected, setSelected] = useState<Booking | null>(null);
 
+  useEffect(() => {
+    if (!isAdmin) {
+      showToast("Access denied. Admin only.", "error");
+      return;
+    }
+    fetchBookings();
+  }, [isAdmin, showToast]);
+
+  const fetchBookings = async () => {
+    try {
+      setLoading(true);
+      const params = new URLSearchParams();
+      if (status !== "all") params.append("status", status);
+      if (payment !== "all") params.append("payment", payment);
+      if (q.trim()) params.append("search", q.trim());
+
+      const response = await api.get<Booking[]>(`/v1/bookings?${params.toString()}`);
+      if (response.data) {
+        setBookings(Array.isArray(response.data) ? response.data : []);
+      }
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        showToast(error.message, "error");
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    if (isAdmin) {
+      const timeoutId = setTimeout(() => {
+        fetchBookings();
+      }, 300);
+      return () => clearTimeout(timeoutId);
+    }
+  }, [status, payment, q, isAdmin]);
+
+  const handleStatusChange = async (bookingId: string, newStatus: BookingStatus) => {
+    try {
+      await api.patch(`/v1/bookings/${bookingId}/status`, { status: newStatus });
+      showToast("Booking status updated successfully", "success");
+      fetchBookings();
+      if (selected?._id === bookingId) {
+        setSelected({ ...selected, status: newStatus });
+      }
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        showToast(error.message, "error");
+      }
+    }
+  };
+
+  const handlePaymentChange = async (
+    bookingId: string,
+    newStatus: PaymentStatus,
+    method?: string,
+    invoiceId?: string
+  ) => {
+    try {
+      await api.patch(`/v1/bookings/${bookingId}/payment`, {
+        status: newStatus,
+        method,
+        invoiceId,
+      });
+      showToast("Payment status updated successfully", "success");
+      fetchBookings();
+      if (selected?._id === bookingId) {
+        setSelected({
+          ...selected,
+          payment: { ...selected.payment, status: newStatus, method, invoiceId },
+        });
+      }
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        showToast(error.message, "error");
+      }
+    }
+  };
+
   const filtered = useMemo(() => {
-    const query = q.trim().toLowerCase();
-    return [...bookings]
-      .filter((b) => (status === "all" ? true : b.status === status))
-      .filter((b) => (payment === "all" ? true : b.payment.status === payment))
-      .filter((b) => {
-        if (!query) return true;
-        const hay = [
-          b.client.name,
-          b.client.phone,
-          b.client.email ?? "",
-          b.service,
-          b.area,
-          b.date,
-          b.time,
-          b.payment.invoiceId ?? "",
-        ]
-          .join(" ")
-          .toLowerCase();
-        return hay.includes(query);
-      })
-      .sort((a, b) => (a.createdAt > b.createdAt ? -1 : 1));
-  }, [bookings, payment, q, status]);
+    return [...bookings].sort((a, b) => (a.createdAt > b.createdAt ? -1 : 1));
+  }, [bookings]);
 
   const totals = useMemo(() => {
     const total = filtered.length;
@@ -69,6 +156,22 @@ export default function AdminBookingsPage() {
       .reduce((s, b) => s + b.totalQAR, 0);
     return { total, paid, unpaid };
   }, [filtered]);
+
+  if (!isAdmin) {
+    return (
+      <div className="p-8 text-center">
+        <p className="text-red-600">Access denied. Admin only.</p>
+      </div>
+    );
+  }
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <Loader2 className="h-8 w-8 animate-spin text-(--teal-dark)" />
+      </div>
+    );
+  }
 
   return (
     <section className="space-y-5">
@@ -128,7 +231,7 @@ export default function AdminBookingsPage() {
         <div className="divide-y divide-slate-100">
           {filtered.map((b) => (
             <button
-              key={b.id}
+              key={b._id}
               type="button"
               onClick={() => setSelected(b)}
               className="w-full text-left px-5 py-4 hover:bg-slate-50 transition"
@@ -260,12 +363,11 @@ export default function AdminBookingsPage() {
                         <button
                           key={s.value}
                           type="button"
-                          onClick={() => setBookingStatus(selected.id, s.value as BookingStatus)}
-                          className={`w-full rounded-sm border px-3 py-2 text-sm font-semibold transition ${
-                            selected.status === s.value
-                              ? "border-[rgb(var(--brand-primary-rgb)/0.30)] bg-[rgb(var(--brand-primary-rgb)/0.08)] text-slate-900"
-                              : "border-slate-200 bg-white hover:bg-slate-50 text-slate-800"
-                          }`}
+                          onClick={() => handleStatusChange(selected._id, s.value as BookingStatus)}
+                          className={`w-full rounded-sm border px-3 py-2 text-sm font-semibold transition ${selected.status === s.value
+                            ? "border-[rgb(var(--brand-primary-rgb)/0.30)] bg-[rgb(var(--brand-primary-rgb)/0.08)] text-slate-900"
+                            : "border-slate-200 bg-white hover:bg-slate-50 text-slate-800"
+                            }`}
                         >
                           {selected.status === s.value ? (
                             <span className="inline-flex items-center gap-2">
@@ -290,12 +392,11 @@ export default function AdminBookingsPage() {
                         <button
                           key={p.value}
                           type="button"
-                          onClick={() => setPaymentStatus(selected.id, p.value as PaymentStatus)}
-                          className={`w-full rounded-sm border px-3 py-2 text-sm font-semibold transition ${
-                            selected.payment.status === p.value
-                              ? "border-[rgb(var(--brand-primary-rgb)/0.30)] bg-[rgb(var(--brand-primary-rgb)/0.08)] text-slate-900"
-                              : "border-slate-200 bg-white hover:bg-slate-50 text-slate-800"
-                          }`}
+                          onClick={() => handlePaymentChange(selected._id, p.value as PaymentStatus, selected.payment.method, selected.payment.invoiceId)}
+                          className={`w-full rounded-sm border px-3 py-2 text-sm font-semibold transition ${selected.payment.status === p.value
+                            ? "border-[rgb(var(--brand-primary-rgb)/0.30)] bg-[rgb(var(--brand-primary-rgb)/0.08)] text-slate-900"
+                            : "border-slate-200 bg-white hover:bg-slate-50 text-slate-800"
+                            }`}
                         >
                           {p.label}
                         </button>
@@ -330,17 +431,14 @@ export default function AdminBookingsPage() {
                 </div>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {selected.assignedStaffIds.length ? (
-                    selected.assignedStaffIds.map((id) => {
-                      const s = staff.find((x) => x.id === id);
-                      return (
-                        <span
-                          key={id}
-                          className="inline-flex items-center rounded-sm border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-semibold text-slate-800"
-                        >
-                          {s ? `${s.name} (${s.role})` : id}
-                        </span>
-                      );
-                    })
+                    selected.assignedStaffIds.map((id) => (
+                      <span
+                        key={id}
+                        className="inline-flex items-center rounded-sm border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-semibold text-slate-800"
+                      >
+                        {id}
+                      </span>
+                    ))
                   ) : (
                     <span className="text-sm text-slate-600">No staff assigned yet.</span>
                   )}
@@ -418,12 +516,12 @@ function StatusPill({ value }: { value: BookingStatus }) {
     value === "pending"
       ? { color: "var(--brand-dark)", bg: "rgb(var(--brand-primary-rgb)/0.10)", border: "rgb(var(--brand-primary-rgb)/0.25)" }
       : value === "confirmed"
-      ? { color: "var(--brand-primary)", bg: "rgb(var(--brand-primary-rgb)/0.14)", border: "rgb(var(--brand-primary-rgb)/0.30)" }
-      : value === "in_progress"
-      ? { color: "#2563EB", bg: "rgba(37,99,235,0.10)", border: "rgba(37,99,235,0.22)" }
-      : value === "completed"
-      ? { color: "#16A34A", bg: "rgba(22,163,74,0.10)", border: "rgba(22,163,74,0.22)" }
-      : { color: "#DC2626", bg: "rgba(220,38,38,0.10)", border: "rgba(220,38,38,0.22)" };
+        ? { color: "var(--brand-primary)", bg: "rgb(var(--brand-primary-rgb)/0.14)", border: "rgb(var(--brand-primary-rgb)/0.30)" }
+        : value === "in_progress"
+          ? { color: "#2563EB", bg: "rgba(37,99,235,0.10)", border: "rgba(37,99,235,0.22)" }
+          : value === "completed"
+            ? { color: "#16A34A", bg: "rgba(22,163,74,0.10)", border: "rgba(22,163,74,0.22)" }
+            : { color: "#DC2626", bg: "rgba(220,38,38,0.10)", border: "rgba(220,38,38,0.22)" };
 
   return (
     <span
