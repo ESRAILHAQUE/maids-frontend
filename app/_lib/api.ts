@@ -32,12 +32,14 @@ async function request<T>(
     };
 
     // Only send token for protected endpoints (not for register/login/public endpoints)
+    const method = options.method || 'GET';
     const isPublicEndpoint = endpoint.includes('/register') ||
         endpoint.includes('/login') ||
         endpoint.includes('/verify-email') ||
         endpoint.includes('/resend-verification') ||
         endpoint.includes('/forgot-password') ||
-        endpoint.includes('/reset-password');
+        endpoint.includes('/reset-password') ||
+        (endpoint.includes('/bookings') && method === 'POST'); // Booking creation is public
 
     if (token && !isPublicEndpoint) {
         headers.Authorization = `Bearer ${token}`;
