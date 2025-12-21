@@ -5,16 +5,19 @@ import { Lock, Mail } from "lucide-react";
 import { useMemo, useState } from "react";
 import AuthLayout from "../_components/auth/AuthLayout";
 import { AuthField, AuthPasswordInput, AuthTextInput } from "../_components/auth/AuthFormControls";
+import { useAuth } from "../_lib/auth";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(true);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [touched, setTouched] = useState<{ email: boolean; password: boolean }>({
     email: false,
     password: false,
   });
+  const { login } = useAuth();
 
   const emailError = useMemo(() => {
     if (!touched.email) return "";
@@ -47,11 +50,18 @@ export default function LoginPage() {
     >
       <form
         className="space-y-4"
-        onSubmit={(e) => {
+        onSubmit={async (e) => {
           e.preventDefault();
           setTouched({ email: true, password: true });
-          if (!canSubmit) return;
-          // Hook up real auth later
+          if (!canSubmit || isSubmitting) return;
+          setIsSubmitting(true);
+          try {
+            await login(email, password);
+          } catch (error) {
+            // Error is handled by auth context
+          } finally {
+            setIsSubmitting(false);
+          }
         }}
       >
         <AuthField label="Email" error={emailError}>
@@ -103,15 +113,15 @@ export default function LoginPage() {
 
         <button
           type="submit"
-          disabled={!canSubmit}
+          disabled={!canSubmit || isSubmitting}
           className={[
             "w-full rounded-sm px-5 py-3 text-sm font-semibold text-white transition",
-            canSubmit
+            canSubmit && !isSubmitting
               ? "bg-(--teal-dark) hover:bg-[#102a43e6] cursor-pointer"
               : "bg-slate-300 cursor-not-allowed",
           ].join(" ")}
         >
-          Sign in
+          {isSubmitting ? "Signing in..." : "Sign in"}
         </button>
 
         <div className="flex items-center gap-3 py-1">

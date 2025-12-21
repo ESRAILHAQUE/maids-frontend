@@ -5,6 +5,7 @@ import { Lock, Mail, Phone, User } from "lucide-react";
 import { useMemo, useState } from "react";
 import AuthLayout from "../_components/auth/AuthLayout";
 import { AuthField, AuthPasswordInput, AuthTextInput } from "../_components/auth/AuthFormControls";
+import { useAuth } from "../_lib/auth";
 
 export default function SignupPage() {
   const [fullName, setFullName] = useState("");
@@ -15,6 +16,7 @@ export default function SignupPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [agree, setAgree] = useState(true);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [touched, setTouched] = useState({
     fullName: false,
     phone: false,
@@ -23,6 +25,7 @@ export default function SignupPage() {
     confirmPassword: false,
     agree: false,
   });
+  const { register } = useAuth();
 
   const nameError = useMemo(() => {
     if (!touched.fullName) return "";
@@ -95,7 +98,7 @@ export default function SignupPage() {
     >
       <form
         className="space-y-4"
-        onSubmit={(e) => {
+        onSubmit={async (e) => {
           e.preventDefault();
           setTouched({
             fullName: true,
@@ -105,8 +108,15 @@ export default function SignupPage() {
             confirmPassword: true,
             agree: true,
           });
-          if (!canSubmit) return;
-          // Hook up real signup later
+          if (!canSubmit || isSubmitting) return;
+          setIsSubmitting(true);
+          try {
+            await register(fullName, email, password, phone || undefined);
+          } catch (error) {
+            // Error is handled by auth context
+          } finally {
+            setIsSubmitting(false);
+          }
         }}
       >
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -209,15 +219,15 @@ export default function SignupPage() {
 
         <button
           type="submit"
-          disabled={!canSubmit}
+          disabled={!canSubmit || isSubmitting}
           className={[
             "w-full rounded-sm px-5 py-3 text-sm font-semibold text-white transition",
-            canSubmit
+            canSubmit && !isSubmitting
               ? "bg-(--teal-dark) hover:bg-[#102a43e6] cursor-pointer"
               : "bg-slate-300 cursor-not-allowed",
           ].join(" ")}
         >
-          Create account
+          {isSubmitting ? "Creating account..." : "Create account"}
         </button>
 
         <p className="pt-1 text-xs text-slate-500 leading-relaxed">
