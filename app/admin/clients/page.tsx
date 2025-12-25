@@ -1,9 +1,11 @@
 "use client";
 
 import { Mail, Phone, Search, User } from "lucide-react";
-import { useMemo, useState } from "react";
 import Link from "next/link";
-import { useAdminStore } from "../_lib/useAdminStore";
+import { useEffect, useState, useMemo } from "react";
+import { api } from "../../_lib/api";
+import { useAuth } from "../../_lib/auth";
+import { useToast } from "../../_lib/toast";
 
 type ClientRow = {
   key: string;
@@ -19,40 +21,28 @@ type ClientRow = {
 };
 
 export default function AdminClientsPage() {
-  const { bookings } = useAdminStore();
+  const { isAdmin } = useAuth();
+  const { showToast } = useToast();
+  const [clients, setClients] = useState<ClientRow[]>([]);
+  const [loading, setLoading] = useState(true);
   const [q, setQ] = useState("");
   const [selectedKey, setSelectedKey] = useState<string | null>(null);
 
-  const clients = useMemo(() => {
-    const map = new Map<string, ClientRow>();
-    for (const b of bookings) {
-      const key = `${b.client.phone}::${b.client.name}`;
-      const existing = map.get(key);
-      const next: ClientRow = existing ?? {
-        key,
-        name: b.client.name,
-        phone: b.client.phone,
-        email: b.client.email,
-        area: b.area,
-        totalBookings: 0,
-        lifetimeValue: 0,
-        lastBookingAt: undefined,
-        lastService: undefined,
-        statuses: {},
-      };
-      next.totalBookings += 1;
-      next.lifetimeValue += b.totalQAR;
-      next.statuses[b.status] = (next.statuses[b.status] ?? 0) + 1;
-      if (!next.lastBookingAt || b.date > next.lastBookingAt) {
-        next.lastBookingAt = b.date;
-        next.lastService = b.service;
-        next.area = b.area;
+  useEffect(() => {
+    if (!isAdmin) return;
+    const fetchClients = async () => {
+      setLoading(true);
+      try {
+        const res = await api.get<ClientRow[]>("/v1/clients/summary");
+        setClients(Array.isArray(res.data) ? res.data : []);
+      } catch (error: any) {
+        showToast(error?.message || "Failed to load clients", "error");
+      } finally {
+        setLoading(false);
       }
-      if (!next.email && b.client.email) next.email = b.client.email;
-      map.set(key, next);
-    }
-    return [...map.values()].sort((a, b) => (a.lifetimeValue > b.lifetimeValue ? -1 : 1));
-  }, [bookings]);
+    };
+    fetchClients();
+  }, [isAdmin, showToast]);
 
   const filtered = useMemo(() => {
     const query = q.trim().toLowerCase();
@@ -68,13 +58,24 @@ export default function AdminClientsPage() {
     return clients.find((c) => c.key === selectedKey) ?? null;
   }, [clients, selectedKey]);
 
-  const selectedBookings = useMemo(() => {
-    if (!selected) return [];
-    return bookings
-      .filter((b) => `${b.client.phone}::${b.client.name}` === selected.key)
-      .sort((a, b) => (a.date > b.date ? -1 : 1));
-  }, [bookings, selected]);
+  // For now, no backend API for full booking list, so hide client history if no store
+  const selectedBookings: any[] = [];
 
+
+  if (!isAdmin) {
+    return (
+      <div className="p-8 text-center">
+        <p className="text-red-600">Access denied. Admin only.</p>
+      </div>
+    );
+  }
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <span className="text-xs text-slate-700">Loading...</span>
+      </div>
+    );
+  }
   return (
     <section className="space-y-5">
       <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
@@ -123,9 +124,8 @@ export default function AdminClientsPage() {
                 key={c.key}
                 type="button"
                 onClick={() => setSelectedKey(c.key)}
-                className={`w-full text-left px-5 py-4 hover:bg-slate-50 transition ${
-                  selectedKey === c.key ? "bg-[rgb(var(--brand-primary-rgb)/0.08)]" : ""
-                }`}
+                className={`w-full text-left px-5 py-4 hover:bg-slate-50 transition ${selectedKey === c.key ? "bg-[rgb(var(--brand-primary-rgb)/0.08)]" : ""
+                  }`}
               >
                 <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.7fr_0.6fr_0.7fr] gap-2 lg:gap-0 items-start lg:items-center">
                   <div className="min-w-0">
@@ -184,7 +184,7 @@ export default function AdminClientsPage() {
                 <div className="mt-3 flex flex-wrap gap-2">
                   <a
                     href={`tel:${selected.phone}`}
-                      className="inline-flex items-center gap-2 rounded-sm border border-slate-200 bg-white px-3 py-1.5 text-sm font-semibold text-slate-800 hover:bg-slate-50 transition"
+                    className="inline-flex items-center gap-2 rounded-sm border border-slate-200 bg-white px-3 py-1.5 text-sm font-semibold text-slate-800 hover:bg-slate-50 transition"
                   >
                     <Phone className="h-4 w-4 text-slate-500" />
                     {selected.phone}
