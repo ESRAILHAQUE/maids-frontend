@@ -267,22 +267,22 @@ export default function BookingPage() {
                       type="button"
                       onClick={clickable ? () => setStepIndex(idx) : undefined}
                       className={`flex flex-col items-center gap-2 select-none ${clickable ? "cursor-pointer" : "cursor-default"
-                        }`}
+                      }`}
                       aria-current={active ? "step" : undefined}
                     >
                       <div
                         className={`flex h-9 w-9 items-center justify-center rounded-full border text-xs font-semibold transition-all duration-200 ${active
-                          ? "bg-white border-[var(--brand-primary)] text-[var(--brand-primary)] shadow-sm"
-                          : done
+                            ? "bg-white border-[var(--brand-primary)] text-[var(--brand-primary)] shadow-sm"
+                            : done
                             ? "bg-white border-[rgb(var(--brand-primary-rgb)/0.40)] text-[var(--brand-primary)]"
                             : "bg-white border-slate-200 text-slate-400"
-                          }`}
+                        }`}
                       >
                         {done ? "✓" : idx + 1}
                       </div>
                       <span
                         className={`text-xs font-semibold ${active ? "text-slate-800" : done ? "text-slate-600" : "text-slate-400"
-                          }`}
+                        }`}
                       >
                         {label}
                       </span>
@@ -301,19 +301,19 @@ export default function BookingPage() {
                     {stepIndex === 0
                       ? "Select your service"
                       : stepIndex === 1
-                        ? "Choose details"
-                        : stepIndex === 2
-                          ? "Pick a schedule"
-                          : "Your contact info"}
+                      ? "Choose details"
+                      : stepIndex === 2
+                      ? "Pick a schedule"
+                      : "Your contact info"}
                   </h2>
                   <p className="mt-1 text-sm text-slate-600">
                     {stepIndex === 0
                       ? "Start with the service type — you can add special requests later."
                       : stepIndex === 1
-                        ? "We’ll estimate the total based on duration, team size, and materials."
-                        : stepIndex === 2
-                          ? "Select a date and a preferred time slot."
-                          : "We’ll confirm your booking quickly on WhatsApp or by phone."}
+                      ? "We’ll estimate the total based on duration, team size, and materials."
+                      : stepIndex === 2
+                      ? "Select a date and a preferred time slot."
+                      : "We’ll confirm your booking quickly on WhatsApp or by phone."}
                   </p>
                 </div>
                 <div className="hidden sm:flex items-center gap-2 text-xs font-semibold text-slate-600 rounded-full bg-slate-50 border border-slate-200 px-3 py-1">
@@ -335,17 +335,17 @@ export default function BookingPage() {
                             type="button"
                             onClick={() => setService(s.label)}
                             className={`group rounded-sm border px-4 py-5 text-left transition-all duration-200 ${active
-                              ? "border-[var(--brand-primary)] bg-white shadow-md"
-                              : "border-slate-200 bg-slate-50 hover:border-[rgb(var(--brand-primary-rgb)/0.60)] hover:bg-white"
-                              } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--brand-primary-rgb)/0.45)] focus-visible:ring-offset-2`}
+                                ? "border-[var(--brand-primary)] bg-white shadow-md"
+                                : "border-slate-200 bg-slate-50 hover:border-[rgb(var(--brand-primary-rgb)/0.60)] hover:bg-white"
+                            } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--brand-primary-rgb)/0.45)] focus-visible:ring-offset-2`}
                             aria-pressed={active}
                           >
                             <div className="flex items-start gap-3">
                               <div
                                 className={`flex h-12 w-12 items-center justify-center rounded-sm border transition-colors ${active
-                                  ? "bg-[rgb(var(--brand-primary-rgb)/0.10)] border-[rgb(var(--brand-primary-rgb)/0.22)] text-[var(--brand-primary)]"
-                                  : "bg-white border-slate-200 text-[var(--brand-primary)]"
-                                  }`}
+                                    ? "bg-[rgb(var(--brand-primary-rgb)/0.10)] border-[rgb(var(--brand-primary-rgb)/0.22)] text-[var(--brand-primary)]"
+                                    : "bg-white border-slate-200 text-[var(--brand-primary)]"
+                                }`}
                               >
                                 <Icon className="h-7 w-7" />
                               </div>
@@ -452,9 +452,9 @@ export default function BookingPage() {
                               type="button"
                               onClick={() => setTime(slot.label)}
                               className={`rounded-sm border px-3 py-3 text-left transition-all duration-200 ${time === slot.label
-                                ? "border-[var(--brand-primary)] bg-white shadow-sm"
-                                : "border-slate-200 bg-slate-50 hover:border-[rgb(var(--brand-primary-rgb)/0.60)] hover:bg-white"
-                                } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--brand-primary-rgb)/0.45)] focus-visible:ring-offset-2`}
+                                  ? "border-[var(--brand-primary)] bg-white shadow-sm"
+                                  : "border-slate-200 bg-slate-50 hover:border-[rgb(var(--brand-primary-rgb)/0.60)] hover:bg-white"
+                              } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--brand-primary-rgb)/0.45)] focus-visible:ring-offset-2`}
                               aria-pressed={time === slot.label}
                             >
                               <p className="text-sm font-semibold text-slate-900">{slot.label}</p>
@@ -487,7 +487,7 @@ export default function BookingPage() {
                               onChange={(e) => setPhoneNumber(e.target.value)}
                               onBlur={() => setPhoneTouched(true)}
                               className={`w-full rounded-sm border px-3 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[rgb(var(--brand-primary-rgb)/0.45)] ${phoneTouched && !phoneNumber ? "border-red-300 bg-red-50/40" : "border-slate-200 bg-white"
-                                }`}
+                              }`}
                               placeholder="5xxxx xxxx"
                               inputMode="tel"
                               autoComplete="tel"
@@ -620,9 +620,9 @@ function ActionRow({
       <button
         type="button"
         className={`flex-1 rounded-sm font-semibold py-3 transition-all duration-200 ${backDisabled
-          ? "bg-slate-100 text-slate-400 cursor-not-allowed"
-          : "bg-white text-slate-700 border border-slate-200 hover:bg-slate-50"
-          } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--brand-primary-rgb)/0.45)] focus-visible:ring-offset-2`}
+            ? "bg-slate-100 text-slate-400 cursor-not-allowed"
+            : "bg-white text-slate-700 border border-slate-200 hover:bg-slate-50"
+        } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--brand-primary-rgb)/0.45)] focus-visible:ring-offset-2`}
         onClick={backDisabled ? undefined : onBack}
         disabled={backDisabled}
       >
@@ -631,9 +631,9 @@ function ActionRow({
       <button
         type="button"
         className={`flex-1 rounded-sm font-semibold py-3 transition-all duration-200 ${canContinue
-          ? "bg-[var(--brand-primary)] text-white shadow-[0_14px_30px_rgb(var(--brand-dark-rgb)/0.28)] hover:bg-[var(--brand-dark)]"
-          : "bg-slate-100 text-slate-400 cursor-not-allowed"
-          } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--brand-primary-rgb)/0.45)] focus-visible:ring-offset-2`}
+            ? "bg-[var(--brand-primary)] text-white shadow-[0_14px_30px_rgb(var(--brand-dark-rgb)/0.28)] hover:bg-[var(--brand-dark)]"
+            : "bg-slate-100 text-slate-400 cursor-not-allowed"
+        } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--brand-primary-rgb)/0.45)] focus-visible:ring-offset-2`}
         onClick={onNext}
         disabled={!canContinue}
       >
@@ -687,9 +687,9 @@ function DetailChooser<T extends number>({
               type="button"
               onClick={() => onSelect(opt)}
               className={`rounded-sm border px-3 py-4 text-center transition-all duration-200 ${active
-                ? "bg-white shadow-sm border-[var(--brand-primary)]"
-                : "border-slate-200 bg-slate-50 hover:border-[rgb(var(--brand-primary-rgb)/0.60)] hover:bg-white"
-                } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--brand-primary-rgb)/0.45)] focus-visible:ring-offset-2`}
+                  ? "bg-white shadow-sm border-[var(--brand-primary)]"
+                  : "border-slate-200 bg-slate-50 hover:border-[rgb(var(--brand-primary-rgb)/0.60)] hover:bg-white"
+              } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--brand-primary-rgb)/0.45)] focus-visible:ring-offset-2`}
               aria-pressed={active}
             >
               <div className="flex flex-col items-center gap-1">
@@ -720,9 +720,9 @@ function MaterialCard({
       type="button"
       onClick={onClick}
       className={`w-full rounded-sm border px-4 py-4 text-left text-sm font-semibold transition-all duration-200 ${active
-        ? "bg-white shadow-sm border-[var(--brand-primary)]"
-        : "border-slate-200 bg-slate-50 hover:border-[rgb(var(--brand-primary-rgb)/0.60)] hover:bg-white"
-        } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--brand-primary-rgb)/0.45)] focus-visible:ring-offset-2`}
+          ? "bg-white shadow-sm border-[var(--brand-primary)]"
+          : "border-slate-200 bg-slate-50 hover:border-[rgb(var(--brand-primary-rgb)/0.60)] hover:bg-white"
+      } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--brand-primary-rgb)/0.45)] focus-visible:ring-offset-2`}
       aria-pressed={active}
     >
       <p className="text-sm font-semibold text-slate-900">{title}</p>

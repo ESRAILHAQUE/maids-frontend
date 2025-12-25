@@ -38,7 +38,7 @@ export default function RootLayout({
       >
         <ToastProvider>
           <AuthProvider>
-            <AppShell>{children}</AppShell>
+        <AppShell>{children}</AppShell>
           </AuthProvider>
         </ToastProvider>
       </body>
