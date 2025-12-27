@@ -5,14 +5,30 @@ import Marquee from "react-fast-marquee";
 
 export default function RecentPartnerships() {
   const partners = [
-    { name: "Doha Residences", logo: "/images/arabic.jpg" },
-    { name: "Qatar Workspace Collective", logo: "/images/nextit.jpg" },
-    { name: "West Bay Clinics", logo: "/images/realstate.jpg" },
-    { name: "Pearl Retail Group", logo: "/images/shopfive.jpg" },
-    { name: "Qatar Workspace Collective", logo: "/images/nextit.jpg" },
-    { name: "West Bay Clinics", logo: "/images/realstate.jpg" },
-    { name: "West Bay Clinics", logo: "/images/realstate.jpg" },
-    { name: "West Bay Clinics", logo: "/images/realstate.jpg" },
+    {
+      id: 1,
+      name: "Doha Residences",
+      logo: "/images/arabic.jpg",
+    },
+    {
+      id: 2,
+      name: "Qatar Workspace Collective",
+      logo: "/images/nextit.jpg",
+    },
+    {
+      id: 3,
+      name: "West Bay Clinics",
+      logo: "/images/realstate.jpg",
+    },
+    {
+      id: 4,
+      name: "Pearl Retail Group",
+      logo: "/images/shopfive.jpg",
+    },
+    { id: 5, name: "Qatar Workspace Collective", logo: "/images/nextit.jpg" },
+    {id:6,  name: "West Bay Clinics", logo: "/images/realstate.jpg" },
+    { id:7, name: "West Bay Clinics", logo: "/images/realstate.jpg" },
+    { id:8, name: "West Bay Clinics", logo: "/images/realstate.jpg" },
   ];
 
   return (
@@ -37,7 +53,7 @@ export default function RecentPartnerships() {
           <div className="flex gap-4 md:gap-6 px-2">
             {partners.map((partner) => (
               <div
-                key={partner.name}
+                key={partner.id}
                 className="min-w-[200px] rounded-2xl border border-slate-200 bg-white px-4 py-4 text-center shadow-[0_12px_40px_rgba(15,23,42,0.08)] transition-all duration-200 hover:-translate-y-1 hover:border-[#CF4B00]/30 hover:shadow-[0_16px_60px_rgba(15,23,42,0.12)]"
               >
                 <div className="mx-auto mb-3 flex h-16 w-full max-w-[140px] items-center justify-center overflow-hidden">
