@@ -5,8 +5,6 @@ import { BarChart3, Calendar, CreditCard, TrendingUp, Users } from "lucide-react
 import { useAdminStore } from "../_lib/useAdminStore";
 import type { Booking } from "../_lib/adminStore";
 
-const BRAND = "#B84200";
-
 export default function AdminAnalyticsPage() {
   const { bookings } = useAdminStore();
 
@@ -86,18 +84,18 @@ export default function AdminAnalyticsPage() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-4 lg:gap-6 items-start">
-        <div className="rounded-3xl border border-slate-200 bg-white shadow-sm p-5 sm:p-6">
+        <div className="rounded-sm border border-slate-200 bg-white shadow-sm p-5 sm:p-6">
           <div className="flex items-start justify-between gap-3">
             <div>
               <h2 className="text-lg font-bold text-slate-900">Top clients</h2>
               <p className="mt-1 text-sm text-slate-600">By lifetime value (QAR).</p>
             </div>
             <div
-              className="flex h-11 w-11 items-center justify-center rounded-2xl border"
+              className="flex h-11 w-11 items-center justify-center rounded-sm border"
               style={{
-                borderColor: "rgba(184,66,0,0.25)",
-                background: "rgba(184,66,0,0.08)",
-                color: BRAND,
+                borderColor: "rgb(var(--brand-primary-rgb)/0.25)",
+                background: "rgb(var(--brand-primary-rgb)/0.10)",
+                color: "var(--brand-primary)",
               }}
             >
               <BarChart3 className="h-5 w-5" />
@@ -120,14 +118,14 @@ export default function AdminAnalyticsPage() {
           </div>
         </div>
 
-        <div className="rounded-3xl border border-slate-200 bg-white shadow-sm p-5 sm:p-6">
+        <div className="rounded-sm border border-slate-200 bg-white shadow-sm p-5 sm:p-6">
           <h2 className="text-lg font-bold text-slate-900">Operational notes</h2>
           <div className="mt-3 space-y-3 text-sm text-slate-700 leading-relaxed">
             <p>
               Use this page to monitor booking volume and revenue trends. Once you connect a backend,
               you can replace these demo charts with real metrics.
             </p>
-            <div className="rounded-2xl border border-dashed border-slate-200 bg-slate-50 px-4 py-4">
+            <div className="rounded-sm border border-dashed border-slate-200 bg-slate-50 px-4 py-4">
               <p className="text-sm font-semibold text-slate-900">Recommendation</p>
               <p className="mt-1 text-sm text-slate-600">
                 Track staff utilization per day and average response time for pending bookings.
@@ -160,18 +158,18 @@ function Kpi({
   accent?: boolean;
 }) {
   return (
-    <div className="rounded-3xl border border-slate-200 bg-white shadow-sm p-5">
+    <div className="rounded-sm border border-slate-200 bg-white shadow-sm p-5">
       <div className="flex items-start justify-between gap-3">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{label}</p>
           <p className="mt-2 text-2xl font-bold text-slate-900">{value}</p>
         </div>
         <div
-          className="flex h-11 w-11 items-center justify-center rounded-2xl border"
+          className="flex h-11 w-11 items-center justify-center rounded-sm border"
           style={{
-            borderColor: accent ? "rgba(184,66,0,0.25)" : "rgba(15,23,42,0.10)",
-            background: accent ? "rgba(184,66,0,0.08)" : "rgba(15,23,42,0.03)",
-            color: accent ? BRAND : "rgb(51 65 85)",
+            borderColor: accent ? "rgb(var(--brand-primary-rgb)/0.25)" : "rgba(15,23,42,0.10)",
+            background: accent ? "rgb(var(--brand-primary-rgb)/0.10)" : "rgba(15,23,42,0.03)",
+            color: accent ? "var(--brand-primary)" : "rgb(51 65 85)",
           }}
         >
           <Icon className="h-5 w-5" />
@@ -192,18 +190,18 @@ function ChartCard({
 }) {
   const max = Math.max(1, ...rows.map((r) => r.count));
   return (
-    <div className="rounded-3xl border border-slate-200 bg-white shadow-sm p-5 sm:p-6">
+    <div className="rounded-sm border border-slate-200 bg-white shadow-sm p-5 sm:p-6">
       <div className="flex items-start justify-between gap-3">
         <div>
           <h2 className="text-lg font-bold text-slate-900">{title}</h2>
           <p className="mt-1 text-sm text-slate-600">{subtitle}</p>
         </div>
         <div
-          className="flex h-11 w-11 items-center justify-center rounded-2xl border"
+          className="flex h-11 w-11 items-center justify-center rounded-sm border"
           style={{
-            borderColor: "rgba(184,66,0,0.25)",
-            background: "rgba(184,66,0,0.08)",
-            color: BRAND,
+            borderColor: "rgb(var(--brand-primary-rgb)/0.25)",
+            background: "rgb(var(--brand-primary-rgb)/0.10)",
+            color: "var(--brand-primary)",
           }}
         >
           <BarChart3 className="h-5 w-5" />
@@ -220,10 +218,9 @@ function ChartCard({
               </div>
               <div className="mt-2 h-2 rounded-full bg-slate-100 overflow-hidden">
                 <div
-                  className="h-full rounded-full"
+                  className="h-full rounded-full bg-linear-to-r from-(--brand-dark) to-(--brand-primary)"
                   style={{
                     width: `${Math.round((r.count / max) * 100)}%`,
-                    background: `linear-gradient(90deg, ${BRAND}, #CF4B00)`,
                   }}
                 />
               </div>

@@ -3,8 +3,18 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --teal-primary: #CF4B00;
-  --teal-dark: #B84200;
+
+  /* Professional, calm brand palette (muted navy / steel-blue) */
+  --brand-primary: #243b53;
+  --brand-primary-rgb: 36 59 83;
+  --brand-dark: #102a43;
+  --brand-dark-rgb: 16 42 67;
+  --brand-soft: #eaf2f8;
+  --brand-soft-rgb: 234 242 248;
+
+  /* Backwards-compatible aliases (existing pages use these) */
+  --teal-primary: var(--brand-primary);
+  --teal-dark: var(--brand-dark);
 }
 
 @theme inline {

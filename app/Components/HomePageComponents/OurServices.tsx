@@ -1,90 +1,116 @@
-import Image from "next/image";
+import { Building2, Check, Home, Hotel, Sparkles } from "lucide-react";
 
 export default function OurServices() {
-  const services = [
+  const serviceGroups = [
     {
-      name: "Home & apartment care",
-      description: "Recurring housekeeping, kitchen, bedrooms, living areas.",
-      image:
-        "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1200&q=80&auto=format&fit=crop",
+      title: "Residential Cleaning",
+      tagline: "Enjoy a consistently clean and comfortable home without the stress.",
+      icon: Home,
+      bullets: [
+        "Regular weekly, fortnightly, or monthly cleans",
+        "One-off and deep cleaning",
+        "Move-in / move-out cleaning",
+        "Kitchen, bathroom, and living area detailing",
+        "Custom cleaning plans to suit your lifestyle",
+      ],
     },
     {
-      name: "Deep cleaning",
-      description: "Move-in/out, post-renovation, and detail-first resets.",
-      image:
-        "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=1200&q=80&auto=format&fit=crop",
+      title: "Commercial Cleaning",
+      tagline: "Create a professional, hygienic space for staff and clients.",
+      icon: Building2,
+      bullets: [
+        "Offices and workspaces",
+        "Retail and business premises",
+        "After-hours and scheduled cleaning",
+        "Tailored cleaning programs",
+      ],
     },
     {
-      name: "Office & commercial",
-      description: "Workspaces, clinics, and retail serviced after-hours.",
-      image:
-        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80&auto=format&fit=crop",
+      title: "Hospitality Cleaning",
+      tagline: "Immaculate spaces that leave a lasting impression.",
+      icon: Hotel,
+      bullets: [
+        "Short-term rental & Airbnb cleaning",
+        "Hotels, motels, and serviced apartments",
+        "High-turnover and detail-focused cleans",
+        "Linen coordination (optional)",
+        "Live-in maids and on-site housekeeping services for private residences, hospitality venues, and long-term accommodation",
+      ],
     },
     {
-      name: "Specialty surfaces",
-      description: "Stone, glass, stainless, and delicate finishes handled right.",
-      image:
-        "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1200&q=80&auto=format&fit=crop",
-    },
-    {
-      name: "Laundry & ironing add-ons",
-      description: "Optional wardrobe care during your booked visit.",
-      image:
-        "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=1200&q=80&auto=format&fit=crop",
-    },
-    {
-      name: "Event turnover",
-      description: "Pre/post event resets to keep your venue guest-ready.",
-      image:
-        "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1200&q=80&auto=format&fit=crop",
+      title: "Specialised Services",
+      tagline: "For the jobs that need extra time, detail, and care.",
+      icon: Sparkles,
+      bullets: [
+        "Deep and detailed cleans",
+        "End-of-lease cleaning",
+        "Post-event and post-construction cleaning",
+        "Custom requests available",
+      ],
     },
   ];
 
   return (
     <section className="relative isolate overflow-hidden bg-white py-16 md:py-20">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(72,194,203,0.12),transparent_32%),radial-gradient(circle_at_80%_0%,rgba(207,75,0,0.12),transparent_30%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_10%,rgb(var(--brand-primary-rgb)/0.10),transparent_38%),radial-gradient(circle_at_85%_0%,rgb(var(--brand-primary-rgb)/0.08),transparent_34%),linear-gradient(180deg,rgba(255,255,255,0.0),rgba(255,255,255,0.82))]" />
 
-      <div className="relative w-[95%]  mx-auto px-4 sm:px-6">
-        <div className="text-center mb-10 sm:mb-12">
-          <span className="inline-flex items-center justify-center rounded-full bg-[#48C2CB]/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[#CF4B00] ring-1 ring-[#48C2CB]/20">
-            Our services
-          </span>
-          <h2 className="mt-3 text-2xl sm:text-3xl lg:text-[32px] font-semibold text-slate-900">
-            Maid-led cleaning built for real life.
-          </h2>
-          <p className="mt-2 text-sm md:text-base text-slate-600 max-w-2xl mx-auto">
-            Flexible schedules, eco-safe supplies, and detail-first teams for
-            homes, offices, and specialty spaces.
-          </p>
-        </div>
+      <div className="relative w-[98%] mx-auto px-4 sm:px-6">
+        <div className="mx-auto max-w-7xl">
+          <div className="text-center mb-10 sm:mb-12">
+            <span className="inline-flex items-center justify-center rounded-full bg-[rgb(var(--brand-primary-rgb)/0.10)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-primary)] ring-1 ring-[rgb(var(--brand-primary-rgb)/0.22)]">
+              Our Services
+            </span>
+            <h2 className="mt-3 text-2xl sm:text-3xl lg:text-[34px] font-semibold text-slate-900 leading-tight">
+              Cleaning solutions for homes, businesses, and hospitality.
+            </h2>
+            <p className="mt-3 max-w-3xl mx-auto text-sm md:text-base text-slate-600 leading-relaxed">
+              At Aethla Cleaning and Hospitality, we offer flexible, personalised cleaning
+              solutions designed to suit homes, businesses, and hospitality spaces. Every
+              service is delivered with care, attention to detail, and our commitment to excellence.
+            </p>
+          </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7">
-          {services.map((service) => (
-            <article
-              key={service.name}
-              className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_18px_60px_rgba(15,23,42,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_22px_80px_rgba(15,23,42,0.14)]"
-            >
-              <div className="relative h-48 overflow-hidden">
-                <Image
-                  src={service.image}
-                  alt={service.name}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/55 via-transparent to-transparent" />
-              </div>
-              <div className="p-5 md:p-6 space-y-2">
-                <h3 className="text-lg font-semibold text-slate-900">
-                  {service.name}
-                </h3>
-                <p className="text-sm text-slate-600 leading-relaxed">
-                  {service.description}
-                </p>
-              </div>
-            </article>
-          ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+            {serviceGroups.map((group) => {
+              const Icon = group.icon;
+              return (
+                <article
+                  key={group.title}
+                  className="group relative overflow-hidden rounded-sm bg-white shadow-sm"
+                >
+                  <div className="relative p-5 md:p-6">
+                    <div className="flex items-start gap-3">
+                      <div className="inline-flex h-11 w-11 items-center justify-center rounded-sm bg-[rgb(var(--brand-soft-rgb)/1)] text-[var(--brand-primary)] ring-1 ring-[rgb(var(--brand-primary-rgb)/0.18)]">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-lg font-semibold text-slate-900">
+                          {group.title}
+                        </h3>
+                        <p className="mt-1 text-sm text-slate-600 leading-relaxed">
+                          {group.tagline}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="mt-4 h-px bg-slate-200/70" />
+
+                    <ul className="mt-4 space-y-2 text-sm text-slate-700 leading-relaxed">
+                      {group.bullets.map((b) => (
+                        <li key={b} className="flex gap-2">
+                          <Check
+                            aria-hidden="true"
+                            className="mt-0.5 h-4 w-4 shrink-0 text-[var(--brand-primary)]"
+                          />
+                          <span>{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

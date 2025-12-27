@@ -1,11 +1,7 @@
-"use client";
-
-import Image from "next/image";
-
 export default function OurTeam() {
   const metrics = [
     { label: "High value service", value: 99 },
-    { label: "Filipino staff", value: 99 },
+    { label: "Qualified staff", value: 99 },
     { label: "Well trained", value: 99 },
     { label: "On time", value: 99 },
     { label: "All over Qatar", value: 80 },
@@ -13,11 +9,11 @@ export default function OurTeam() {
 
   return (
     <section className="relative isolate overflow-hidden bg-white py-16 md:py-20">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(72,194,203,0.12),transparent_30%),radial-gradient(circle_at_85%_10%,rgba(207,75,0,0.12),transparent_28%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgb(var(--brand-primary-rgb)/0.08),transparent_30%),radial-gradient(circle_at_85%_10%,rgb(var(--brand-primary-rgb)/0.10),transparent_28%)]" />
 
       <div className="relative w-[95%] max-w-6xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-10 sm:mb-12">
-          <span className="inline-flex items-center justify-center rounded-full bg-[#48C2CB]/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#CF4B00] ring-1 ring-[#48C2CB]/20">
+          <span className="inline-flex items-center justify-center rounded-full bg-[rgb(var(--brand-primary-rgb)/0.10)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--brand-primary)] ring-1 ring-[rgb(var(--brand-primary-rgb)/0.22)]">
             Our team
           </span>
           <h2 className="mt-3 text-2xl sm:text-3xl lg:text-[32px] font-semibold text-slate-900">
@@ -39,8 +35,8 @@ export default function OurTeam() {
               leads who keep every visit on-time, on-spec, and consistently
               spotless across Qatar.
             </p>
-            <div className="rounded-2xl border border-slate-200 bg-white shadow-[0_18px_60px_rgba(15,23,42,0.08)] p-4 md:p-5 flex items-center gap-3">
-              <div className="h-12 w-12 rounded-full bg-gradient-to-br from-[#CF4B00] to-[#B84200] text-white grid place-items-center font-semibold">
+            <div className="rounded-sm border border-slate-200 bg-white shadow-[0_18px_60px_rgba(15,23,42,0.08)] p-4 md:p-5 flex items-center gap-3">
+              <div className="h-12 w-12 rounded-full bg-linear-to-br from-[var(--brand-primary)] to-[var(--brand-dark)] text-white grid place-items-center font-semibold">
                 QA
               </div>
               <div className="text-sm text-slate-700">
@@ -55,11 +51,11 @@ export default function OurTeam() {
               <div key={item.label} className="space-y-2">
                 <div className="flex items-center justify-between text-sm font-semibold text-slate-800">
                   <span>{item.label}</span>
-                  <span className="text-[#CF4B00]">{item.value}%</span>
+                  <span className="text-[var(--brand-primary)]">{item.value}%</span>
                 </div>
                 <div className="h-3 rounded-full bg-slate-200 overflow-hidden">
                   <div
-                    className="h-full rounded-full bg-[#CF4B00]"
+                    className="h-full rounded-full bg-[var(--brand-primary)]"
                     style={{ width: `${item.value}%` }}
                   />
                 </div>

@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { Eye, EyeOff, Lock, Mail, Phone, User, UserRound } from "lucide-react";
+import { Lock, Mail, Phone, User } from "lucide-react";
 import { useMemo, useState } from "react";
-
-const BRAND = "#B84200";
+import AuthLayout from "../_components/auth/AuthLayout";
+import { AuthField, AuthPasswordInput, AuthTextInput } from "../_components/auth/AuthFormControls";
+import { useAuth } from "../_lib/auth";
 
 export default function SignupPage() {
   const [fullName, setFullName] = useState("");
@@ -14,13 +15,17 @@ export default function SignupPage() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [agree, setAgree] = useState(true);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [touched, setTouched] = useState({
     fullName: false,
     phone: false,
     email: false,
     password: false,
     confirmPassword: false,
+    agree: false,
   });
+  const { register } = useAuth();
 
   const nameError = useMemo(() => {
     if (!touched.fullName) return "";
@@ -57,241 +62,178 @@ export default function SignupPage() {
     return "";
   }, [confirmPassword, password, touched.confirmPassword]);
 
+  const agreeError = useMemo(() => {
+    if (!touched.agree) return "";
+    if (!agree) return "You must accept the terms to continue.";
+    return "";
+  }, [agree, touched.agree]);
+
   const canSubmit =
     !nameError &&
     !phoneError &&
     !emailError &&
     !passwordError &&
     !confirmError &&
+    !agreeError &&
     fullName.trim() &&
     email.trim() &&
     password &&
     confirmPassword &&
-    confirmPassword === password;
+    confirmPassword === password &&
+    agree;
 
   return (
-    <main className="bg-[radial-gradient(circle_at_20%_0%,rgba(184,66,0,0.10),transparent_38%),radial-gradient(circle_at_90%_10%,rgba(72,194,203,0.10),transparent_36%),linear-gradient(to_bottom,#ffffff,#f8fafc,#ffffff)] text-slate-900">
-      <section className="max-w-6xl w-[95%] mx-auto px-4 py-7 sm:py-9">
-        <div className="mx-auto w-full max-w-2xl rounded-3xl border border-slate-200 bg-white shadow-[0_18px_60px_rgba(15,23,42,0.10)] px-6 py-6 sm:px-8 sm:py-7">
-          <div className="flex flex-col items-center text-center">
-            <div className="relative">
-              <div className="h-14 w-14 rounded-full bg-slate-100" />
-              <div
-                className="absolute inset-0 m-auto h-9 w-9 rounded-xl flex items-center justify-center text-white shadow-md"
-                style={{ background: `linear-gradient(135deg, ${BRAND}, #CF4B00)` }}
-              >
-                <UserRound className="h-5 w-5" />
-              </div>
-            </div>
-            <h1 className="mt-3 text-3xl font-bold text-slate-900">Create an account</h1>
-            <p className="mt-2 text-sm text-slate-600">Please enter your details to sign up</p>
-          </div>
-
-          <form
-            className="mt-5 space-y-4"
-            onSubmit={(e) => {
-              e.preventDefault();
-              setTouched({
-                fullName: true,
-                phone: true,
-                email: true,
-                password: true,
-                confirmPassword: true,
-              });
-              if (!canSubmit) return;
-              // Hook up real signup later
-            }}
-          >
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <Field label="Full name" error={nameError}>
-                <IconInput
-                  icon={<User className="h-4 w-4" />}
-                  value={fullName}
-                  onChange={setFullName}
-                  onBlur={() => setTouched((t) => ({ ...t, fullName: true }))}
-                  placeholder="Enter your full name"
-                  autoComplete="name"
-                  error={!!nameError}
-                />
-              </Field>
-
-              <Field label="Phone (optional)" error={phoneError}>
-                <IconInput
-                  icon={<Phone className="h-4 w-4" />}
-                  value={phone}
-                  onChange={setPhone}
-                  onBlur={() => setTouched((t) => ({ ...t, phone: true }))}
-                  placeholder="+974 ..."
-                  autoComplete="tel"
-                  error={!!phoneError}
-                  inputMode="tel"
-                />
-              </Field>
-            </div>
-
-            <Field label="Email Address" error={emailError}>
-              <IconInput
-                icon={<Mail className="h-4 w-4" />}
-                value={email}
-                onChange={setEmail}
-                onBlur={() => setTouched((t) => ({ ...t, email: true }))}
-                placeholder="Enter your email"
-                autoComplete="email"
-                error={!!emailError}
-              />
-            </Field>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <Field label="Password" error={passwordError}>
-                <PasswordInput
-                  value={password}
-                  onChange={setPassword}
-                  onBlur={() => setTouched((t) => ({ ...t, password: true }))}
-                  show={showPassword}
-                  onToggle={() => setShowPassword((s) => !s)}
-                  placeholder="Create a password"
-                  autoComplete="new-password"
-                  error={!!passwordError}
-                />
-              </Field>
-
-              <Field label="Confirm password" error={confirmError}>
-                <PasswordInput
-                  value={confirmPassword}
-                  onChange={setConfirmPassword}
-                  onBlur={() => setTouched((t) => ({ ...t, confirmPassword: true }))}
-                  show={showConfirmPassword}
-                  onToggle={() => setShowConfirmPassword((s) => !s)}
-                  placeholder="Repeat your password"
-                  autoComplete="new-password"
-                  error={!!confirmError}
-                />
-              </Field>
-            </div>
-
-            <button
-              type="submit"
-              disabled={!canSubmit}
-              className={`w-full rounded-2xl px-5 py-3 text-sm font-semibold text-white transition ${
-                canSubmit
-                  ? "bg-[#B84200] hover:bg-[#9A2F00] shadow-[0_14px_30px_rgba(184,66,0,0.22)]"
-                  : "bg-slate-300 cursor-not-allowed"
-              }`}
-            >
-              Create account
-            </button>
-
-            <p className="pt-1 text-sm text-slate-600 text-center">
-              Already have an account?{" "}
-              <Link href="/login" className="font-semibold" style={{ color: BRAND }}>
-                Log in
-              </Link>
-            </p>
-          </form>
-        </div>
-      </section>
-    </main>
-  );
-}
-
-function Field({
-  label,
-  error,
-  children,
-}: {
-  label: string;
-  error?: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <div className="space-y-1.5">
-      <label className="text-sm font-semibold text-slate-800">{label}</label>
-      {children}
-      {error ? <p className="text-xs font-semibold text-red-600">{error}</p> : null}
-    </div>
-  );
-}
-
-function IconInput({
-  icon,
-  value,
-  onChange,
-  onBlur,
-  placeholder,
-  autoComplete,
-  error,
-  inputMode,
-}: {
-  icon: React.ReactNode;
-  value: string;
-  onChange: (v: string) => void;
-  onBlur?: () => void;
-  placeholder: string;
-  autoComplete?: string;
-  error?: boolean;
-  inputMode?: React.HTMLAttributes<HTMLInputElement>["inputMode"];
-}) {
-  return (
-    <div className="relative">
-      <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">{icon}</div>
-      <input
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        onBlur={onBlur}
-        placeholder={placeholder}
-        autoComplete={autoComplete}
-        inputMode={inputMode}
-        className={`w-full rounded-2xl border bg-white pl-11 pr-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-offset-2 ${
-          error ? "border-red-300 focus:ring-red-300" : "border-slate-200 focus:ring-[#B84200]"
-        }`}
-      />
-    </div>
-  );
-}
-
-function PasswordInput({
-  value,
-  onChange,
-  onBlur,
-  placeholder,
-  autoComplete,
-  show,
-  onToggle,
-  error,
-}: {
-  value: string;
-  onChange: (v: string) => void;
-  onBlur?: () => void;
-  placeholder: string;
-  autoComplete?: string;
-  show: boolean;
-  onToggle: () => void;
-  error?: boolean;
-}) {
-  return (
-    <div className="relative">
-      <Lock className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
-      <input
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        onBlur={onBlur}
-        type={show ? "text" : "password"}
-        placeholder={placeholder}
-        autoComplete={autoComplete}
-        className={`w-full rounded-2xl border bg-white pl-11 pr-12 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-offset-2 ${
-          error ? "border-red-300 focus:ring-red-300" : "border-slate-200 focus:ring-[#B84200]"
-        }`}
-      />
-      <button
-        type="button"
-        onClick={onToggle}
-        className="absolute right-3 top-1/2 -translate-y-1/2 inline-flex h-8 w-8 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B84200] focus-visible:ring-offset-2"
-        aria-label={show ? "Hide password" : "Show password"}
+    <AuthLayout
+      title="Create your account"
+      subtitle="Create an account to manage bookings and services in one place."
+      formWidthClassName="max-w-lg"
+      bottomText={
+        <p className="text-slate-600">
+          Already have an account?{" "}
+          <Link href="/login" className="font-semibold text-(--teal-dark) hover:underline">
+            Sign in
+          </Link>
+        </p>
+      }
+    >
+      <form
+        className="space-y-4"
+        onSubmit={async (e) => {
+          e.preventDefault();
+          setTouched({
+            fullName: true,
+            phone: true,
+            email: true,
+            password: true,
+            confirmPassword: true,
+            agree: true,
+          });
+          if (!canSubmit || isSubmitting) return;
+          setIsSubmitting(true);
+          try {
+            await register(fullName, email, password, phone || undefined);
+          } catch (error) {
+            // Error is handled by auth context
+          } finally {
+            setIsSubmitting(false);
+          }
+        }}
       >
-        {show ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
-      </button>
-    </div>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <AuthField label="Full name" error={nameError}>
+            <AuthTextInput
+              icon={<User className="h-4 w-4" />}
+              value={fullName}
+              onChange={setFullName}
+              onBlur={() => setTouched((t) => ({ ...t, fullName: true }))}
+              placeholder="Your name"
+              autoComplete="name"
+              error={!!nameError}
+              name="name"
+            />
+          </AuthField>
+
+          <AuthField label="Phone (optional)" error={phoneError}>
+            <AuthTextInput
+              icon={<Phone className="h-4 w-4" />}
+              value={phone}
+              onChange={setPhone}
+              onBlur={() => setTouched((t) => ({ ...t, phone: true }))}
+              placeholder="+974 …"
+              autoComplete="tel"
+              error={!!phoneError}
+              inputMode="tel"
+              name="phone"
+            />
+          </AuthField>
+        </div>
+
+        <AuthField label="Email" error={emailError}>
+          <AuthTextInput
+            icon={<Mail className="h-4 w-4" />}
+            value={email}
+            onChange={setEmail}
+            onBlur={() => setTouched((t) => ({ ...t, email: true }))}
+            placeholder="name@company.com"
+            autoComplete="email"
+            type="email"
+            error={!!emailError}
+            name="email"
+          />
+        </AuthField>
+
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <AuthField label="Password" error={passwordError}>
+            <AuthPasswordInput
+              icon={<Lock className="h-4 w-4" />}
+              value={password}
+              onChange={setPassword}
+              onBlur={() => setTouched((t) => ({ ...t, password: true }))}
+              show={showPassword}
+              onToggle={() => setShowPassword((s) => !s)}
+              placeholder="Create a password"
+              autoComplete="new-password"
+              error={!!passwordError}
+              name="password"
+            />
+          </AuthField>
+
+          <AuthField label="Confirm password" error={confirmError}>
+            <AuthPasswordInput
+              icon={<Lock className="h-4 w-4" />}
+              value={confirmPassword}
+              onChange={setConfirmPassword}
+              onBlur={() => setTouched((t) => ({ ...t, confirmPassword: true }))}
+              show={showConfirmPassword}
+              onToggle={() => setShowConfirmPassword((s) => !s)}
+              placeholder="Repeat your password"
+              autoComplete="new-password"
+              error={!!confirmError}
+              name="confirmPassword"
+            />
+          </AuthField>
+        </div>
+
+        <AuthField label="Terms" error={agreeError}>
+          <label className="flex items-start gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700">
+            <input
+              type="checkbox"
+              checked={agree}
+              onChange={(e) => setAgree(e.target.checked)}
+              onBlur={() => setTouched((t) => ({ ...t, agree: true }))}
+              className="mt-0.5 h-4 w-4 rounded border-slate-300 text-(--teal-dark) focus:ring-(--teal-dark)"
+            />
+            <span className="leading-relaxed">
+              I agree to the{" "}
+              <Link href="#" className="font-semibold text-slate-800 hover:underline">
+                Terms
+              </Link>{" "}
+              and{" "}
+              <Link href="#" className="font-semibold text-slate-800 hover:underline">
+                Privacy Policy
+              </Link>
+              .
+            </span>
+          </label>
+        </AuthField>
+
+        <button
+          type="submit"
+          disabled={!canSubmit || isSubmitting}
+          className={[
+            "w-full rounded-sm px-5 py-3 text-sm font-semibold text-white transition",
+            canSubmit && !isSubmitting
+              ? "bg-(--teal-dark) hover:bg-[#102a43e6] cursor-pointer"
+              : "bg-slate-300 cursor-not-allowed",
+          ].join(" ")}
+        >
+          {isSubmitting ? "Creating account..." : "Create account"}
+        </button>
+
+        <p className="pt-1 text-xs text-slate-500 leading-relaxed">
+          Password must be at least 6 characters. We&apos;ll never share your details.
+        </p>
+      </form>
+    </AuthLayout>
   );
 }
-
-

@@ -5,8 +5,6 @@ import { CreditCard, Filter, Receipt, Search } from "lucide-react";
 import { useAdminStore } from "../_lib/useAdminStore";
 import type { PaymentStatus } from "../_lib/adminStore";
 
-const BRAND = "#B84200";
-
 const paymentOptions: { label: string; value: PaymentStatus | "all" }[] = [
   { label: "All payments", value: "all" },
   { label: "Unpaid", value: "unpaid" },
@@ -65,7 +63,7 @@ export default function AdminPaymentsPage() {
         </div>
       </div>
 
-      <div className="rounded-3xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5">
+      <div className="rounded-sm border border-slate-200 bg-white shadow-sm p-4 sm:p-5">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_260px] gap-3">
           <div className="relative">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
@@ -73,7 +71,7 @@ export default function AdminPaymentsPage() {
               value={q}
               onChange={(e) => setQ(e.target.value)}
               placeholder="Search invoice, client, method..."
-              className="w-full rounded-2xl border border-slate-200 bg-white pl-11 pr-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#B84200] focus:ring-offset-2"
+              className="w-full rounded-sm border border-slate-200 bg-white pl-11 pr-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[rgb(var(--brand-primary-rgb)/0.45)] focus:ring-offset-2"
             />
           </div>
           <label className="space-y-1">
@@ -84,7 +82,7 @@ export default function AdminPaymentsPage() {
             <select
               value={payment}
               onChange={(e) => setPayment(e.target.value as any)}
-              className="w-full appearance-none rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#B84200] focus:ring-offset-2"
+              className="w-full appearance-none rounded-sm border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-[rgb(var(--brand-primary-rgb)/0.45)] focus:ring-offset-2"
             >
               {paymentOptions.map((o) => (
                 <option key={o.value} value={o.value}>
@@ -96,7 +94,7 @@ export default function AdminPaymentsPage() {
         </div>
       </div>
 
-      <div className="rounded-3xl border border-slate-200 bg-white shadow-sm overflow-hidden">
+      <div className="rounded-sm border border-slate-200 bg-white shadow-sm overflow-hidden">
         <div className="hidden lg:grid grid-cols-[1fr_0.9fr_0.8fr_0.7fr_0.6fr] gap-0 border-b border-slate-200 bg-slate-50 px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-slate-600">
           <div>Invoice / Client</div>
           <div>Service</div>
@@ -129,7 +127,7 @@ export default function AdminPaymentsPage() {
                     <select
                       value={b.payment.status}
                       onChange={(e) => setPaymentStatus(b.id, e.target.value as PaymentStatus)}
-                      className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#B84200] focus:ring-offset-2"
+                      className="rounded-sm border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-[rgb(var(--brand-primary-rgb)/0.45)] focus:ring-offset-2"
                       aria-label="Update payment status"
                     >
                       <option value="unpaid">Unpaid</option>
@@ -151,14 +149,14 @@ export default function AdminPaymentsPage() {
         </div>
       </div>
 
-      <div className="rounded-3xl border border-slate-200 bg-white shadow-sm p-5 sm:p-6">
+      <div className="rounded-sm border border-slate-200 bg-white shadow-sm p-5 sm:p-6">
         <div className="flex items-start gap-3">
           <div
-            className="flex h-11 w-11 items-center justify-center rounded-2xl border"
+            className="flex h-11 w-11 items-center justify-center rounded-sm border"
             style={{
-              borderColor: "rgba(184,66,0,0.25)",
-              background: "rgba(184,66,0,0.08)",
-              color: BRAND,
+              borderColor: "rgb(var(--brand-primary-rgb)/0.25)",
+              background: "rgb(var(--brand-primary-rgb)/0.10)",
+              color: "var(--brand-primary)",
             }}
           >
             <Receipt className="h-5 w-5" />
@@ -186,9 +184,9 @@ function StatChip({
 }) {
   return (
     <div
-      className="rounded-2xl border px-4 py-2 bg-white"
+      className="rounded-sm border px-4 py-2 bg-white"
       style={{
-        borderColor: accent ? "rgba(184,66,0,0.25)" : "rgba(15,23,42,0.10)",
+        borderColor: accent ? "rgb(var(--brand-primary-rgb)/0.25)" : "rgba(15,23,42,0.10)",
       }}
     >
       <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">{label}</p>
@@ -202,12 +200,12 @@ function PaymentPill({ value }: { value: PaymentStatus }) {
     value === "paid"
       ? { color: "#16A34A", bg: "rgba(22,163,74,0.10)", border: "rgba(22,163,74,0.22)" }
       : value === "unpaid"
-      ? { color: BRAND, bg: "rgba(184,66,0,0.10)", border: "rgba(184,66,0,0.25)" }
+      ? { color: "var(--brand-dark)", bg: "rgb(var(--brand-primary-rgb)/0.10)", border: "rgb(var(--brand-primary-rgb)/0.25)" }
       : { color: "#DC2626", bg: "rgba(220,38,38,0.10)", border: "rgba(220,38,38,0.22)" };
 
   return (
     <span
-      className="inline-flex items-center justify-center rounded-full border px-2.5 py-0.5 text-[11px] font-bold"
+      className="inline-flex items-center justify-center rounded-sm border px-2.5 py-0.5 text-[11px] font-bold"
       style={{ color: styles.color, borderColor: styles.border, background: styles.bg }}
     >
       {value}

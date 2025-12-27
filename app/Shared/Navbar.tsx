@@ -115,7 +115,7 @@ export default function Navbar() {
                 <button
                   type="submit"
                   aria-label="Search"
-                  className="m-1.5 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#B84200] text-white shadow-md transition hover:bg-[#9A2F00] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B84200] focus-visible:ring-offset-2"
+                  className="m-1.5 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[var(--brand-primary)] text-white shadow-md transition hover:bg-[var(--brand-dark)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] focus-visible:ring-offset-2"
                 >
                   <Search className="h-4.5 w-4.5" />
                 </button>
@@ -126,7 +126,7 @@ export default function Navbar() {
       )}
 
       {/* Top Utility Bar - Scrolls away */}
-      <div className="w-full bg-[#CF4B00] text-white">
+      <div className="w-full bg-[var(--brand-dark)] text-white">
         <div className="container mx-auto px-4 w-[95%]">
           <div className="flex flex-col md:flex-row items-center justify-between py-2 gap-2 md:gap-0">
             {/* Left Side - Contact Info */}
@@ -180,8 +180,8 @@ export default function Navbar() {
                 >
                   <defs>
                     <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#CF4B00" />
-                      <stop offset="100%" stopColor="#B84200" />
+                      <stop offset="0%" stopColor="var(--brand-primary)" />
+                      <stop offset="100%" stopColor="var(--brand-dark)" />
                     </linearGradient>
                   </defs>
                   <polygon
@@ -220,7 +220,9 @@ export default function Navbar() {
                   >
                     <button
                       className={`relative flex items-center gap-1 font-semibold text-gray-800 transition-colors ${
-                        activeLink === link.name ? "text-[#0b9fb6]" : "hover:text-[#0b9fb6]"
+                        activeLink === link.name
+                          ? "text-[var(--brand-primary)]"
+                          : "hover:text-[var(--brand-primary)]"
                       }`}
                     >
                       <span>{link.name}</span>
@@ -232,7 +234,7 @@ export default function Navbar() {
                           <li key={item.label}>
                             <Link
                               href={item.href}
-                              className="block px-4 py-2.5 hover:bg-[#FFF3EB] hover:text-[#CF4B00] transition-colors"
+                              className="block px-4 py-2.5 hover:bg-[rgb(var(--brand-soft-rgb)/1)] hover:text-[var(--brand-primary)] transition-colors"
                               onClick={() => setActiveLink("Services")}
                             >
                               {item.label}
@@ -242,7 +244,7 @@ export default function Navbar() {
                       </ul>
                     </div>
                     {activeLink === link.name && (
-                      <span className="absolute -bottom-2 left-0 right-0 h-1 bg-[#CF4B00] rounded-full"></span>
+                      <span className="absolute -bottom-2 left-0 right-0 h-1 bg-[var(--brand-primary)] rounded-full"></span>
                     )}
                   </div>
                 ) : (
@@ -250,13 +252,13 @@ export default function Navbar() {
                     key={link.name}
                     href={link.href}
                     onClick={() => setActiveLink(link.name)}
-                    className={`relative font-semibold text-gray-800 hover:text-[#CF4B00] transition-colors ${
-                      activeLink === link.name ? "text-[#CF4B00]" : ""
+                    className={`relative font-semibold text-gray-800 hover:text-[var(--brand-primary)] transition-colors ${
+                      activeLink === link.name ? "text-[var(--brand-primary)]" : ""
                     }`}
                   >
                     <span className="flex items-center gap-1">{link.name}</span>
                     {activeLink === link.name && (
-                      <span className="absolute -bottom-2 left-0 right-0 h-1 bg-[#CF4B00] rounded-full"></span>
+                      <span className="absolute -bottom-2 left-0 right-0 h-1 bg-[var(--brand-primary)] rounded-full"></span>
                     )}
                   </Link>
                 )
@@ -267,14 +269,14 @@ export default function Navbar() {
             <div className="hidden lg:flex items-center gap-4">
               {/* Language Selector */}
               <button className="flex items-center gap-1 px-3 py-2 rounded-md hover:bg-gray-100 transition-colors">
-                <div className="w-6 h-6 min-w-[24px] min-h-[24px] bg-red-500 rounded-full flex items-center justify-center shrink-0 aspect-square">
+                <div className="w-6 h-6 min-w-[24px] min-h-[24px] bg-[var(--brand-primary)] rounded-full flex items-center justify-center shrink-0 aspect-square">
                   <span className="text-white text-xs arabic-font leading-none">ع</span>
                 </div>
               </button>
 
               {/* Phone Number */}
               <div className="flex items-center gap-2 font-bold text-gray-800">
-                <Phone className="w-4 h-4 text-[#CF4B00]" />
+                <Phone className="w-4 h-4 text-[var(--brand-primary)]" />
                 <span>+974 33337410</span>
               </div>
 
@@ -295,7 +297,7 @@ export default function Navbar() {
               <Link
                 href="/contact"
                 onClick={() => setActiveLink("Contact")}
-                className="flex items-center gap-2 bg-[#C54700] text-white px-5 py-2 rounded-md hover:bg-[#C54700] transition-colors font-semibold cursor-pointer"
+                className="flex items-center gap-2 bg-[var(--brand-primary)] text-white px-5 py-2 rounded-sm hover:bg-[var(--brand-dark)] transition-colors font-semibold cursor-pointer"
               >
                 <MessageCircle className="w-4 h-4" />
                 <span>Let&apos;s Talk</span>
@@ -305,7 +307,7 @@ export default function Navbar() {
               <Link
                 href="/login"
                 onClick={() => setActiveLink("Login")}
-                className="flex items-center justify-center border border-[#B84200]/30 text-[#B84200] px-5 py-2 rounded-md hover:bg-[#FFF3EB] transition-colors font-semibold"
+                className="flex items-center justify-center border border-[rgb(var(--brand-primary-rgb)/0.30)] text-[var(--brand-primary)] px-5 py-2 rounded-sm hover:bg-[rgb(var(--brand-soft-rgb)/1)] transition-colors font-semibold"
               >
                 Login
               </Link>
@@ -341,7 +343,7 @@ export default function Navbar() {
                           <Link
                             key={item.label}
                             href={item.href}
-                            className="block hover:text-[#CF4B00]"
+                              className="block hover:text-[var(--brand-primary)]"
                             onClick={() => {
                               setActiveLink("Services");
                               setIsMenuOpen(false);
@@ -360,8 +362,8 @@ export default function Navbar() {
                         setActiveLink(link.name);
                         setIsMenuOpen(false);
                       }}
-                      className={`font-semibold text-gray-800 hover:text-[#CF4B00] transition-colors ${
-                        activeLink === link.name ? "text-[#CF4B00]" : ""
+                      className={`font-semibold text-gray-800 hover:text-[var(--brand-primary)] transition-colors ${
+                        activeLink === link.name ? "text-[var(--brand-primary)]" : ""
                       }`}
                     >
                       <span className="flex items-center gap-1">{link.name}</span>
@@ -370,12 +372,12 @@ export default function Navbar() {
                 )}
                 <div className="flex items-center gap-4 pt-4 border-t border-gray-200">
                   <button className="flex items-center gap-1 px-3 py-2 rounded-md hover:bg-gray-100 transition-colors">
-                    <div className="w-6 h-6 min-w-[24px] min-h-[24px] bg-red-500 rounded-full flex items-center justify-center shrink-0 aspect-square">
+                    <div className="w-6 h-6 min-w-[24px] min-h-[24px] bg-[var(--brand-primary)] rounded-full flex items-center justify-center shrink-0 aspect-square">
                       <span className="text-white text-xs arabic-font leading-none">ع</span>
                     </div>
                   </button>
                   <div className="flex items-center gap-2 font-bold text-gray-800">
-                    <Phone className="w-4 h-4 text-[#CF4B00]" />
+                    <Phone className="w-4 h-4 text-[var(--brand-primary)]" />
                     <span>+974 33337410</span>
                   </div>
                   <button
@@ -392,7 +394,7 @@ export default function Navbar() {
                 </div>
                 <Link
                   href="/contact"
-                  className="flex items-center justify-center gap-2 bg-[#CF4B00] text-white px-5 py-3 rounded-md hover:bg-[#B84200] transition-colors font-semibold mt-2"
+                  className="flex items-center justify-center gap-2 bg-[var(--brand-primary)] text-white px-5 py-3 rounded-md hover:bg-[var(--brand-dark)] transition-colors font-semibold mt-2"
                   onClick={() => {
                     setActiveLink("Contact");
                     setIsMenuOpen(false);
@@ -404,7 +406,7 @@ export default function Navbar() {
 
                 <Link
                   href="/login"
-                  className="flex items-center justify-center gap-2 border border-[#B84200]/30 text-[#B84200] px-5 py-3 rounded-md hover:bg-[#FFF3EB] transition-colors font-semibold"
+                  className="flex items-center justify-center gap-2 border border-[rgb(var(--brand-primary-rgb)/0.30)] text-[var(--brand-primary)] px-5 py-3 rounded-md hover:bg-[rgb(var(--brand-soft-rgb)/1)] transition-colors font-semibold"
                   onClick={() => {
                     setActiveLink("Login");
                     setIsMenuOpen(false);

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Cairo } from "next/font/google";
 import "./globals.css";
 import AppShell from "./_components/AppShell";
+import { ToastProvider } from "./_lib/toast";
+import { AuthProvider } from "./_lib/auth";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,7 +36,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${cairo.variable} antialiased flex flex-col min-h-screen`}
       >
+        <ToastProvider>
+          <AuthProvider>
         <AppShell>{children}</AppShell>
+          </AuthProvider>
+        </ToastProvider>
       </body>
     </html>
   );

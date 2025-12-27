@@ -5,8 +5,6 @@ import { CalendarDays, CheckCircle2, Plus, Users } from "lucide-react";
 import { useAdminStore } from "../_lib/useAdminStore";
 import type { Booking } from "../_lib/adminStore";
 
-const BRAND = "#B84200";
-
 function startOfWeek(d: Date) {
   const x = new Date(d);
   const day = (x.getDay() + 6) % 7; // monday=0
@@ -69,21 +67,21 @@ export default function AdminStaffPage() {
           <button
             type="button"
             onClick={() => setWeekAnchor(startOfWeek(new Date()))}
-            className="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition"
+            className="inline-flex items-center justify-center rounded-sm border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition"
           >
             This week
           </button>
           <button
             type="button"
             onClick={() => setWeekAnchor((d) => addDays(d, -7))}
-            className="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition"
+            className="inline-flex items-center justify-center rounded-sm border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition"
           >
             ← Prev
           </button>
           <button
             type="button"
             onClick={() => setWeekAnchor((d) => addDays(d, 7))}
-            className="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition"
+            className="inline-flex items-center justify-center rounded-sm border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition"
           >
             Next →
           </button>
@@ -91,15 +89,15 @@ export default function AdminStaffPage() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-[1.35fr_1fr] gap-4 lg:gap-6 items-start">
-        <div className="rounded-3xl border border-slate-200 bg-white shadow-sm overflow-hidden">
+        <div className="rounded-sm border border-slate-200 bg-white shadow-sm overflow-hidden">
           <div className="border-b border-slate-200 bg-slate-50 px-5 py-4 flex items-center justify-between gap-3">
             <div className="flex items-center gap-3">
               <div
-                className="flex h-11 w-11 items-center justify-center rounded-2xl border"
+                className="flex h-11 w-11 items-center justify-center rounded-sm border"
                 style={{
-                  borderColor: "rgba(184,66,0,0.25)",
-                  background: "rgba(184,66,0,0.08)",
-                  color: BRAND,
+                  borderColor: "rgb(var(--brand-primary-rgb)/0.25)",
+                  background: "rgb(var(--brand-primary-rgb)/0.10)",
+                  color: "var(--brand-primary)",
                 }}
               >
                 <CalendarDays className="h-5 w-5" />
@@ -119,7 +117,7 @@ export default function AdminStaffPage() {
                 type="button"
                 onClick={() => setSelectedBookingId(b.id)}
                 className={`w-full text-left px-5 py-4 hover:bg-slate-50 transition ${
-                  selectedBookingId === b.id ? "bg-[#FFF3EB]" : ""
+                  selectedBookingId === b.id ? "bg-[rgb(var(--brand-primary-rgb)/0.08)]" : ""
                 }`}
               >
                 <div className="flex items-start justify-between gap-4">
@@ -137,14 +135,14 @@ export default function AdminStaffPage() {
                           return (
                             <span
                               key={id}
-                              className="inline-flex items-center rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-800"
+                              className="inline-flex items-center rounded-sm border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-800"
                             >
                               {s ? s.name : id}
                             </span>
                           );
                         })
                       ) : (
-                        <span className="inline-flex items-center gap-2 rounded-full border border-dashed border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-700">
+                        <span className="inline-flex items-center gap-2 rounded-sm border border-dashed border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-700">
                           <Plus className="h-4 w-4 text-slate-500" />
                           Assign staff
                         </span>
@@ -164,7 +162,7 @@ export default function AdminStaffPage() {
           </div>
         </div>
 
-        <div className="rounded-3xl border border-slate-200 bg-white shadow-sm p-5 sm:p-6">
+        <div className="rounded-sm border border-slate-200 bg-white shadow-sm p-5 sm:p-6">
           {selectedBooking ? (
             <>
               <div className="flex items-start justify-between gap-3">
@@ -178,18 +176,18 @@ export default function AdminStaffPage() {
                   </p>
                 </div>
                 <div
-                  className="flex h-11 w-11 items-center justify-center rounded-2xl border"
+                  className="flex h-11 w-11 items-center justify-center rounded-sm border"
                   style={{
-                    borderColor: "rgba(184,66,0,0.25)",
-                    background: "rgba(184,66,0,0.08)",
-                    color: BRAND,
+                    borderColor: "rgb(var(--brand-primary-rgb)/0.25)",
+                    background: "rgb(var(--brand-primary-rgb)/0.10)",
+                    color: "var(--brand-primary)",
                   }}
                 >
                   <Users className="h-5 w-5" />
                 </div>
               </div>
 
-              <div className="mt-4 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4">
+              <div className="mt-4 rounded-sm border border-slate-200 bg-slate-50 px-4 py-4">
                 <p className="text-sm font-semibold text-slate-900">Select staff</p>
                 <p className="mt-1 text-xs text-slate-600">
                   Tap names to assign/unassign. (Demo — stored in localStorage.)
@@ -202,15 +200,15 @@ export default function AdminStaffPage() {
                         key={s.id}
                         type="button"
                         onClick={() => toggleAssign(selectedBooking, s.id)}
-                        className={`rounded-full border px-3 py-1.5 text-xs font-semibold transition ${
+                        className={`rounded-sm border px-3 py-1.5 text-xs font-semibold transition ${
                           active
-                            ? "border-[#B84200]/30 bg-[#FFF3EB] text-slate-900"
+                            ? "border-[rgb(var(--brand-primary-rgb)/0.30)] bg-[rgb(var(--brand-primary-rgb)/0.08)] text-slate-900"
                             : "border-slate-200 bg-white hover:bg-slate-50 text-slate-800"
                         }`}
                       >
                         {active ? (
                           <span className="inline-flex items-center gap-2">
-                            <CheckCircle2 className="h-4 w-4" style={{ color: BRAND }} />
+                            <CheckCircle2 className="h-4 w-4 text-(--brand-primary)" />
                             {s.name} • {s.role}
                           </span>
                         ) : (
@@ -241,7 +239,7 @@ export default function AdminStaffPage() {
 
 function Info({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white px-4 py-3">
+    <div className="rounded-sm border border-slate-200 bg-white px-4 py-3">
       <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">{label}</p>
       <p className="mt-1 text-sm font-bold text-slate-900">{value}</p>
     </div>
