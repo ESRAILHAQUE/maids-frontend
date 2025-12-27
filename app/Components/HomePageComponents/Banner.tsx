@@ -12,19 +12,19 @@ export default function Banner() {
       badge: "Premium Cleaning Services",
       title: "Professional Maids & Cleaning Services in Qatar",
       description: "Experience the difference with our trusted cleaning professionals. We deliver spotless, organized, and healthy living spaces with eco-friendly products and attention to detail.",
-      image: "/images/slide-1.jpg",
+      image: "/images/real-images/1.png",
     },
     {
       badge: "Expert Housekeeping",
       title: "Your Home Deserves the Best Care",
       description: "From deep cleaning to daily maintenance, our skilled maids ensure your home stays pristine. Trusted by thousands of families across Qatar.",
-      image: "/images/slide-2.jpg",
+      image: "/images/real-images/2.png",
     },
     {
       badge: "Commercial & Residential",
       title: "Comprehensive Cleaning Solutions",
       description: "Whether it's your home or office, we provide tailored cleaning services that exceed expectations. Professional, reliable, and affordable.",
-      image: "/images/slide-3.jpg",
+      image: "/images/real-images/3.png",
     },
   ];
 

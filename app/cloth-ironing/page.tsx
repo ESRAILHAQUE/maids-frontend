@@ -19,7 +19,7 @@ export default function ClothIroningPage() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/ClothIroning.jpg"
+            src="/images/real-images/14.png"
             alt="Cloth ironing hero"
             fill
             className="object-cover"
@@ -58,7 +58,7 @@ export default function ClothIroningPage() {
               </h2>
               <div className="relative w-full overflow-hidden rounded-sm border border-slate-100 shadow-lg">
                 <Image
-                  src="/images/ClothIroning.jpg"
+                  src="/images/real-images/14.png"
                   alt="Cloth ironing service"
                   width={1200}
                   height={700}

@@ -7,19 +7,19 @@ export default function OurBlog() {
       title: "Pre-visit checklist: how to prep your space in 10 minutes",
       category: "Home care",
       image:
-        "/images/blog-1.avif",
+        "/images/real-images/4.png",
     },
     {
       title: "Office cleaning after hours: what great handover looks like",
       category: "Office",
       image:
-        "/images/blog-2.avif",
+        "/images/real-images/5.png",
     },
     {
       title: "Eco-safe products we trust for homes with kids and pets",
       category: "Supplies",
       image:
-        "/images/blog-3.avif",
+        "/images/real-images/6.png",
     },
   ];
 

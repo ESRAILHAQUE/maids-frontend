@@ -65,7 +65,7 @@ export default function WhyChooseUs() {
             <div className="relative w-full h-[420px] sm:h-[470px] md:h-[460px] rounded-sm  overflow-hidden ">
               <div className="absolute inset-0 " />
               <Image
-                src="/images/whyus.jpg"
+                src="/images/real-images/8.png"
                 alt="Maid team preparing cleaning supplies"
                 fill
                 className="object-cover"

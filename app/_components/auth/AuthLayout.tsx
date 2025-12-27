@@ -25,7 +25,7 @@ export default function AuthLayout({
           <aside className="relative hidden lg:block">
             <div className="absolute inset-0">
               <Image
-                src="/images/Helping.jpg"
+                src="/images/real-images/19.png"
                 alt="Professional cleaning services"
                 fill
                 priority

@@ -20,7 +20,7 @@ export default function MoveInCleaningPage() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/Move-In.jpg"
+            src="/images/real-images/16.png"
             alt="Move in cleaning hero"
             fill
             className="object-cover"
@@ -59,7 +59,7 @@ export default function MoveInCleaningPage() {
               </h2>
               <div className="relative w-full overflow-hidden rounded-sm border border-slate-100 shadow-lg">
                 <Image
-                  src="/images/Move-In.jpg"
+                  src="/images/real-images/16.png"
                   alt="Move in cleaning service"
                   width={1200}
                   height={700}

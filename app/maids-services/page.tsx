@@ -19,7 +19,7 @@ export default function MaidsServicesPage() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/MaidsService.jpg"
+            src="/images/real-images/15.png"
             alt="Maids services hero"
             fill
             className="object-cover"

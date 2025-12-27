@@ -80,7 +80,7 @@ export default function AboutUs() {
             <div className="relative h-[420px] sm:h-[470px] lg:h-[520px] overflow-hidden rounded-sm ">
               <div className="absolute inset-0 " />
               <Image
-                src="/images/cleaningserviceimage1.png"
+                src="/images/real-images/7.png"
                 alt="Aethla maid team preparing together"
                 fill
                 className="object-cover"

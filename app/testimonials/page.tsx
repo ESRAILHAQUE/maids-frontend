@@ -65,7 +65,7 @@ export default function TestimonialsPage() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/testimonial.jpeg"
+            src="/images/real-images/18.png"
             alt="Aethla testimonials hero"
             fill
             className="object-cover"

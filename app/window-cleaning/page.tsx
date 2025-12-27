@@ -19,7 +19,7 @@ export default function WindowCleaningPage() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/WindowCleaning.jpg"
+            src="/images/real-images/12.png"
             alt="Window cleaning hero"
             fill
             className="object-cover"
@@ -58,7 +58,7 @@ export default function WindowCleaningPage() {
               </h2>
               <div className="relative w-full overflow-hidden rounded-sm border border-slate-100 shadow-lg">
                 <Image
-                  src="/images/WindowCleaning.jpg"
+                  src="/images/real-images/12.png"
                   alt="Window cleaning service"
                   width={1200}
                   height={700}

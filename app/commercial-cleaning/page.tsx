@@ -19,7 +19,7 @@ export default function CommercialCleaningPage() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/CommercialCleaning.jpg"
+            src="/images/real-images/10.png"
             alt="Commercial cleaning hero"
             fill
             className="object-cover"

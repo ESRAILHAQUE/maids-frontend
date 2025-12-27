@@ -20,7 +20,7 @@ export default function CarpetCleaningPage() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/Carpet Cleaning.jpg"
+            src="/images/real-images/13.png"
             alt="Carpet cleaning hero"
             fill
             className="object-cover"
@@ -59,7 +59,7 @@ export default function CarpetCleaningPage() {
               </h2>
               <div className="relative w-full overflow-hidden rounded-sm border border-slate-100 shadow-lg">
                 <Image
-                  src="/images/Carpet Cleaning.jpg"
+                  src="/images/real-images/13.png"
                   alt="Carpet cleaning service"
                   width={1200}
                   height={700}

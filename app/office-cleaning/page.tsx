@@ -19,7 +19,7 @@ export default function OfficeCleaningPage() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/OfficeCleaning.jpg"
+            src="/images/real-images/11.png"
             alt="Office cleaning hero"
             fill
             className="object-cover"
@@ -59,7 +59,7 @@ export default function OfficeCleaningPage() {
               </h2>
               <div className="relative w-full overflow-hidden rounded-sm border border-slate-100 shadow-lg">
                 <Image
-                  src="/images/OfficeCleaning.jpg"
+                  src="/images/real-images/11.png"
                   alt="Office cleaning service"
                   width={1200}
                   height={700}
